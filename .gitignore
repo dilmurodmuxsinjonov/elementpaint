@@ -1,0 +1,17 @@
+*.zip
+.DS_Store
+Thumbs.db
+element_paint_web/assets_backup/
+processed_images/
+__pycache__/
+*.pyc
+AI_CONTEXT/
+melumotlar.txt
+tests/screenshots/
+work/
+dist/
+.env
+.env.*
+!.env.example
+*.pem
+*.key

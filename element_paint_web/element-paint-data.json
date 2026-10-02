@@ -1,0 +1,50 @@
+{
+  "company": {
+    "legal_name": "ELEMENT PAINT MCHJ",
+    "founded": 2011,
+    "slogan": "Biz shunchaki bo‘yoq emas, texnologiya ishlab chiqaramiz va sotamiz",
+    "phones": {
+      "Aloqa uchun": [
+        "+998 (95) 300-30-00",
+        "+998 (99) 975-55-08"
+      ]
+    },
+    "instagram": "@elementpaint.uz",
+    "telegram": "@Elementpaint_uzbekistan",
+    "links": {
+      "instagram": "https://www.instagram.com/elementpaint.uz/",
+      "telegram": "https://t.me/Elementpaint_uzbekistan",
+      "facebook": "https://www.facebook.com/profile.php?id=61589843622428",
+      "map": "https://maps.app.goo.gl/scJGPxg4oJ8yTFk18",
+      "taplink": "https://taplink.cc/elementpaint.uz"
+    },
+    "location": {
+      "latitude": 40.917293,
+      "longitude": 71.58896
+    },
+    "contact_source": {
+      "url": "https://taplink.cc/elementpaint.uz",
+      "checked_on": "2026-10-02",
+      "facebook_source_url": "https://clck.su/TZjvq",
+      "telegram_type": "channel"
+    }
+  },
+  "brands": [
+    "ELEMENT PAINT",
+    "BERLAK",
+    "ATLAS",
+    "KRATA",
+    "CROWN"
+  ],
+  "partners": [
+    "Coca-Cola Ichimligi Uzbekistan",
+    "Farg‘onaazot",
+    "Navoiyazot",
+    "O‘zavtoyo‘l",
+    "Qamchiq Avtoyo‘l",
+    "Maxsus Metal Sanoat",
+    "TST",
+    "RUSO‘ZBEKTEKS",
+    "10,000+ xususiy xonadonlar"
+  ]
+}
