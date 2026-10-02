@@ -2,6 +2,7 @@
 import os
 import json
 from pathlib import Path
+from urllib.parse import urlparse
 from playwright.sync_api import sync_playwright, expect
 
 URL = os.environ.get("ELEMENT_PAINT_URL", "http://localhost:8080/")
@@ -17,7 +18,7 @@ def test():
         failed_assets = []
         page.on("pageerror", lambda error: errors.append(str(error)))
         page.on("response", lambda response: failed_assets.append(response.url)
-                if response.status >= 400 and "localhost" in response.url else None)
+                if response.status >= 400 and urlparse(response.url).netloc == urlparse(URL).netloc else None)
         page.goto(URL + "?review=1#home", wait_until="networkidle")
         assert "?review=1#home" in page.url, "Root redirect must preserve URL parameters"
         expect(page.locator("#productGrid .product-card")).to_have_count(8)

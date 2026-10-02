@@ -1,11 +1,12 @@
 import time
+import os
 from playwright.sync_api import sync_playwright
 
 def test():
     with sync_playwright() as p:
         browser = p.chromium.launch(channel="msedge", headless=True)
         page = browser.new_page()
-        page.goto("http://localhost:8080/element_paint_web/", wait_until="networkidle")
+        page.goto(os.environ.get("ELEMENT_PAINT_URL", "http://localhost:8080/element_paint_web/"), wait_until="networkidle")
 
         # 1. Initial count must be exactly 8
         count_init = page.locator("#productGrid .product-card").count()
