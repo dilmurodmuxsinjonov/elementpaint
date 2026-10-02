@@ -27,7 +27,11 @@ def main():
             if not file.is_file():
                 raise FileNotFoundError(file)
             data = file.read_bytes()
-            archive.writestr(relative, data)
+            entry = zipfile.ZipInfo(relative)
+            entry.create_system = 3
+            entry.external_attr = 0o100644 << 16
+            entry.compress_type = zipfile.ZIP_DEFLATED
+            archive.writestr(entry, data)
             manifest.append({"path": relative, "bytes": len(data),
                              "sha256": hashlib.sha256(data).hexdigest()})
     args.output.with_suffix(".manifest.json").write_text(
