@@ -123,6 +123,8 @@ function element(tag, className, text) {
   return node;
 }
 
+const ARROW_ICON = '<svg class="arrow-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18 18 6M6 6h12v12"/></svg>';
+
 // Product Card Builder
 function productCard(product) {
   const card = element("article", "product-card");
@@ -146,7 +148,8 @@ function productCard(product) {
     height: 1402,
   });
 
-  const arrow = element("span", "product-arrow", "↗︎");
+  const arrow = element("span", "product-arrow");
+  arrow.innerHTML = ARROW_ICON;
   arrow.setAttribute("aria-hidden", "true");
   picture.append(img, element("span", "product-tag", categoryNames[product.cat]), arrow);
 
@@ -155,9 +158,10 @@ function productCard(product) {
     element("div", "product-brand", product.brand),
     element("h3", "", product.title),
     element("p", "", product.subtitle),
-    element("span", "product-detail-link", "Batafsil ko‘rish ↗︎"),
+    element("span", "product-detail-link", "Batafsil ko‘rish"),
   );
 
+  copy.querySelector(".product-detail-link").insertAdjacentHTML("beforeend", ARROW_ICON);
   button.append(picture, copy);
   button.addEventListener("click", () => openProduct(product, button));
   card.append(button);

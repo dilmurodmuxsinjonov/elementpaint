@@ -22,6 +22,9 @@ def test():
         page.goto(URL + "?review=1#home", wait_until="networkidle")
         assert "?review=1#home" in page.url, "Root redirect must preserve URL parameters"
         expect(page.locator("#productGrid .product-card")).to_have_count(8)
+        expect(page.locator("#productGrid .product-arrow svg")).to_have_count(8)
+        expect(page.locator("#menuBtn svg")).to_have_count(1)
+        assert "↗" not in page.locator("body").inner_text(), "Arrow icons must not fall back to phone emoji"
 
         # Public links must match the verified contact data, including every phone CTA.
         company = json.loads((Path(__file__).resolve().parent.parent /
@@ -118,6 +121,7 @@ def test():
         # Tablet and phone menus can close by selection, Escape, and outside click.
         for width in (390, 1024):
             page.set_viewport_size({"width": width, "height": 844})
+            assert page.locator("#menuBtn").evaluate("el => el.getBoundingClientRect().width >= 44 && el.getBoundingClientRect().height >= 44")
             page.locator("#menuBtn").click()
             expect(page.locator("#menuBtn")).to_have_attribute("aria-expanded", "true")
             page.keyboard.press("Escape")
