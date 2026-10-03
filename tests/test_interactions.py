@@ -16,11 +16,11 @@ def test():
         btn_visible = page.locator("#loadMoreBtn").is_visible()
         assert btn_visible, "Load more button must be visible initially"
 
-        # 3. Click Load more -> count becomes 21 and pagination button hides
+        # 3. Click Load more -> count becomes 20 and pagination button hides
         page.click("#loadMoreBtn")
         time.sleep(0.3)
         count_expanded = page.locator("#productGrid .product-card").count()
-        assert count_expanded == 21, f"Expected 21 expanded, got {count_expanded}"
+        assert count_expanded == 20, f"Expected 20 expanded, got {count_expanded}"
         
         btn_hidden = page.locator("#catalogPagination").is_hidden()
         assert btn_hidden, "Pagination container must be hidden after expansion"
@@ -49,7 +49,7 @@ def test():
         page.click("#themeBtn")
         time.sleep(0.3)
         theme = page.evaluate("() => document.documentElement.getAttribute('data-theme')")
-        assert theme == "light", f"Expected light theme, got {theme}"
+        assert theme == "dark", f"Expected dark theme, got {theme}"
 
         browser.close()
         print("[OK] ALL INTERACTIVE FLOWS PASSED PERFECTLY!")

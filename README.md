@@ -2,6 +2,10 @@
 
 Element Paint MCHJ uchun statik mahsulotlar katalogi: https://elementpaint.uz/.
 HTML, CSS va JavaScript; Node.js yoki ma’lumotlar bazasi talab qilinmaydi.
+4 brend va 20 mahsulot. Har bir tashrif qaymoqrang tonggi rejimda boshlanadi.
+Three.js 0.186.1 (MIT) sayt bilan birga saqlanadi; fondagi bo‘yoq animatsiyasi
+ko‘rinmayotganda to‘xtaydi, harakatni kamaytirish sozlamasiga rioya qiladi.
+WebGL mavjud bo‘lmasa, statik fon va barcha katalog imkoniyatlari ishlaydi.
 
 ## Fayllar
 
@@ -30,6 +34,7 @@ va Git fayllari serverga yuklanmaydi. Manifest SHA-256 xeshlarini saqlaydi.
 python tests/verify_catalog.py
 python tests/test_interactions.py
 python tests/test_design_regressions.py
+python tests/test_morning_fallback.py
 ```
 
 Brauzer tekshiruvlari Python Playwright va Microsoft Edge’dan foydalanadi.

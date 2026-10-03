@@ -4,12 +4,14 @@ import hashlib
 import json
 import re
 import zipfile
+import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 WEB = ROOT / "element_paint_web"
 CORE = ("index.html", "style.css", "theme.js", "products.js", "app.js",
-        ".htaccess", "robots.txt", "sitemap.xml")
+        ".htaccess", "robots.txt", "sitemap.xml", "paint-background.js",
+        "vendor/three.module.js", "vendor/three.core.js", "vendor/THREE-LICENSE.txt")
 
 
 def main():
@@ -27,7 +29,7 @@ def main():
             if not file.is_file():
                 raise FileNotFoundError(file)
             data = file.read_bytes()
-            entry = zipfile.ZipInfo(relative)
+            entry = zipfile.ZipInfo(relative, time.localtime(file.stat().st_mtime)[:6])
             entry.create_system = 3
             entry.external_attr = 0o100644 << 16
             entry.compress_type = zipfile.ZIP_DEFLATED

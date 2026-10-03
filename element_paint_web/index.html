@@ -1,26 +1,26 @@
 <!doctype html>
-<html lang="uz" data-theme="dark">
+<html lang="uz" data-theme="light">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#121614" />
+    <meta name="theme-color" content="#f6efdf" />
     <meta
       name="description"
-      content="Element Paint: fasad va interyer uchun tabiiy qoplamalar, mineral travertin, dekorativ bo‘yoqlar, emallar va laklar. 5 brend, 21 mahsulot va sarf kalkulyatori."
+      content="Element Paint: fasad va interyer uchun tabiiy qoplamalar, mineral travertin, dekorativ bo‘yoqlar, emallar va laklar. 4 brend, 20 mahsulot va sarf kalkulyatori."
     />
     <meta
       property="og:title"
-      content="Element Paint — Rangdan boshlanadi. Xarakterga aylanadi."
+      content="Element Paint — O‘zbekistonda bo‘yoq ishlab chiqaruvchi"
     />
     <meta
       property="og:description"
-      content="Fasad va interyer uchun me’moriy qoplamalar. Mahsulotni tanlang, teksturalarni his qiling va sarfni hisoblang."
+      content="Namanganda ishlab chiqarilgan dekorativ qoplamalar, emal, lak va gruntlar. Mahsulotlar katalogi va sarf kalkulyatori."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://elementpaint.uz/" />
-    <meta property="og:image" content="https://elementpaint.uz/assets/hero_architecture.jpg" />
+    <meta property="og:image" content="https://elementpaint.uz/assets/element_travertin.jpg" />
     <link rel="canonical" href="https://elementpaint.uz/" />
-    <title>Element Paint — Rangdan boshlanadi. Xarakterga aylanadi.</title>
+    <title>Element Paint — O‘zbekistonda bo‘yoq ishlab chiqaruvchi</title>
     <link rel="icon" href="assets/logo_dark.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -29,13 +29,14 @@
     <script src="theme.js"></script>
     <script src="products.js" defer></script>
     <script src="app.js" defer></script>
+    <script type="module" src="paint-background.js"></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Asosiy mazmunga o‘tish</a>
     <div class="topbar">
       <div class="container">
         <span>O‘zbekistonda ishlab chiqarilgan. <b>2011-yildan buyon.</b></span
-        ><a href="tel:+998953003000">+998 (95) 300-30-00 ↗</a>
+        ><a href="tel:+998953003000">+998 (95) 300-30-00 ↗︎</a>
       </div>
     </div>
     <header class="header">
@@ -45,22 +46,22 @@
           <img class="logo-light" src="assets/logo_light.png" alt="Element Paint" width="180" height="48" />
         </a>
         <div class="nav-links" id="navLinks">
-          <a href="#spaces">Makonlar</a>
           <a href="#products">Mahsulotlar</a>
           <a href="#textures">Teksturalar</a>
           <a href="#about">Biz haqimizda</a>
           <a href="#calculator">Kalkulyator</a>
+          <a href="#spaces">Qo‘llanish namunalari</a>
           <a href="#contact">Aloqa</a>
         </div>
         <div class="nav-actions">
           <button
             class="icon-button"
             id="themeBtn"
-            aria-label="Yorug‘ rejimni yoqish"
+            aria-label="Tungi rejimni yoqish"
           >
             ☼</button
           ><a class="button small nav-contact" href="tel:+998953003000"
-            >Maslahat olish ↗</a
+            >Maslahat olish ↗︎</a
           ><button
             class="icon-button menu-button"
             id="menuBtn"
@@ -74,172 +75,61 @@
       </nav>
     </header>
     <main id="main">
-      <section class="hero container" id="home" aria-labelledby="heroTitle">
-        <div class="hero-copy">
-          <div class="eyebrow">
-            <span class="status-dot"></span> ME’MORIY QOPLAMALAR · NAMANGAN
+      <section class="manufacturer-hero" id="home" aria-labelledby="heroTitle">
+        <canvas id="paintBackground" aria-hidden="true"></canvas>
+        <div class="container manufacturer-grid">
+          <div class="hero-copy">
+            <div class="eyebrow"><span class="status-dot"></span> BO‘YOQ ISHLAB CHIQARUVCHI · NAMANGAN</div>
+            <h1 id="heroTitle">Har bir sirt uchun<br /><span>o‘z bo‘yog‘imiz.</span></h1>
+            <p class="hero-description">Dekorativ qoplamalar, emal, lak va gruntlar. Element Paint mahsulotlarini tanlang — tarkibi, qo‘llanishi va sarfi bilan bir joyda tanishing.</p>
+            <div class="actions"><a class="button" href="#products">Mahsulotlarni tanlash ↗︎</a><a class="button secondary" href="#calculator">Sarfni hisoblash →</a></div>
+            <div class="paint-palette" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><span>RANG. QOPLAMA. HIMOYA.</span></div>
+            <div class="hero-proof" aria-label="Element Paint raqamlarda">
+              <div><span class="proof-number">15<span>+</span></span><span class="proof-label">Yillik tajriba</span></div>
+              <div><span class="proof-number">4</span><span class="proof-label">Mahsulot brendi</span></div>
+              <div><span class="proof-number">20</span><span class="proof-label">Katalogdagi mahsulot</span></div>
+            </div>
           </div>
-          <h1 id="heroTitle">Rangdan<br />boshlanadi.<em>Xarakterga<br />aylanadi.</em></h1>
-          <p class="hero-description">
-            Fasad va interyer uchun tabiiy qoplamalar, mineral travertin va zamonaviy arxitektura yechimlari.
-          </p>
-          <div class="actions">
-            <a class="button" href="#products">Mahsulotni tanlash ↗</a
-            ><a class="button secondary" href="#spaces">Qoplamalarni ko‘rish →</a>
-          </div>
-          <div class="hero-proof" aria-label="Element Paint raqamlarda">
-            <div><span class="proof-number">15<span>+</span></span><span class="proof-label">Yillik tajriba</span></div>
-            <div><span class="proof-number">5</span><span class="proof-label">Ixtisoslashgan brend</span></div>
-            <div><span class="proof-number">21</span><span class="proof-label">Mahsulot yechimi</span></div>
-          </div>
-        </div>
-        <div class="hero-visual">
-          <div class="hero-stage">
-            <img
-              class="hero-scene-img"
-              src="assets/hero_architecture.jpg"
-              alt="Element Paint me’moriy travertin zali"
-              width="1920"
-              height="1080"
-              fetchpriority="high"
-            />
-            <div class="scene-label"><strong>ELEMENT PAINT</strong>QOPLAMALAR KOLLEKSIYASI / 2026</div>
-            <div class="scene-seal" aria-hidden="true"><strong>25</strong><span>KG · PREMIUM</span></div>
-            <button class="hero-product-badge" id="heroProductBtn" type="button" aria-label="Premium Suyuq Travertin haqida batafsil ma’lumot">
-              <img
-                src="assets/element_travertin.jpg"
-                alt="Element Paint Premium Suyuq Travertin chelagi"
-                width="500"
-                height="625"
-              />
-              <div class="hero-badge-meta">
-                <span class="badge-title">Flagman mahsulot</span>
-                <span class="badge-name">Premium Travertin</span>
-              </div>
-              <span class="badge-arrow" aria-hidden="true">↗</span>
+          <div class="featured-collection">
+            <button class="featured-main" id="heroProductBtn" type="button" aria-label="Premium Suyuq Travertin haqida batafsil ma’lumot">
+              <span class="featured-tag">ELEMENT PAINT · 25 KG</span>
+              <img src="assets/element_travertin.jpg" alt="Element Paint Premium Suyuq Travertin chelagi" width="1122" height="1402" fetchpriority="high" />
+              <span class="featured-info"><span><small>DEKORATIV QOPLAMA</small><strong>Premium Suyuq Travertin</strong></span><span class="featured-arrow" aria-hidden="true">↗︎</span></span>
             </button>
-          </div>
-          <div class="hero-caption">
-            <span class="caption-tag">Vizual konsept</span>
-            <span class="caption-text">Namunaviy makon · <strong>Tabiiy travertin relyefi</strong></span>
-            <a href="#spaces" class="caption-arrow" aria-label="Makonlarni ko‘rish">↗</a>
+            <div class="featured-small-grid">
+              <button class="featured-small" data-featured-product="berlak-ottocento" type="button"><img src="assets/ottocento.jpg" alt="Berlak Ottocento dekorativ bo‘yoq chelagi" width="1122" height="1402" /><span><small>BERLAK</small><strong>Ottocento</strong></span><span aria-hidden="true">↗︎</span></button>
+              <button class="featured-small" data-featured-product="atlas-blue" type="button"><img src="assets/enamel_blue.jpg" alt="Atlas PF-115 emal bo‘yoq chelagi" width="1122" height="1402" /><span><small>ATLAS</small><strong>PF-115 emal</strong></span><span aria-hidden="true">↗︎</span></button>
+            </div>
+            <p class="collection-note">Mahsulot ustiga bosing va xususiyatlarini ko‘ring.</p>
           </div>
         </div>
       </section>
 
       <section class="brand-strip" aria-label="Brendlar">
         <div class="container">
-          <span class="strip-label">BIR OILA.<br />BESH BREND.</span
+          <span class="strip-label">BIR OILA.<br />TO‘RT BREND.</span
           ><a href="#products" data-brand-link="ELEMENT PAINT"
             >ELEMENT<span>PAINT</span></a
           ><a href="#products" data-brand-link="BERLAK"
             >BERLAK<span>FUTURISTIC PAINT</span></a
           ><a href="#products" data-brand-link="ATLAS"
             >ATLAS<span>MILLIY BO‘YOQ</span></a
-          ><a href="#products" data-brand-link="KRATA"
-            >KRATA<span>GERMAN TECHNOLOGY</span></a
           ><a href="#products" data-brand-link="CROWN"
             >CROWN<span>EUROPA TECHNOLOGY</span></a
           >
         </div>
       </section>
 
-      <section class="section container spaces-section" id="spaces" aria-labelledby="spacesTitle">
-        <div class="section-heading">
-          <div>
-            <div class="eyebrow">01 / MAKON VA QOPLAMALAR</div>
-            <h2 id="spacesTitle">
-              Qanday makon<br /><em>yaratmoqchisiz?</em>
-            </h2>
-          </div>
-          <p>
-            Fasad, interyer yoki konstruksiyalar — har bir yuzaning o‘z me’moriy yechimi bor.<br />
-            Loyihangiz yo‘nalishini tanlang va mos mahsulotlarni kashf eting.
-          </p>
-        </div>
-        <div class="spaces-grid">
-          <article class="space-card space-card-primary">
-            <div class="space-image-wrapper">
-              <img
-                src="assets/space_facade.jpg"
-                alt="Zamonaviy villa fassadi — mineral travertin relyefi"
-                width="1024"
-                height="768"
-                loading="lazy"
-              />
-              <span class="concept-badge">Vizual konsept</span>
-            </div>
-            <div class="space-content">
-              <span class="space-eyebrow">FASAD · TASHQI DEVORLAR</span>
-              <h3>Fasadingizning<br />tabiiy xarakteri.</h3>
-              <p>
-                Ob-havo injiqliklariga chidamli, quyosh nurlarida o‘ngmaydigan va tabiiy tosh ulug‘vorligini beruvchi fasad qoplamalari.
-              </p>
-
-              <button class="button small" data-space-filter="travertin">
-                Fasad qoplamalari ↗
-              </button>
-            </div>
-          </article>
-
-          <article class="space-card">
-            <div class="space-image-wrapper">
-              <img
-                src="assets/space_interior.jpg"
-                alt="Nafis me’moriy interyer — Ottocento ipak jiloli devor"
-                width="1024"
-                height="768"
-                loading="lazy"
-              />
-              <span class="concept-badge">Vizual konsept</span>
-            </div>
-            <div class="space-content">
-              <span class="space-eyebrow">INTERYER · YASHASH MAYDONI</span>
-              <h3>Interyeringizga<br />ipakdek nafislik.</h3>
-              <p>
-                Yorug‘likda mayin tovlanuvchi baxmal devorlar va xonadoningiz uchun xavfsiz suv asosli bo‘yoqlar.
-              </p>
-              <button class="button small secondary" data-space-filter="travertin" data-product-query="ottocento">
-                Interyer bo‘yoqlari ↗
-              </button>
-            </div>
-          </article>
-
-          <article class="space-card">
-            <div class="space-image-wrapper">
-              <img
-                src="assets/space_wood_metal.jpg"
-                alt="Yog‘och va metall yuzalar — himoyalovchi alkid emallar"
-                width="1024"
-                height="768"
-                loading="lazy"
-              />
-              <span class="concept-badge">Vizual konsept</span>
-            </div>
-            <div class="space-content">
-              <span class="space-eyebrow">HIMOYA · YOG‘OCH VA METALL</span>
-              <h3>Har bir yuzaga<br />ishonchli himoya.</h3>
-              <p>
-                Eshik, deraza va temir konstruksiyalarni zang va mexanik yeyilishdan asrovchi mustahkam qatlam.
-              </p>
-              <button class="button small secondary" data-space-filter="protection">
-                Emal va laklar ↗
-              </button>
-            </div>
-          </article>
-        </div>
-      </section>
-
       <section
-        class="section container"
+        class="section container products-section"
         id="products"
         aria-labelledby="catalogTitle"
       >
         <div class="section-heading">
           <div>
-            <div class="eyebrow">02 / MAHSULOTLAR</div>
+            <div class="eyebrow">01 / MAHSULOTLAR</div>
             <h2 id="catalogTitle">
-              Har bir sirt uchun<br /><em>o‘z yechimi.</em>
+              Ishlab chiqarayotgan<br /><em>mahsulotlarimiz.</em>
             </h2>
           </div>
           <p>
@@ -250,7 +140,7 @@
         <div class="catalog-toolbar">
           <div class="filters" role="group" aria-label="Mahsulot kategoriyasi">
             <button class="filter active" data-filter="all" aria-pressed="true">
-              Barchasi <span id="totalCount">21</span></button
+              Barchasi <span id="totalCount">20</span></button
             ><button
               class="filter"
               data-filter="travertin"
@@ -282,7 +172,6 @@
                 <option>ELEMENT PAINT</option>
                 <option>BERLAK</option>
                 <option>ATLAS</option>
-                <option>KRATA</option>
                 <option>CROWN</option>
               </select></label
             >
@@ -295,14 +184,14 @@
         <div class="product-grid" id="productGrid"></div>
         <div class="catalog-pagination" id="catalogPagination">
           <button class="button secondary large" id="loadMoreBtn">
-            Yana 13 ta mahsulotni ko‘rsatish ↓
+            Yana 12 ta mahsulotni ko‘rsatish ↓
           </button>
         </div>
         <div class="empty-state" id="emptyState" hidden>
           <h3>Mahsulot topilmadi</h3>
           <p>Boshqa nom bilan qidiring yoki filtrlarni tozalang.</p>
           <button class="button" id="resetFilters">
-            Filtrlarni tozalash ↗
+            Filtrlarni tozalash ↗︎
           </button>
         </div>
         <noscript
@@ -311,79 +200,6 @@
             <a href="tel:+998953003000">+998 (95) 300-30-00</a>.
           </p></noscript
         >
-      </section>
-
-      <section class="section container textures-section" id="textures" aria-labelledby="texturesTitle">
-        <div class="section-heading">
-          <div>
-            <div class="eyebrow">03 / FAKTURA VA TEKSTURA</div>
-            <h2 id="texturesTitle">
-              Qoplamani yaqindan<br /><em>ko‘ring va his qiling.</em>
-            </h2>
-          </div>
-          <p>
-            Har bir material o‘ziga xos relyef, yorug‘lik akslanishi va teginish hissiyotiga ega.<br />
-            Turli xil fakturalarni kashf eting.
-          </p>
-        </div>
-        <div class="texture-explorer">
-          <div class="texture-nav" role="tablist" aria-label="Tekstura turlari">
-            <button class="texture-tab active" role="tab" tabindex="0" aria-selected="true" data-texture="travertin" id="tab-travertin" aria-controls="panel-texture">
-              <span class="texture-tab-num">01</span>
-              <span class="texture-tab-info">
-                <strong>Travertin relyefi</strong>
-                <span>G‘ovakli tabiiy tosh strukturasi</span>
-              </span>
-            </button>
-            <button class="texture-tab" role="tab" tabindex="-1" aria-selected="false" data-texture="ottocento" id="tab-ottocento" aria-controls="panel-texture">
-              <span class="texture-tab-num">02</span>
-              <span class="texture-tab-info">
-                <strong>Ottocento ipak jilosi</strong>
-                <span>Nafis baxmal va ipak tovlanishi</span>
-              </span>
-            </button>
-            <button class="texture-tab" role="tab" tabindex="-1" aria-selected="false" data-texture="enamel" id="tab-enamel" aria-controls="panel-texture">
-              <span class="texture-tab-num">03</span>
-              <span class="texture-tab-info">
-                <strong>Yaltiroq emal</strong>
-                <span>Oyna silliqligidagi himoya qatlami</span>
-              </span>
-            </button>
-          </div>
-          <div class="texture-display" id="panel-texture" role="tabpanel" tabindex="0" aria-labelledby="tab-travertin">
-            <div class="texture-view">
-              <img
-                id="textureImg"
-                src="assets/texture_travertine.jpg"
-                alt="Travertin mineral relyefi makro ko‘rinishi"
-                width="1024"
-                height="768"
-                loading="lazy"
-              />
-              <span class="texture-zoom-hint">Makro faktura</span>
-            </div>
-            <div class="texture-details">
-              <span class="texture-eyebrow" id="textureEyebrow">MINERAL TEKSTURA</span>
-              <h3 id="textureTitle">Tabiiy travertin relyefi</h3>
-              <p id="textureDesc">
-                Haqiqiy travertin toshining nafis g‘ovakdorligi va tabiiy qatlamlarini aks ettiradi. Fasadlarda jazirama va sovuqqa o‘ta chidamli bo‘lib, bino yuzasiga monolit tosh ulug‘vorligini bag‘ishlaydi.
-              </p>
-              <ul class="texture-specs" id="textureSpecs">
-                <li><strong>Qo‘llanishi:</strong> Fasad va me’moriy interyer</li>
-                <li><strong>Effekt:</strong> 3D relyefli, g‘ovak tosh fakturasi</li>
-                <li><strong>Chidamlilik:</strong> Suvga, quyoshga va sovuqqa bardoshli</li>
-              </ul>
-              <div class="texture-action">
-                <button class="button small" id="textureActionBtn" data-space-filter="travertin">
-                  Tegishli mahsulotni ko‘rish ↗
-                </button>
-              </div>
-              <p class="texture-disclaimer">
-                * Ekrandagi rang va tekstura namunaviy xarakterga ega. Aniq namuna bilan rasmiy dilerlik do‘konlarida tanishishingiz mumkin.
-              </p>
-            </div>
-          </div>
-        </div>
       </section>
 
       <section class="about-section" id="about">
@@ -400,8 +216,8 @@
             >
           </div>
           <div class="about-copy">
-            <div class="eyebrow">04 / ELEMENT PAINT HAQIDA</div>
-            <h2>Biz bo‘yoq bilan<br /><em>ko‘proq yaratamiz.</em></h2>
+            <div class="eyebrow">02 / ELEMENT PAINT HAQIDA</div>
+            <h2>Namanganda<br /><em>ishlab chiqaramiz.</em></h2>
             <p>
               2011-yildan buyon Namanganda ishlab chiqarilayotgan qoplamalarimiz
               uylar, ish joylari va sanoat binolariga yangi hayot bag‘ishlaydi.
@@ -411,11 +227,11 @@
               chiqarish nazorati — mahsulotlarimizning asosi.
             </p>
             <div class="about-facts">
-              <div><strong>5</strong><span>Ixtisoslashgan brend</span></div>
-              <div><strong>21</strong><span>Katalogdagi mahsulot</span></div>
+              <div><strong>4</strong><span>Mahsulot brendi</span></div>
+              <div><strong>20</strong><span>Katalogdagi mahsulot</span></div>
               <div><strong>15+</strong><span>Yillik tajriba</span></div>
             </div>
-            <a class="text-link" href="#contact">Yaqindan tanishamiz ↗</a>
+            <a class="text-link" href="#contact">Yaqindan tanishamiz ↗︎</a>
           </div>
         </div>
       </section>
@@ -423,7 +239,7 @@
       <section class="section container" id="calculator">
         <div class="section-heading">
           <div>
-            <div class="eyebrow">05 / SARF KALKULYATORI</div>
+            <div class="eyebrow">03 / SARF KALKULYATORI</div>
             <h2>Rejangiz aniq.<br /><em>Hisobingiz ham.</em></h2>
           </div>
           <p>
@@ -489,13 +305,173 @@
               <button class="button" id="copyCalculation" type="button">Hisobni nusxalash</button>
               <span class="copy-status" id="calcCopyStatus" role="status"></span>
               <a class="button secondary" id="calcTgBtn" href="https://t.me/Elementpaint_uzbekistan" target="_blank" rel="noopener noreferrer"
-                >Telegram kanalini ochish ↗</a
+                >Telegram kanalini ochish ↗︎</a
               >
               <a class="button secondary" href="tel:+998953003000"
-                >Mutaxassis bilan bog‘lanish ↗</a
+                >Mutaxassis bilan bog‘lanish ↗︎</a
               >
             </div>
           </div>
+        </div>
+      </section>
+
+      <section class="section container textures-section" id="textures" aria-labelledby="texturesTitle">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">04 / FAKTURA VA TEKSTURA</div>
+            <h2 id="texturesTitle">
+              Qoplamani yaqindan<br /><em>ko‘ring va his qiling.</em>
+            </h2>
+          </div>
+          <p>
+            Har bir material o‘ziga xos relyef, yorug‘lik akslanishi va teginish hissiyotiga ega.<br />
+            Turli xil fakturalarni kashf eting.
+          </p>
+        </div>
+        <div class="texture-explorer">
+          <div class="texture-nav" role="tablist" aria-label="Tekstura turlari">
+            <button class="texture-tab active" role="tab" tabindex="0" aria-selected="true" data-texture="travertin" id="tab-travertin" aria-controls="panel-texture">
+              <span class="texture-tab-num">01</span>
+              <span class="texture-tab-info">
+                <strong>Travertin relyefi</strong>
+                <span>G‘ovakli tabiiy tosh strukturasi</span>
+              </span>
+            </button>
+            <button class="texture-tab" role="tab" tabindex="-1" aria-selected="false" data-texture="ottocento" id="tab-ottocento" aria-controls="panel-texture">
+              <span class="texture-tab-num">02</span>
+              <span class="texture-tab-info">
+                <strong>Ottocento ipak jilosi</strong>
+                <span>Nafis baxmal va ipak tovlanishi</span>
+              </span>
+            </button>
+            <button class="texture-tab" role="tab" tabindex="-1" aria-selected="false" data-texture="enamel" id="tab-enamel" aria-controls="panel-texture">
+              <span class="texture-tab-num">03</span>
+              <span class="texture-tab-info">
+                <strong>Yaltiroq emal</strong>
+                <span>Oyna silliqligidagi himoya qatlami</span>
+              </span>
+            </button>
+          </div>
+          <div class="texture-display" id="panel-texture" role="tabpanel" tabindex="0" aria-labelledby="tab-travertin">
+            <div class="texture-view">
+              <img
+                id="textureImg"
+                src="assets/texture_travertine.jpg"
+                alt="Travertin mineral relyefi makro ko‘rinishi"
+                width="1024"
+                height="768"
+                loading="lazy"
+              />
+              <span class="texture-zoom-hint">Makro faktura</span>
+            </div>
+            <div class="texture-details">
+              <span class="texture-eyebrow" id="textureEyebrow">MINERAL TEKSTURA</span>
+              <h3 id="textureTitle">Tabiiy travertin relyefi</h3>
+              <p id="textureDesc">
+                Haqiqiy travertin toshining nafis g‘ovakdorligi va tabiiy qatlamlarini aks ettiradi. Fasadlarda jazirama va sovuqqa o‘ta chidamli bo‘lib, bino yuzasiga monolit tosh ulug‘vorligini bag‘ishlaydi.
+              </p>
+              <ul class="texture-specs" id="textureSpecs">
+                <li><strong>Qo‘llanishi:</strong> Fasad va me’moriy interyer</li>
+                <li><strong>Effekt:</strong> 3D relyefli, g‘ovak tosh fakturasi</li>
+                <li><strong>Chidamlilik:</strong> Suvga, quyoshga va sovuqqa bardoshli</li>
+              </ul>
+              <div class="texture-action">
+                <button class="button small" id="textureActionBtn" data-space-filter="travertin">
+                  Tegishli mahsulotni ko‘rish ↗︎
+                </button>
+              </div>
+              <p class="texture-disclaimer">
+                * Ekrandagi rang va tekstura namunaviy xarakterga ega. Aniq namuna bilan rasmiy dilerlik do‘konlarida tanishishingiz mumkin.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section container spaces-section" id="spaces" aria-labelledby="spacesTitle">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">05 / QO‘LLANISH NAMUNALARI</div>
+            <h2 id="spacesTitle">
+              Mahsulotlarimiz<br /><em>sirtlarda qanday ko‘rinadi?</em>
+            </h2>
+          </div>
+          <p>
+            Fasad, interyer yoki konstruksiyalar — har bir yuzaning o‘z me’moriy yechimi bor.<br />
+            Loyihangiz yo‘nalishini tanlang va mos mahsulotlarni kashf eting.
+          </p>
+        </div>
+        <figure class="application-banner"><img src="assets/hero_architecture.jpg" alt="Travertin qoplamasining interyerda qo‘llanish namunasi" width="1920" height="1080" loading="lazy" /><figcaption>Namunaviy interyer · Travertin qoplamasi</figcaption></figure>
+        <div class="spaces-grid">
+          <article class="space-card space-card-primary">
+            <div class="space-image-wrapper">
+              <img
+                src="assets/space_facade.jpg"
+                alt="Zamonaviy villa fassadi — mineral travertin relyefi"
+                width="1024"
+                height="768"
+                loading="lazy"
+              />
+              <span class="concept-badge">Vizual konsept</span>
+            </div>
+            <div class="space-content">
+              <span class="space-eyebrow">FASAD · TASHQI DEVORLAR</span>
+              <h3>Fasadingizning<br />tabiiy xarakteri.</h3>
+              <p>
+                Ob-havo injiqliklariga chidamli, quyosh nurlarida o‘ngmaydigan va tabiiy tosh ulug‘vorligini beruvchi fasad qoplamalari.
+              </p>
+
+              <button class="button small" data-space-filter="travertin">
+                Fasad qoplamalari ↗︎
+              </button>
+            </div>
+          </article>
+
+          <article class="space-card">
+            <div class="space-image-wrapper">
+              <img
+                src="assets/space_interior.jpg"
+                alt="Nafis me’moriy interyer — Ottocento ipak jiloli devor"
+                width="1024"
+                height="768"
+                loading="lazy"
+              />
+              <span class="concept-badge">Vizual konsept</span>
+            </div>
+            <div class="space-content">
+              <span class="space-eyebrow">INTERYER · YASHASH MAYDONI</span>
+              <h3>Interyeringizga<br />ipakdek nafislik.</h3>
+              <p>
+                Yorug‘likda mayin tovlanuvchi baxmal devorlar va xonadoningiz uchun xavfsiz suv asosli bo‘yoqlar.
+              </p>
+              <button class="button small secondary" data-space-filter="travertin" data-product-query="ottocento">
+                Interyer bo‘yoqlari ↗︎
+              </button>
+            </div>
+          </article>
+
+          <article class="space-card">
+            <div class="space-image-wrapper">
+              <img
+                src="assets/space_wood_metal.jpg"
+                alt="Yog‘och va metall yuzalar — himoyalovchi alkid emallar"
+                width="1024"
+                height="768"
+                loading="lazy"
+              />
+              <span class="concept-badge">Vizual konsept</span>
+            </div>
+            <div class="space-content">
+              <span class="space-eyebrow">HIMOYA · YOG‘OCH VA METALL</span>
+              <h3>Har bir yuzaga<br />ishonchli himoya.</h3>
+              <p>
+                Eshik, deraza va temir konstruksiyalarni zang va mexanik yeyilishdan asrovchi mustahkam qatlam.
+              </p>
+              <button class="button small secondary" data-space-filter="protection">
+                Emal va laklar ↗︎
+              </button>
+            </div>
+          </article>
         </div>
       </section>
 
@@ -510,12 +486,12 @@
               class="contact-arrow"
               href="tel:+998953003000"
               aria-label="Element Paint bilan bog‘lanish"
-              >↗</a
+              >↗︎</a
             >
           </div>
           <div class="contact-actions">
-            <a class="button" href="tel:+998953003000">Maslahat olish ↗</a>
-            <a class="button secondary" href="https://t.me/Elementpaint_uzbekistan" target="_blank" rel="noopener noreferrer">Telegram kanalimiz ↗</a>
+            <a class="button" href="tel:+998953003000">Maslahat olish ↗︎</a>
+            <a class="button secondary" href="https://t.me/Elementpaint_uzbekistan" target="_blank" rel="noopener noreferrer">Telegram kanalimiz ↗︎</a>
           </div>
           <div class="contact-grid">
             <div>
@@ -525,7 +501,7 @@
                 href="https://maps.app.goo.gl/scJGPxg4oJ8yTFk18"
                 target="_blank"
                 rel="noopener noreferrer"
-                >Xaritada ko‘rish ↗</a
+                >Xaritada ko‘rish ↗︎</a
               >
             </div>
             <div>
@@ -535,7 +511,7 @@
             </div>
             <div>
               <h3>Telegram kanalimiz</h3>
-              <a href="https://t.me/Elementpaint_uzbekistan" target="_blank" rel="noopener noreferrer">Element Paint Uzbekistan ↗</a>
+              <a href="https://t.me/Elementpaint_uzbekistan" target="_blank" rel="noopener noreferrer">Element Paint Uzbekistan ↗︎</a>
               <p>Yangiliklar va mahsulotlar.</p>
             </div>
             <div>
@@ -544,10 +520,10 @@
                 href="https://www.instagram.com/elementpaint.uz/"
                 target="_blank"
                 rel="noopener noreferrer"
-                >Instagram · @elementpaint.uz ↗</a
+                >Instagram · @elementpaint.uz ↗︎</a
               >
-              <a href="https://www.facebook.com/profile.php?id=61589843622428" target="_blank" rel="noopener noreferrer">Facebook ↗</a>
-              <a href="https://taplink.cc/elementpaint.uz" target="_blank" rel="noopener noreferrer">Barcha aloqa havolalari ↗</a>
+              <a href="https://www.facebook.com/profile.php?id=61589843622428" target="_blank" rel="noopener noreferrer">Facebook ↗︎</a>
+              <a href="https://taplink.cc/elementpaint.uz" target="_blank" rel="noopener noreferrer">Barcha aloqa havolalari ↗︎</a>
             </div>
           </div>
         </div>
@@ -583,10 +559,10 @@
           </table>
           <div class="dialog-actions">
             <a class="button" id="modalTgBtn" href="https://t.me/Elementpaint_uzbekistan" target="_blank" rel="noopener noreferrer"
-              >Telegram kanalini ochish ↗</a
+              >Telegram kanalini ochish ↗︎</a
             >
             <a class="button secondary" href="tel:+998999755508"
-              >Qo‘ng‘iroq: +998 (99) 975-55-08 ↗</a
+              >Qo‘ng‘iroq: +998 (99) 975-55-08 ↗︎</a
             >
           </div>
           <button class="text-link" id="copyProduct">

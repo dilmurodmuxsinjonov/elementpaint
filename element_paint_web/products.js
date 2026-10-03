@@ -178,20 +178,6 @@ window.PRODUCTS = [
     ],
   },
   {
-    id: "krata-white",
-    cat: "emal",
-    brand: "KRATA",
-    title: "Krata PF-115 Emal",
-    subtitle: "German Technology • Premium oq emal",
-    img: "assets/krata_enamel.jpg",
-    desc: "Nemis texnologiyasi asosida tayyorlangan elita darajasidagi oq emal. Zo'r yopuvchanlik, silliq oqish va uzoq muddatli yaltiroqlik beradi.",
-    specs: [
-      ["Texnologiya", "German Technology"],
-      ["Markasi", "PF-115 Premium"],
-      ["Rangi", "Oq (Sarg'aymaydi)"],
-    ],
-  },
-  {
     id: "berlak-pearl",
     cat: "lak",
     brand: "BERLAK",

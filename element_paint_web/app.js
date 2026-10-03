@@ -23,7 +23,7 @@ const normalize = (value) =>
     .replace(/[‘’ʻʼ`'\u02BB\u02BC\u2018\u2019\u201A\u201B]/g, "")
     .normalize("NFKC");
 
-// Theme Switcher with persistence
+// Theme choice applies to the current visit; a reload starts in morning mode.
 const themeButton = $("themeBtn");
 function updateThemeButton() {
   const dark = document.documentElement.dataset.theme === "dark";
@@ -36,7 +36,7 @@ function updateThemeButton() {
   );
   const metaTheme = document.querySelector('meta[name="theme-color"]');
   if (metaTheme) {
-    metaTheme.content = dark ? "#121614" : "#f5f2ea";
+    metaTheme.content = dark ? "#24343c" : "#f6efdf";
   }
 }
 
@@ -44,11 +44,6 @@ themeButton.addEventListener("click", () => {
   const theme =
     document.documentElement.dataset.theme === "dark" ? "light" : "dark";
   document.documentElement.dataset.theme = theme;
-  try {
-    localStorage.setItem("ep_theme", theme);
-  } catch {
-    /* Theme works without localStorage persistence. */
-  }
   updateThemeButton();
 });
 updateThemeButton();
@@ -151,7 +146,7 @@ function productCard(product) {
     height: 1402,
   });
 
-  const arrow = element("span", "product-arrow", "↗");
+  const arrow = element("span", "product-arrow", "↗︎");
   arrow.setAttribute("aria-hidden", "true");
   picture.append(img, element("span", "product-tag", categoryNames[product.cat]), arrow);
 
@@ -160,7 +155,7 @@ function productCard(product) {
     element("div", "product-brand", product.brand),
     element("h3", "", product.title),
     element("p", "", product.subtitle),
-    element("span", "product-detail-link", "Batafsil ko‘rish ↗"),
+    element("span", "product-detail-link", "Batafsil ko‘rish ↗︎"),
   );
 
   button.append(picture, copy);
@@ -427,6 +422,13 @@ function openProduct(product, triggerButton) {
 $("heroProductBtn").addEventListener("click", (event) => {
   const product = products.find((item) => item.id === "ep-travertin");
   if (product) openProduct(product, event.currentTarget);
+});
+
+document.querySelectorAll("[data-featured-product]").forEach((button) => {
+  button.addEventListener("click", () => {
+    const product = products.find((item) => item.id === button.dataset.featuredProduct);
+    if (product) openProduct(product, button);
+  });
 });
 
 $("closeDialog").addEventListener("click", () => dialog.close());

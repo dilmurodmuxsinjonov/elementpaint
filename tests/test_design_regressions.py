@@ -70,7 +70,7 @@ def test():
         page.locator("[data-filter='all']").click()
         page.locator("#searchInput").fill("")
         page.locator("#loadMoreBtn").click()
-        expect(page.locator("#productGrid .product-card")).to_have_count(21)
+        expect(page.locator("#productGrid .product-card")).to_have_count(20)
         expect(page.locator("#productGrid .product-open").nth(8)).to_be_focused()
         page.locator("#searchInput").fill("zz-no-match")
         expect(page.locator("#emptyState")).to_be_visible()
@@ -92,16 +92,28 @@ def test():
         expect(page.locator("#copyCalculation")).to_be_disabled()
         page.locator("#calcArea").fill("120")
 
-        # Both themes survive a reload and remain within the viewport.
+        # Both themes fit the viewport; each reload starts in morning mode.
         for theme in ("light", "dark"):
             if page.locator("html").get_attribute("data-theme") != theme:
                 page.locator("#themeBtn").click()
-            page.reload(wait_until="networkidle")
             expect(page.locator("html")).to_have_attribute("data-theme", theme)
             for width in (320, 375, 390, 640, 768, 900, 1024, 1180, 1280, 1440, 1920):
                 page.set_viewport_size({"width": width, "height": 900})
                 assert page.evaluate("document.documentElement.scrollWidth <= innerWidth"), \
                     f"Horizontal overflow at {width}px in {theme} theme"
+
+        page.evaluate("localStorage.setItem('ep_theme', 'dark')")
+        page.reload(wait_until="networkidle")
+        expect(page.locator("html")).to_have_attribute("data-theme", "light")
+        assert page.evaluate("getComputedStyle(document.body).backgroundColor") == "rgb(246, 239, 223)"
+        sections = page.locator("main > section[id]").evaluate_all("nodes => nodes.map(n => n.id)")
+        assert sections == ["home", "products", "about", "calculator", "textures", "spaces", "contact"]
+        assert "KRATA" not in page.locator("body").inner_text()
+        assert page.locator("#home img[src*='architecture']").count() == 0
+        expect(page.locator("#paintBackground")).to_have_attribute("data-state", "ready")
+        page.emulate_media(reduced_motion="reduce")
+        expect(page.locator("#paintBackground")).to_have_attribute("data-state", "reduced-motion")
+        page.emulate_media(reduced_motion="no-preference")
 
         # Tablet and phone menus can close by selection, Escape, and outside click.
         for width in (390, 1024):

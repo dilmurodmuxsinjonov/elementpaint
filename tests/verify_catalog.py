@@ -68,7 +68,7 @@ def extract_products():
 def test_products_catalog():
     print("[3/6] Checking products.js catalog structure and assets...")
     matches = extract_products()
-    assert len(matches) == 21, f"Expected exactly 21 products, found {len(matches)}"
+    assert len(matches) == 20, f"Expected exactly 20 products, found {len(matches)}"
     
     seen_ids = set()
     brands = set()
@@ -87,13 +87,13 @@ def test_products_catalog():
         assert len(title.strip()) > 0, f"Empty title for {pid}"
         assert len(desc.strip()) > 10, f"Short description for {pid}"
 
-    expected_brands = {"ELEMENT PAINT", "BERLAK", "ATLAS", "KRATA", "CROWN"}
+    expected_brands = {"ELEMENT PAINT", "BERLAK", "ATLAS", "CROWN"}
     assert expected_brands.issubset(brands), f"Missing brands: {expected_brands - brands}"
     
     expected_categories = {"travertin", "emal", "lak", "primer"}
     assert expected_categories.issubset(categories), f"Missing categories: {expected_categories - categories}"
 
-    print(f"  [OK] Verified {len(matches)} products across 5 brands and 4 categories with valid images.")
+    print(f"  [OK] Verified {len(matches)} products across 4 brands and 4 categories with valid images.")
 
 def test_calculator_logic():
     print("[4/6] Verifying coverage calculator mathematical accuracy...")
@@ -194,7 +194,7 @@ def test_html_accessibility_and_contrast():
         values = sorted((luminance(a), luminance(b)))
         return (values[1] + 0.05) / (values[0] + 0.05)
 
-    for selector in (r':root\s*', r':root\[data-theme="light"\]\s*'):
+    for selector in (r':root\[data-theme="light"\]\s*', r':root\[data-theme="dark"\]\s*'):
         block = re.search(selector + r'\{([^}]+)\}', css).group(1)
         tokens = dict(re.findall(r'--([\w-]+):\s*(#[\da-fA-F]{6})', block))
         for background in ('bg', 'surface', 'raised'):

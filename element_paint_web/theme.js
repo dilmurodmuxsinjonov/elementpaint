@@ -1,6 +1,2 @@
-try {
-  document.documentElement.dataset.theme =
-    localStorage.getItem("ep_theme") === "light" ? "light" : "dark";
-} catch {
-  /* Keep the default theme when storage is unavailable. */
-}
+// Every visit starts in the warm morning palette, including returning visitors.
+document.documentElement.dataset.theme = "light";
