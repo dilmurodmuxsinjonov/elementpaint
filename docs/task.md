@@ -14,9 +14,10 @@
 - [x] Qidiruv, ranglar, dialog Escape/fokus, yangi tashrifda tonggi rejim sinovdan o‘tdi.
 - [x] Mahalliy shrift va Three.js; kerakli fayllardan iborat 11,42 MB sinov ZIP.
 - [x] GitHub Pages uchun preview-site alohida tarmog‘i yaratildi; domen bog‘lanmagan.
-- [ ] GitHub Pages yig‘ilishi va HTTPS havolani yakuniy tekshirish.
+- [x] GitHub Pages yig‘ilishi va HTTPS havola brauzerda tekshirildi; Sites zaxirasi ham chiqarildi.
 - [ ] Asl etiketka bilan mayda yozuvlar va yakuniy texnik ma’lumotlarni solishtirish.
-- [ ] Haqiqiy telefon tezligi, reduced-motion tizim sozlamasi, WebGL o‘chgan holatning amaliy sinovi.
+- [x] WebGL konteksti uzilganda statik rasm va katalogning ishlashi amalda tekshirildi.
+- [ ] Haqiqiy telefon tezligi, reduced-motion tizim sozlamasi va boshidan WebGL bo‘lmagan holat sinovi.
 - [ ] Mijoz fikri va tuzatishlari.
 - [ ] Foydalanuvchi ko‘rsatmasidan keyin asosiy serverga chiqarish.
 

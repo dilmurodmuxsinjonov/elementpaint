@@ -12,6 +12,7 @@
 - Qorong‘i rejim tanlangach reload light rejimni qaytaradi; til saqlanadi.
 - 3D: kompyuter va 390 px ekranida ochiq qopqoq kadrga to‘liq sig‘adi; oqim bankadan chiqadi; bo‘yoq tugagach quyish avtomatik to‘xtaydi, tugma o‘chadi va qayta boshlash xabari chiqadi; reset yopiq bankani tiklaydi. Qopqoqni bevosita bosish va klaviatura aylantirishi tekshirilgan.
 - Brauzer sinovi oxirida error/warn konsol yozuvlari yo‘q.
+- Maxsus sinov sahifasida WebGL konteksti uzildi: 3D canvas va boshqaruvlar yashirildi, Berlak rasmi ko‘rindi; Artek qidiruvi yana 4 mahsulotni topdi. Fixture sinov fayli public runtimega kiritilmagan.
 - JavaScript sintaksisi va offline ma’lumot tekshiruvi o‘tgan.
 - ZIP: 55 runtime fayl, 11,42 MB; mahalliy Three.js, Manrope, litsenziyalar va tanlangan rasmlar. Git, chat, docs, xom PNG, test, ishlab chiqarish redirecti yo‘q. noindex, robots va .nojekyll bor.
 - Asosiy D:\elementpaint.uz checkout toza; ishlab chiqarish HTML/CSS/JSga tegilmagan.
@@ -19,5 +20,6 @@
 ## Qolgan chegaralar
 
 - Asl yuqori sifatli etiketkalar olinmagan; AI maketlarning mayda yozuvlari va texnik tavsiflari zavod bilan tasdiqlanishi kerak. Havorang / To‘q ko‘k / Oq yozuvlaridagi aniq xatolar qayta tahrirlangan rasmlarda tekshirildi.
-- Haqiqiy iPhone/Android GPU va sekin tarmoq tezligi o‘lchanmagan. Reduced-motion va WebGL fallback kodda bor, lekin tizim sozlamasi yoki uzilish bilan amaliy sinovi hali bajarilmagan.
-- Jonli havola GitHub Pages yig‘ilishi yakunlangach brauzerda tekshiriladi. Mijoz tasdig‘i va asosiy serverga chiqarish keyingi bosqich.
+- Haqiqiy iPhone/Android GPU va sekin tarmoq tezligi o‘lchanmagan. Reduced-motion va boshidan WebGL mavjud bo‘lmagan holatning tizim sinovi bajarilmagan; ishlayotgan kontekstning uzilish sinovi o‘tgan.
+- Jonli GitHub Pages brauzerda tekshirildi; 390 px ruscha mobil menyu, 1440 px sahifa, tashqi manzildagi 3D qopqoq/quyish ishladi. Sites zaxirasi native deploy natijasida succeeded. Nashr dalillari `preview-publication.md`da.
+- Mijoz tasdig‘i va asosiy serverga chiqarish keyingi bosqich.

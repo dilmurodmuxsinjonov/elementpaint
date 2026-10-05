@@ -2,6 +2,10 @@
 
 Bu nusxa yangi dizaynni ko‘rib chiqish uchun. Asosiy elementpaint.uz sayti mijoz tasdig‘i va foydalanuvchining chiqarish ko‘rsatmasidan keyin almashtiriladi.
 
+Ochish: https://dilmurodmuxsinjonov.github.io/elementpaint/
+
+Zaxira: https://elementpaint-client-preview.muxsinjonovdilmurod.chatgpt.site
+
 ## Ko‘rib chiqiladigan jihatlar
 
 1. Bosh sahifada mahsulot va ishlab chiqaruvchi yo‘nalishi; qaymoqrang fon.

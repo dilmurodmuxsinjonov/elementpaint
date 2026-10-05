@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Preview WebGL recovery check</title>
+<style>body{margin:16px;font:16px system-ui;background:#f5eedf}button{padding:12px}iframe{display:block;width:100%;height:600px;border:1px solid #ccc;margin-top:16px}</style>
+<h1>WebGL recovery check</h1><button id="disconnect" type="button">Disconnect 3D context</button><p id="result" role="status">Open the preview and wait for the can to appear.</p>
+<iframe id="preview" src="../element_paint_web/preview.html?lang=uz" title="Element Paint preview"></iframe>
+<script>
+document.getElementById('disconnect').addEventListener('click',()=>{
+  const canvas=document.getElementById('preview').contentDocument.getElementById('paintCanCanvas');
+  const gl=canvas.getContext('webgl2')||canvas.getContext('webgl');
+  const loss=gl?.getExtension('WEBGL_lose_context');
+  if(!loss){document.getElementById('result').textContent='Context-loss testing is unavailable in this browser.';return;}
+  loss.loseContext();document.getElementById('result').textContent='Context disconnected. The paint photograph and catalogue should remain usable.';
+});
+</script></html>
