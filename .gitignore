@@ -10,6 +10,7 @@ melumotlar.txt
 tests/screenshots/
 work/
 dist/
+design-assets/
 .env
 .env.*
 !.env.example

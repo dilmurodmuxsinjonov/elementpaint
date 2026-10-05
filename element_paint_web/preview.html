@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="uz" data-theme="light">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5eedf"><meta name="robots" content="noindex,nofollow">
+  <meta name="description" content="Element Paint — bo‘yoqlar va dekorativ qoplamalar ishlab chiqaruvchisi. Mahsulotlar katalogi.">
+  <title>Element Paint — Mahsulotlar</title>
+  <link rel="icon" href="assets/logo_light.png"><link rel="stylesheet" href="preview.css?v=20261006.12">
+  <script type="module" src="preview-app.js?v=20261006.12"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="skip">Asosiy mazmunga o‘tish</a>
+  <div class="brand-loader" id="brandLoader" hidden aria-hidden="true">
+    <div class="loader-art"><div class="loader-can"><span>Berlak</span><small>PF-115</small></div><div class="loader-stream"></div>
+    <div class="loader-mark"><img src="assets/logo_light.png" alt=""><div class="loader-fill"></div></div></div>
+    <p data-i18n="loading">Rang bilan boshlanadi.</p>
+  </div>
+  <div class="topline"><div class="container"><span data-i18n="made">O‘zbekistonda ishlab chiqarilgan · 2011-yildan</span><a href="tel:+998953003000">+998 95 300 30 00</a></div></div>
+  <header class="site-header">
+    <nav class="container navigation" aria-label="Element Paint">
+      <a class="logo" href="preview.html" aria-label="Element Paint"><img src="assets/logo_light.png" alt="Element Paint" width="180" height="48"></a>
+      <div class="nav-links" id="navigationLinks"><a href="#catalog" data-i18n="catalog">Mahsulotlar</a><a href="#about" data-i18n="about">Zavod haqida</a><a href="#contact" data-i18n="contact">Aloqa</a></div>
+      <div class="nav-tools"><div class="languages" role="group" aria-label="Language"><button type="button" data-lang="uz">UZ</button><button type="button" data-lang="ru">RU</button><button type="button" data-lang="en">EN</button></div>
+        <button id="themeButton" class="icon-button" type="button" data-i18n-aria="theme" aria-pressed="false"><svg class="theme-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20 15A8 8 0 0 1 9 4a8 8 0 1 0 11 11Z"/></svg><svg class="theme-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.4 1.4M17.6 17.6 19 19M5 19l1.4-1.4M17.6 6.4 19 5"/></svg></button>
+        <button id="menuButton" class="icon-button menu-button" type="button" data-i18n-aria="menu" aria-controls="navigationLinks" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      </div>
+    </nav>
+  </header>
+  <main id="main">
+    <section class="hero container" id="home">
+      <div class="hero-copy"><p class="eyebrow" data-i18n="eyebrow">RANG. SIFAT. ISHLAB CHIQARISH.</p><h1><span data-i18n="hero">Har bir sirt uchun</span><br><em data-i18n="heroAccent">o‘z bo‘yog‘imiz.</em></h1><p class="hero-intro" data-i18n="intro">Emaldan dekorativ qoplamagacha. Element Paint mahsulotlari bilan rangni, qadoqni va o‘zingizga mos yechimni tanlang.</p><div class="hero-actions"><a class="button" href="#catalog"><span data-i18n="explore">Katalogni ochish</span><span aria-hidden="true">↗</span></a><a class="text-link" href="#contact" data-i18n="advice">Maslahat olish</a></div><div class="facts"><div><strong>15<span>+</span></strong><small data-i18n="years">yillik tajriba</small></div><div><strong>10</strong><small data-i18n="directions">asosiy yo‘nalish</small></div><div><strong>5</strong><small data-i18n="brands">mahsulot brendi</small></div></div></div>
+      <div class="hero-studio"><div class="studio-head"><span>BERLAK / PF-115</span><span class="studio-dot"></span></div><div id="sceneStage" class="scene-stage" data-state="fallback"><img id="sceneFallback" src="assets/berlak_blue_bank.jpg" alt="Berlak PF-115" width="1122" height="1402"><canvas id="paintCanCanvas" hidden aria-label="Berlak PF-115 3D" tabindex="0"></canvas><div class="studio-watermark" aria-hidden="true">BERLAK</div></div><div class="studio-caption"><span data-i18n="interact">Bankani aylantirib ko‘ring</span><span id="canState" aria-live="polite" data-i18n="fallback">Berlak PF-115</span></div><div class="scene-controls" id="sceneControls" hidden><button type="button" id="lidButton" data-i18n="open">Qopqoqni ochish</button><button type="button" id="pourButton" data-i18n="pour" disabled>Bo‘yoq quyish</button><button type="button" id="resetButton" data-i18n="reset">Qayta boshlash</button></div></div>
+    </section>
+    <section class="catalog-section" id="catalog"><div class="container"><div class="section-heading"><div><p class="eyebrow">ELEMENT PAINT / <span data-i18n="catalog">Mahsulotlar</span></p><h2 data-i18n="browse">Mahsulotni toping.</h2></div><p data-i18n="browseCopy">Yo‘nalishdan boshlang yoki mahsulot nomini qidiring.</p></div>
+      <div class="catalog-layout"><aside class="category-panel"><div id="categoryList"></div></aside><div class="catalog-main"><div class="catalog-toolbar"><label class="search-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input type="search" id="searchInput" data-i18n-placeholder="search" aria-label="Search"></label><select id="brandSelect" data-i18n-aria="brand"><option value="all">Barchasi</option></select><button type="button" class="clear-button" id="clearFilters" data-i18n="clear">Tozalash</button></div><div class="catalog-meta"><h3 id="categoryTitle"></h3><span id="resultCount" role="status"></span></div><div class="product-grid" id="productGrid"></div><div class="empty-state" id="emptyState" hidden><p></p><a href="tel:+998953003000" class="button" data-i18n="advice">Maslahat olish</a></div></div></div>
+    </div></section>
+    <section id="about" class="about-section container"><div><p class="eyebrow">ELEMENT PAINT / 2011</p><h2 data-i18n="aboutTitle">Rang yaratadigan ishlab chiqaruvchi.</h2><p data-i18n="aboutCopy">Element Paint — Namanganda ishlab chiqariladigan bo‘yoq va qoplamalar.</p><a class="text-link" href="#contact" data-i18n="advice">Maslahat olish</a></div><div class="about-image"><img src="assets/group_premium.jpg" loading="lazy" alt="Element Paint products" width="1122" height="1402"></div></section>
+    <section class="applications container"><h2 data-i18n="applications">Mahsulotlarimiz qo‘llanadigan joylar</h2><div class="application-grid"><article><img src="assets/space_facade.jpg" loading="lazy" alt="Facade" width="1536" height="1024"><h3 data-i18n="facade">Fasad</h3></article><article><img src="assets/space_interior.jpg" loading="lazy" alt="Interior" width="1536" height="1024"><h3 data-i18n="interior">Interyer</h3></article><article><img src="assets/space_wood_metal.jpg" loading="lazy" alt="Wood and metal" width="1536" height="1024"><h3 data-i18n="wood">Yog‘och va metall</h3></article></div></section>
+    <section id="contact" class="contact-section"><div class="container"><p class="eyebrow">ELEMENT PAINT / <span data-i18n="contact">Aloqa</span></p><h2 data-i18n="contactTitle">Mos mahsulotni birga tanlaymiz.</h2><p data-i18n="contactCopy">Biz bilan bog‘laning — mahsulot va qadoqni tanlashda yordam beramiz.</p><div class="hero-actions"><a class="button" href="tel:+998953003000"><span data-i18n="phone">Qo‘ng‘iroq qilish</span> ↗</a><a class="button secondary" href="https://t.me/Elementpaint_uzbekistan" target="_blank" rel="noopener" data-i18n="telegram">Telegram</a></div></div></section>
+  </main>
+  <footer class="container"><span>© <span id="year">2026</span> Element Paint</span><span data-i18n="footer">Bo‘yoqlar va dekorativ qoplamalar ishlab chiqaruvchisi.</span><small data-i18n="preview">Sinov versiyasi</small></footer>
+  <dialog id="productDialog" aria-labelledby="productTitle"><div class="dialog-shell"><button type="button" id="closeProduct" class="dialog-close" data-i18n-aria="closeDialog">×</button><div id="productMedia" class="dialog-media"></div><div class="dialog-copy"><p class="eyebrow" id="productBrand"></p><h2 id="productTitle"></h2><p id="productDescription"></p><div class="product-category" id="productCategory"></div><div id="variantPanel" hidden><h3 data-i18n="colors">Ranglar</h3><div id="variantList"></div><p id="variantName"></p></div><p id="packageInfo"></p><a class="button" href="tel:+998953003000" data-i18n="ask">Mahsulot haqida so‘rash</a><button type="button" class="text-link back-button" id="backToCatalog" data-i18n="back">Katalogga qaytish</button></div></div></dialog>
+  <noscript><div class="noscript-note">Element Paint · +998 95 300 30 00 · <a href="https://t.me/Elementpaint_uzbekistan">Telegram</a></div></noscript>
+</body></html>
