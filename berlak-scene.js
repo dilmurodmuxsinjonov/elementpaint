@@ -36,7 +36,7 @@ export async function createCanScene() {
   const puddle=circle(.4,-1.145,paint);puddle.visible=false;scene.add(puddle);
   let stream;let lang,opened=false,pouring=false,turn=-2.55,lidAmount=0,tilt=0,amount=0,visible=true,failed=false,frame=0,last=0,dirty=true,drag=null;
   const motion=matchMedia('(prefers-reduced-motion:reduce)');
-  function refreshState(){if(!lang)return;lidButton.textContent=opened?lang.close:lang.open;pourButton.textContent=pouring?lang.stop:lang.pour;resetButton.textContent=lang.reset;pourButton.disabled=!opened||amount>=1;status.textContent=pouring?lang.pouring:opened?lang.opened:lang.closed;stage.dataset.lid=opened?'open':'closed';stage.dataset.pouring=String(pouring);}
+  function refreshState(){if(!lang)return;lidButton.textContent=opened?lang.close:lang.open;pourButton.textContent=pouring?lang.stop:lang.pour;resetButton.textContent=lang.reset;pourButton.disabled=!opened||amount>=1;status.textContent=amount>=1?lang.emptyCan:pouring?lang.pouring:opened?lang.opened:lang.closed;stage.dataset.lid=opened?'open':'closed';stage.dataset.pouring=String(pouring);}
   function fail(){failed=true;cancelAnimationFrame(frame);frame=0;canvas.hidden=true;controls.hidden=true;fallback.hidden=false;stage.dataset.state='fallback';status.textContent=lang?.fallback||'Berlak PF-115';}
   function updateStream(){
     if(stream){scene.remove(stream);stream.geometry.dispose();stream=null;}

@@ -1,4 +1,4 @@
-import { categories, products, strings, findProduct } from './catalog-data.js?v=20261006.11';
+import { categories, products, strings, findProduct } from './catalog-data.js?v=20261006.12';
 
 const $ = id => document.getElementById(id);
 const validLang = value => ['uz','ru','en'].includes(value) ? value : 'uz';
@@ -100,4 +100,4 @@ $('year').textContent=new Date().getFullYear();applyLanguage();
 if(findProduct(state.product)){$('productDialog').showModal();renderProduct();}
 const reduced=matchMedia('(prefers-reduced-motion:reduce)');
 if(!reduced.matches&&!state.product){const loader=$('brandLoader');loader.hidden=false;setTimeout(()=>loader.classList.add('leaving'),1200);setTimeout(()=>{loader.hidden=true;},1450);}
-import('./berlak-scene.js?v=20261006.11').then(async module=>{sceneApi=await module.createCanScene();sceneApi?.setLanguage(strings[state.lang]);}).catch(()=>{$('sceneStage').dataset.state='fallback';});
+import('./berlak-scene.js?v=20261006.12').then(async module=>{sceneApi=await module.createCanScene();sceneApi?.setLanguage(strings[state.lang]);}).catch(()=>{$('sceneStage').dataset.state='fallback';});
