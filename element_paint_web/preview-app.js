@@ -1,4 +1,4 @@
-import { categories, products, strings, findProduct } from './catalog-data.js?v=20261006.12';
+import { categories, products, strings, findProduct } from './catalog-data.js?v=20261007.14';
 
 const $ = id => document.getElementById(id);
 const validLang = value => ['uz','ru','en'].includes(value) ? value : 'uz';
@@ -99,5 +99,15 @@ window.addEventListener('popstate',()=>{const q=new URLSearchParams(location.sea
 $('year').textContent=new Date().getFullYear();applyLanguage();
 if(findProduct(state.product)){$('productDialog').showModal();renderProduct();}
 const reduced=matchMedia('(prefers-reduced-motion:reduce)');
-if(!reduced.matches&&!state.product){const loader=$('brandLoader');loader.hidden=false;setTimeout(()=>loader.classList.add('leaving'),1200);setTimeout(()=>{loader.hidden=true;},1450);}
-import('./berlak-scene.js?v=20261006.12').then(async module=>{sceneApi=await module.createCanScene();sceneApi?.setLanguage(strings[state.lang]);}).catch(()=>{$('sceneStage').dataset.state='fallback';});
+async function showBrandIntro(){
+  if(reduced.matches||state.product)return;
+  const loader=$('brandLoader'),can=loader.querySelector('.loader-can');
+  // Skip a late or failed image rather than covering an already usable page.
+  const ready=await Promise.race([can.decode().then(()=>true,()=>false),new Promise(resolve=>setTimeout(()=>resolve(false),700))]);
+  if(!ready||reduced.matches||document.hidden||state.product)return;
+  loader.hidden=false;
+  setTimeout(()=>loader.classList.add('leaving'),1650);
+  setTimeout(()=>{loader.hidden=true;},1900);
+}
+showBrandIntro();
+import('./berlak-scene.js?v=20261006.13').then(async module=>{sceneApi=await module.createCanScene();sceneApi?.setLanguage(strings[state.lang]);}).catch(()=>{$('sceneStage').dataset.state='fallback';});

@@ -42,6 +42,7 @@ const descriptions = {
   ottocento: tr('Ipak va baxmal ko‘rinishidagi dekorativ devor qoplamasi.', 'Декоративное покрытие стен с эффектом шёлка и бархата.', 'A decorative wall finish with a silk and velvet appearance.'),
   wallpaper: tr('Interyer devorlari uchun suyuq gul qog‘ozi.', 'Жидкие обои для внутренних стен.', 'Liquid wallpaper for interior walls.'),
   lak: tr('Yuzani pardozlash uchun lak. Mos mahsulotni tanlashda maslahat oling.', 'Лак для финишной отделки. Уточните подходящий продукт у специалиста.', 'A finishing varnish. Contact us to select a suitable product.'),
+  milano: tr('Interyer devorlari uchun dekorativ qoplama.', 'Декоративное покрытие для внутренних стен.', 'A decorative coating for interior walls.'),
   primer: tr('Bo‘yashdan avval yuzani tayyorlash uchun akril astar.', 'Акриловая грунтовка для подготовки поверхности перед окрашиванием.', 'An acrylic primer for preparing surfaces before painting.'),
   pva: tr('Yog‘och, qog‘oz va qurilish ishlari uchun PVA yelimi.', 'Клей ПВА для дерева, бумаги и строительных работ.', 'PVA adhesive for wood, paper and construction work.'),
   preparation: tr('Ichki yuzalarni pardozlash uchun gipsli aralashma.', 'Гипсовая смесь для отделки внутренних поверхностей.', 'A gypsum compound for finishing interior surfaces.'),
@@ -82,6 +83,7 @@ const additions = [
   ['artek-facade-white', 'ARTEK', 'water', 'Yuviladigan fasad bo‘yog‘i', 'Моющаяся фасадная краска', 'Washable facade paint'],
   ['artek-interior', 'ARTEK', 'water', 'Interior — ichki ishlar uchun', 'Interior — для внутренних работ', 'Interior — for indoor use'],
   ['artek-universal', 'ARTEK', 'emal', 'Universal emal', 'Универсальная эмаль', 'Universal enamel'],
+  ['milano-decorative', 'MILANO', 'decor', 'MILANO dekorativ qoplamasi', 'Декоративное покрытие MILANO', 'MILANO decorative coating'],
 ];
 products.find(p => p.id === 'berlak-white').image = 'assets/berlak_blue_bank.jpg';
 const additionImages={
@@ -92,8 +94,8 @@ const additionImages={
   'artek-universal':'assets/artek_universal.jpg',
 };
 for (const [id, brand, categoryId, uz, ru, en] of additions) products.push({
-  id, aliases: [], categoryId, brand, title: tr(uz,ru,en), description: descriptions[categoryId],
-  image: additionImages[id]||null, variants: [], packages: id === 'atlas-pf266' ? [2.7] : id === 'artek-universal' ? [.9,2.8,25] : [], sourceStatus: additionImages[id]?'generated-preview':'original-image-pending',
+  id, aliases: [], categoryId, brand, title: tr(uz,ru,en), description: descriptions[id==='milano-decorative'?'milano':categoryId],
+  image: additionImages[id]||(id==='milano-decorative'?'assets/milano_decorative_coating.webp':null), variants: [], packages: id === 'atlas-pf266' ? [2.7] : id === 'artek-universal' ? [.9,2.8,25] : id==='milano-decorative' ? [25] : [], sourceStatus: additionImages[id]?'generated-preview':id==='milano-decorative'?'client-provided-image':'original-image-pending',
 });
 export const strings = {
   uz: {

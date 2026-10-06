@@ -71,7 +71,7 @@ Avvalgi laklar va gips shpatlyovka ham yo‘qolmaydi. Ular asosiy yo‘nalishlar
 | Atlas Glatt | Sirt tayyorlash |
 | KRATA | Taqiqlangan: qo‘shilmaydi |
 
-Yangi yozuvlar: Atlas PF-115 ning qolgan ranglari; Atlas PF-266; Artek fasad va Interior; Artek Universal. Foydalanuvchi Artekning qora va oq fasad qadoqlarini ikkita alohida mahsulot deb tasdiqladi. Ular alohida yozuvlar sifatida kiritiladi; qo‘shimcha texnik farqlar tasdiqlanmaguncha o‘ylab yozilmaydi.
+Yangi yozuvlar: Atlas PF-115 ning qolgan ranglari; Atlas PF-266; Artek fasad va Interior; Artek Universal; mijoz bergan MILANO 25 kg dekorativ qoplamasi. Foydalanuvchi Artekning qora va oq fasad qadoqlarini ikkita alohida mahsulot deb tasdiqladi. Ular alohida yozuvlar sifatida kiritiladi; qo‘shimcha texnik farqlar tasdiqlanmaguncha o‘ylab yozilmaydi.
 
 Mahsulot oilasi, rang varianti va qadoq varianti alohida tushunchalar. Katalogdagi mahsulot soni ranglar soni emas. “3.000 dona” yozuvi zaxira, narx yoki qadoq qiymatiga aylantirilmaydi.
 
@@ -86,7 +86,7 @@ Mahsulot oilasi, rang varianti va qadoq varianti alohida tushunchalar. Katalogda
 
 ## Yuklanish sahnasi
 
-Element Paint logo shakli saqlanadi. Kichik Berlak bankasi egiladi; bo‘yoq logo ustidan o‘tib belgini rang bilan to‘ldiradi. Natija saytda ishlatilayotgan haqiqiy logoga mos. Ko‘rinish qisqa, taxminan 1–2 soniya; qidiruv yoki ichki havolaga qaytishda qayta-qayta o‘ynatilmaydi.
+Element Paint logo shakli saqlanadi. Ko‘k Berlak PF115 qadoq tasviridan olingan, metall chetlari va yorlig‘i ko‘rinadigan ochiq banka egiladi; bo‘yoq og‘izning o‘ng chetidan logoga tushib belgini rang bilan to‘ldiradi. Natija saytda ishlatilayotgan haqiqiy logoga mos. Ko‘rinish qisqa, taxminan 1–2 soniya; qidiruv yoki ichki havolaga qaytishda qayta-qayta o‘ynatilmaydi. Tasvir va aniq prompt [loader-asset-prompt.md](loader-asset-prompt.md) da.
 
 Animatsiya tugashi sayt funksiyalarining tayyor bo‘lishiga bog‘lanadi, soxta foiz yozilmaydi. Xato yoki sust yuklanish foydalanuvchini doimiy yopiq ekranda qoldirmaydi. JavaScript o‘chsa, sahifa boshidan ochiq. Harakat kamaytirilganda to‘ldirilgan logo va qisqa yumshoq o‘tish kifoya; majburiy oqim yo‘q.
 
