@@ -7,7 +7,7 @@
 - [x] 20 oldingi yozuv saqlandi; 24 mahsulot oilasi; MILANO 25 kg alohida qo‘shildi; KRATA chiqarib tashlangan.
 - [x] Artek qora va oq fasad mahsulotlari alohida.
 - [x] Atlas PF-115 o‘nta rang va banka ko‘rinishidagi rasmlar.
-- [x] Barcha mahsulotlar bir xil studiya uslubida: 32 tanlangan mahsulot fotosurati.
+- [x] Avvalgi va Atlas rasmlari qaymoqrang studiya uslubida: 32 ta mahsulot tasviri; MILANO ning yuborilgan asl rasmi alohida qo‘shildi.
 - [x] Berlak haqiqiy 3D geometriyasi: aylantirish, qopqoqni bosish/ochish, quyish, tugash, reset.
 - [x] Berlak bo‘yoq oqimi bilan logo to‘lish animatsiyasi.
 - [x] Boshlanish animatsiyasiga ochiq, haqiqiy Berlak banka ko‘rinishi qo‘shildi.

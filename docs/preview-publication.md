@@ -10,7 +10,7 @@ Ikkala havola alohida mijoz ko‘rish nusxasi. elementpaint.uz, Billur hosting, 
 
 ## 7 oktabr yangilanishi
 
-MILANO dekorativ qoplamasi, 25 kg qadoq bilan qo‘shildi. Katalog 24 mahsulot oilasidan iborat. Asosiy GitHub Pages runtime commit `bdb63484f4b5da3aa10c260af4041b2c253cfa09`; deploy muvaffaqiyatli.
+MILANO dekorativ qoplamasi, 25 kg qadoq bilan qo‘shildi. Katalog 24 mahsulot oilasidan iborat. Milano qadoq rasmi mijoz yuborgan qora fonli asl ko‘rinishda saqlandi. Asosiy GitHub Pages runtime commit `e95359d049fb420d44f95788eebe854191723e1a`; uning yig‘ilishi tekshirilmoqda.
 
 7 oktabrdagi yangilanish faqat GitHub Pages asosiy sinov havolasiga chiqarildi. Sites zaxira havolasi avvalgi ko‘rinishda qolgan.
 
