@@ -1,4 +1,4 @@
-import { categories, products, strings, findProduct } from './catalog-data.js?v=20261007.14';
+import { categories, products, strings, findProduct } from './catalog-data.js?v=20261007.15';
 
 const $ = id => document.getElementById(id);
 const validLang = value => ['uz','ru','en'].includes(value) ? value : 'uz';
