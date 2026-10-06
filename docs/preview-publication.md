@@ -10,14 +10,14 @@ Ikkala havola alohida mijoz ko‘rish nusxasi. elementpaint.uz, Billur hosting, 
 
 ## 7 oktabr yangilanishi
 
-MILANO dekorativ qoplamasi, 25 kg qadoq bilan qo‘shildi. Katalog 24 mahsulot oilasidan iborat. Milano qadoq rasmi mijoz yuborgan qora fonli asl ko‘rinishda saqlandi. Asosiy GitHub Pages runtime commit `e95359d049fb420d44f95788eebe854191723e1a`; uning yig‘ilishi tekshirilmoqda.
+MILANO dekorativ qoplamasi, 25 kg qadoq bilan qo‘shildi. Katalog 24 mahsulot oilasidan iborat. Milano qadoq rasmi mijoz yuborgan qora fonli asl ko‘rinishda saqlandi. Mobil mahsulot oynasida butun qadoq ko‘rinadi. Asosiy GitHub Pages runtime commit `fec439b2e5d953f0e295b6430a50795ddc07c14e`; build va jonli sahifa brauzerda tekshirildi.
 
 7 oktabrdagi yangilanish faqat GitHub Pages asosiy sinov havolasiga chiqarildi. Sites zaxira havolasi avvalgi ko‘rinishda qolgan.
 
 ## Nashr dalillari
 
 - GitHub Pages: `preview-site` tarmog‘i, ildiz `/`, custom domain yo‘q, HTTPS yoqilgan. Dastlabki runtime commit: `e753ad8ae117e6b583065413f4b94a33153431e6`; 7 oktabr yangilanishi yuqorida qayd etilgan.
-- GitHub manzili brauzerda ochildi: 24 mahsulot, Milano qidiruvi va mahsulot oynasi ko‘rsatildi. Qopqoq ochish va bo‘yoq oqimi avvalgi tashqi HTTPS ko‘rishda tekshirildi.
+- GitHub manzili brauzerda ochildi: 24 mahsulot, Milano qidiruvi va mahsulot oynasi ko‘rsatildi. 25 kg yozuvi va butun qadoq rasmi telefonda tekshirildi. Qopqoq ochish va bo‘yoq oqimi avvalgi tashqi HTTPS ko‘rishda tekshirildi.
 - Sites zaxirasi: `appgprj_6ac4152529e081919dfac8f2e3d2fad0`; versiya 1; deploy `appgdep_6ac415eac3288191bb9923c2606a40f5`, natija `succeeded`. Shu natijadagi literal URL yuqorida. Audience: public, havolani mijoz ochishi uchun.
 - Sites checkout: `D:\Codex\elementpaint-client-site`; source commit `1ccb6ade81ad4f907a6651f5d6d6bc5a219c0f52`. `.openai/hosting.json` project identity va static directoryni saqlaydi. Credential faylga yozilmagan.
 
