@@ -95,7 +95,7 @@ const additionImages={
 };
 for (const [id, brand, categoryId, uz, ru, en] of additions) products.push({
   id, aliases: [], categoryId, brand, title: tr(uz,ru,en), description: descriptions[id==='milano-decorative'?'milano':categoryId],
-  image: additionImages[id]||(id==='milano-decorative'?'assets/milano_decorative_coating.webp':null), variants: [], packages: id === 'atlas-pf266' ? [2.7] : id === 'artek-universal' ? [.9,2.8,25] : id==='milano-decorative' ? [25] : [], sourceStatus: additionImages[id]?'generated-preview':id==='milano-decorative'?'client-provided-image':'original-image-pending',
+  image: additionImages[id]||(id==='milano-decorative'?'assets/milano_decorative_coating_v2.webp':null), variants: [], packages: id === 'atlas-pf266' ? [2.7] : id === 'artek-universal' ? [.9,2.8,25] : id==='milano-decorative' ? [25] : [], sourceStatus: additionImages[id]?'generated-preview':id==='milano-decorative'?'client-provided-image':'original-image-pending',
 });
 export const strings = {
   uz: {
