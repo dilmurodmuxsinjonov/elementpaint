@@ -2,6 +2,4 @@
 
 Mijoz yuborgan qadoq suratida “MILANO Decorative Coating”, interyer uchun va 25 kg yozuvlari bor. Shu ma’lumotdan foydalanib, MILANO brendi alohida mahsulot sifatida “Dekorativ qoplamalar” bo‘limiga kiritildi. Tasdiqlanmagan sarf, chidamlilik, ekologik sertifikat yoki qo‘llash usullari qo‘shilmadi.
 
-Katalog rasmi mijoz bergan mahsulot suratidan olingan; faylni WebP formatiga siqish vaqtida o‘lchami 1254×1254 px qoldirildi. Yakuniy fayl: `element_paint_web/assets/milano_decorative_coating.webp`. Asl surat Git va ommaviy paketdan tashqarida `design-assets/milano-decorative-source.png` da saqlanadi.
-
-Suratning o‘zida qora studiya muhiti bor. Uni o‘zgartiradigan ImageGen vositasi bu ish muhiti uchun hozir mavjud emas, shuning uchun yorliq va qadoqni qayta chizish o‘rniga mijoz yuborgan asl tasvir saqlandi. Boshqa mahsulotlar bilan fonni to‘liq bir xil qilish uchun MILANO bankasining krem studiyada olingan mahsulot fotosurati kerak bo‘ladi.
+Katalog rasmi mijoz bergan mahsulot suratidan olingan. Asl surat o‘zgartirilmay `design-assets/milano-decorative-source.png` da, qaymoqrang studiya foniga moslangan nusxasi esa `design-assets/milano-decorative-studio-v2.png` da saqlanadi. Fon ajratilganda mahsulotning original piksellari, yorliq matni va grafikasi saqlandi; ustiga qaymoqrang studiya gradienti va mayin soya kompozitsiya qilindi. Yorliq ko‘zdan kechirildi. Sayt uchun 1254×1254 px WebP nusxa `element_paint_web/assets/milano_decorative_coating.webp` da.
