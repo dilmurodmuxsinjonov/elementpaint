@@ -1,4 +1,4 @@
-import { categories, products, strings, findProduct } from './catalog-data.js?v=20261007.19';
+import { categories, products, strings, findProduct } from './catalog-data.js?v=20261008.1';
 
 const $ = id => document.getElementById(id);
 const validLang = value => ['uz','ru','en'].includes(value) ? value : 'uz';
@@ -53,7 +53,7 @@ function renderProduct() {
   $('variantPanel').hidden=!product.variants.length;$('variantList').replaceChildren();
   for(const v of product.variants){const button=node('button');button.type='button';button.style.setProperty('--swatch',v.color);button.title=v.name[state.lang];button.setAttribute('aria-label',v.name[state.lang]);button.setAttribute('aria-pressed',String(v.id===state.variant));button.append(node('span'));button.addEventListener('click',()=>{state.variant=v.id;saveURL();renderProduct();});$('variantList').append(button);}
   $('variantName').textContent=variant?`${variant.name[state.lang]}${variant.image?'':` · ${t('photoPending')}`}`:'';
-  const packages=variant?[variant.packageKg]:product.packages;
+  const packages=variant?(variant.packages||[variant.packageKg]).filter(Boolean):product.packages;
   const mass=new Intl.NumberFormat(state.lang==='uz'?'uz-Latn-UZ':state.lang,{maximumFractionDigits:2});
   $('packageInfo').textContent=packages.length?`${t('packages')}: ${packages.map(kg=>mass.format(kg)).join(' / ')} ${state.lang==='ru'?'кг':'kg'}`:'';
 }
