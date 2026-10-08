@@ -16,7 +16,11 @@ def main():
     parser.add_argument('--output', type=Path, required=True)
     args = parser.parse_args()
     source = '\n'.join((WEB / item).read_text(encoding='utf-8-sig') for item in CORE)
-    assets = sorted(set(re.findall(r'assets/[A-Za-z0-9_.-]+\.(?:jpg|png|webp|svg|woff2)', source)))
+    assets = set(re.findall(r'assets/(?:[A-Za-z0-9_.-]+/)*[A-Za-z0-9_.-]+\.(?:jpg|png|webp|svg|woff2)', source))
+    for directory in set(re.findall(r'(assets/(?:[A-Za-z0-9_.-]+/)+)', source)):
+        assets.update(path.relative_to(WEB).as_posix() for path in (WEB / directory).rglob('*')
+                      if path.is_file() and path.suffix.lower() in {'.jpg', '.png', '.webp', '.svg', '.woff2'})
+    assets = sorted(assets)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     manifest = []
     with zipfile.ZipFile(args.output, 'w', zipfile.ZIP_DEFLATED) as archive:
