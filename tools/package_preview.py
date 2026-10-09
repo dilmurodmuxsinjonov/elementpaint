@@ -8,7 +8,8 @@ from pathlib import Path
 
 WEB = Path(__file__).resolve().parent.parent / 'element_paint_web'
 CORE = ('preview.html', 'preview.css', 'preview-app.js', 'catalog-data.js',
-        'legacy-products.js', 'berlak-scene.js', 'vendor/three.module.js',
+        'legacy-products.js', 'berlak-scene.js', 'paint-physics.js', 'paint-intro.js',
+        'studio-preferences.js', 'vendor/three.module.js',
         'vendor/three.core.js', 'vendor/THREE-LICENSE.txt', 'vendor/MANROPE-OFL.txt')
 
 def main():

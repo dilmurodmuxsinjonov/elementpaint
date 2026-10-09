@@ -1,0 +1,18 @@
+import assert from 'node:assert/strict';
+import {createPaintState,advancePaint,streamRadius} from '../element_paint_web/paint-physics.js';
+import {defaultPreferences,normalizePreferences,readPreferences,savePreferences} from '../element_paint_web/studio-preferences.js';
+const tick=(s,n,speed=1,reduced=false)=>{for(let i=0;i<n;i++){advancePaint(s,.025,speed,reduced);assert.ok(s.remaining>=0&&s.remaining<=1);assert.ok(Math.abs(s.remaining+s.collected-1)<1e-12);}return s;};
+const closed=createPaintState();closed.pouring=true;tick(closed,80);assert.equal(closed.remaining,1);assert.equal(closed.flow,0);
+const flowing=createPaintState();flowing.open=true;flowing.pouring=true;tick(flowing,80);assert.ok(flowing.collected>.1);assert.ok(flowing.remaining<1);
+flowing.pouring=false;const held=flowing.remaining;tick(flowing,100);assert.equal(flowing.remaining,held);assert.equal(flowing.flow,0);assert.ok(flowing.tilt<.01);
+flowing.pouring=true;tick(flowing,1200);assert.equal(flowing.remaining,0);assert.equal(flowing.collected,1);assert.equal(flowing.pouring,false);assert.equal(flowing.flow,0);
+const fast=createPaintState(),slow=createPaintState();for(const s of [fast,slow]){s.open=true;s.pouring=true;}tick(fast,80,1.5);tick(slow,80,.5);assert.ok(fast.collected>slow.collected*2);
+const reduced=createPaintState();reduced.open=true;reduced.pouring=true;tick(reduced,1,1,true);assert.equal(reduced.lid,1);assert.ok(reduced.tilt>=1.38);assert.ok(reduced.collected>0);
+const noAdvance=createPaintState();advancePaint(noAdvance,-2);assert.equal(noAdvance.time,0);advancePaint(noAdvance,500);assert.equal(noAdvance.time,.05);
+assert.ok(streamRadius(1,0)<streamRadius(0,0));assert.equal(streamRadius(.5,0,0),0);
+assert.deepEqual(normalizePreferences(null),defaultPreferences);assert.deepEqual(normalizePreferences({theme:'invalid',motion:'unknown',autoRotate:'true',flowSpeed:NaN}),defaultPreferences);
+assert.equal(normalizePreferences({flowSpeed:99}).flowSpeed,1.5);assert.equal(normalizePreferences({flowSpeed:-1}).flowSpeed,.5);
+assert.equal(normalizePreferences({theme:'dark',motion:'reduced',quality:'eco',density:'compact',autoRotate:true}).autoRotate,true);
+Object.defineProperty(globalThis,'localStorage',{configurable:true,value:{getItem(){throw new Error('blocked');},setItem(){throw new Error('blocked');}}});assert.deepEqual(readPreferences(),defaultPreferences);assert.doesNotThrow(()=>savePreferences(defaultPreferences));
+Object.defineProperty(globalThis,'localStorage',{configurable:true,value:{getItem:()=>'{broken',setItem(){}}});assert.deepEqual(readPreferences(),defaultPreferences);
+console.log('PASS: paint conservation, closed/paused/empty states, flow speed, reduced motion, timing bounds, preferences and blocked storage.');

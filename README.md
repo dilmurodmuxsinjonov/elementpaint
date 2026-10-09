@@ -59,3 +59,10 @@ BillurCOM Plesk. Asosiy manzil: https://elementpaint.uz/.
 Let’s Encrypt sertifikati elementpaint.uz va www.elementpaint.uz ni qamrab oladi.
 Sayt ommaviy katalog va aloqa havolalarini taqdim etadi; buyurtmalar telefon
 va Telegram orqali olinadi.
+
+## 2026-10-09 sinov dizayni
+
+GitHub Pages sinov sahifasi uchun 3D bo‘yoq studiyasi, suyuqlik bilan to‘ladigan logo,
+saqlanadigan ko‘rinish sozlamalari va moslashuvchan katalog yangilandi.
+Tafsilotlar va tekshiruvlar: [docs/studio-design-20261009.md](docs/studio-design-20261009.md).
+Sinov paketini `tools/package_preview.py` tayyorlaydi. Asosiy hostingga chiqarilmagan.
