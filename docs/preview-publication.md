@@ -1,5 +1,26 @@
 # Jonli sinov — 7 oktabr 2026
 
+## 9 oktabr 2026: 2026 katalog mosligi
+
+45 tasdiqlangan karta, 34 rang va 72 PDF qadoq rasmi saqlandi. Qadoq
+og‘irliklari va ayrim nomlar asl katalogga moslandi; yangi mahsulot qo‘shilmadi.
+Batafsil tekshiruv: `docs/catalog-2026-audit.md`.
+
+- Manba commit: `d377f79251a84081c880248fb3707650839ed2cf`,
+  `design-refresh-20261005`.
+- Sinov runtime commit: `f7069467b1e9c8489b8eeba2f25b32784442564d`,
+  `preview-site`.
+- GitHub Pages build va deploy muvaffaqiyatli:
+  https://github.com/dilmurodmuxsinjonov/elementpaint/actions/runs/37957471192.
+- Jonli havola brauzerda tekshirildi:
+  https://dilmurodmuxsinjonov.github.io/elementpaint/?lang=uz#catalog.
+  45 karta, 10 brend, Berlak universal 2,7 kg, Atlas astari 2,8 / 5 kg
+  va Artek `Qizg‘ish pol` rang nomi ko‘rindi.
+- `main` SHA o‘zgarmadi: `14fcd39e1a70198117537ee676a3874067eac6a1`.
+  Asosiy server, domen va Sites zaxira nusxasi yangilanmadi.
+
+Quyida avvalgi sinov nashrlarining tarixiy qaydlari.
+
 Asosiy sinov havolasi: https://dilmurodmuxsinjonov.github.io/elementpaint/
 
 Zaxira sinov havolasi: https://elementpaint-client-preview.muxsinjonovdilmurod.chatgpt.site
