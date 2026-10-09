@@ -1,8 +1,11 @@
-import { categories, products, strings, findProduct } from './catalog-data.js?v=20261009.1';
+import { categories, products, strings, findProduct } from './catalog-data.js?v=20261009.2';
+import {readPreferences,savePreferences,defaultPreferences} from './studio-preferences.js?v=20261009.2';
+import {createPaintIntro} from './paint-intro.js?v=20261009.2';
 
 const $ = id => document.getElementById(id);
 const validLang = value => ['uz','ru','en'].includes(value) ? value : 'uz';
 let sceneApi, returnFocus, urlTimer;
+let preferences=readPreferences(),introApi,introGeneration=0,introTimeout;
 const params = new URLSearchParams(location.search);
 export const state = { lang: validLang(params.get('lang')), category: categories.some(c=>c.id===params.get('category')) ? params.get('category') : 'all', brand: params.get('brand') || 'all', query: params.get('q') || '', product: params.get('product') || '', variant: params.get('variant') || '' };
 const t = key => strings[state.lang][key];
@@ -36,6 +39,7 @@ function renderCatalog() {
     const card=node('article','product-card');card.dataset.product=product.id;
     const button=node('button','product-open');button.type='button';button.setAttribute('aria-label',`${product.brand} ${product.title[state.lang]} — ${t('detail')}`);
     const media=imageMedia(product);
+    const label=node('span','card-index',String(products.indexOf(product)+1).padStart(2,'0'));media.append(label);
     const colorWord={uz:'ta rang',ru:'цветов',en:'colours'}[state.lang];
     const copy=node('div','product-copy');copy.append(node('div','product-brand',product.brand),node('h3','',product.title[state.lang]),node('p','',product.variants.length?`${product.variants.length} ${colorWord}`:categories.find(c=>c.id===product.categoryId).name[state.lang]));
     const detail=node('span','detail-link');detail.append(node('span','',t('detail')),node('span','','↗'));copy.append(detail);button.append(media,copy);button.addEventListener('click',()=>showProduct(product.id,button));card.append(button);return card;
@@ -67,7 +71,7 @@ function closeProduct(fromHistory=false) {
   const target=returnFocus?.isConnected?returnFocus:productId?document.querySelector(`[data-product="${productId}"] .product-open`):$('searchInput');target?.focus({preventScroll:true});
 }
 function applyLanguage() {
-  document.documentElement.lang=state.lang;document.title=`Element Paint — ${t('catalog')}`;
+  $('paintLevel').setAttribute('aria-label',t('paintLeft'));document.documentElement.lang=state.lang;document.title=`Element Paint — ${t('catalog')}`;
   document.querySelector('.logo').href=`preview.html?lang=${state.lang}`;
   document.querySelector('meta[name=description]').content=t('footer');
   for(const el of document.querySelectorAll('[data-i18n]'))el.textContent=t(el.dataset.i18n);
@@ -88,7 +92,7 @@ $('clearFilters').addEventListener('click',()=>{state.category='all';state.brand
 $('closeProduct').addEventListener('click',()=>closeProduct());$('backToCatalog').addEventListener('click',()=>closeProduct());
 $('productDialog').addEventListener('cancel',e=>{e.preventDefault();closeProduct();});
 $('productDialog').addEventListener('click',e=>{if(e.target===$('productDialog')){const r=$('productDialog').getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)closeProduct();}});
-$('themeButton').addEventListener('click',()=>{document.documentElement.dataset.theme=document.documentElement.dataset.theme==='light'?'dark':'light';$('themeButton').setAttribute('aria-pressed',String(document.documentElement.dataset.theme==='dark'));sceneApi?.refresh();});
+$('themeButton').addEventListener('click',()=>{preferences.theme=preferences.theme==='light'?'dark':'light';applyPreferences();});
 function closeMenu(){const restore=$('navigationLinks').classList.contains('open')&&$('navigationLinks').contains(document.activeElement);$('navigationLinks').classList.remove('open');$('menuButton').setAttribute('aria-expanded','false');if(restore)$('menuButton').focus({preventScroll:true});}
 $('menuButton').addEventListener('click',()=>{$('menuButton').setAttribute('aria-expanded',String($('navigationLinks').classList.toggle('open')));});
 document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',closeMenu));
@@ -100,15 +104,38 @@ window.addEventListener('popstate',()=>{const q=new URLSearchParams(location.sea
 $('year').textContent=new Date().getFullYear();applyLanguage();
 if(findProduct(state.product)){$('productDialog').showModal();renderProduct();}
 const reduced=matchMedia('(prefers-reduced-motion:reduce)');
-async function showBrandIntro(){
-  if(reduced.matches||state.product)return;
-  const loader=$('brandLoader'),can=loader.querySelector('.loader-can');
-  // Skip a late or failed image rather than covering an already usable page.
-  const ready=await Promise.race([can.decode().then(()=>true,()=>false),new Promise(resolve=>setTimeout(()=>resolve(false),700))]);
-  if(!ready||reduced.matches||document.hidden||state.product)return;
-  loader.hidden=false;
-  setTimeout(()=>loader.classList.add('leaving'),1650);
-  setTimeout(()=>{loader.hidden=true;},1900);
+function applyPreferences(){
+  document.documentElement.dataset.theme=preferences.theme;document.documentElement.dataset.motion=reduced.matches?'reduced':preferences.motion;document.documentElement.dataset.density=preferences.density;
+  $('themeButton').setAttribute('aria-pressed',String(preferences.theme==='dark'));
+  for(const [id,key] of [['appearanceSetting','theme'],['motionSetting','motion'],['qualitySetting','quality'],['densitySetting','density'],['flowSetting','flowSpeed']])$(id).value=preferences[key];
+  $('rotateSetting').checked=preferences.autoRotate;$('flowOutput').value=`${preferences.flowSpeed}×`;
+  $('replayIntro').disabled=reduced.matches||preferences.motion==='reduced';
+  sceneApi?.configure(preferences);savePreferences(preferences);
+  if(reduced.matches||preferences.motion==='reduced')stopIntro();
 }
-showBrandIntro();
-import('./berlak-scene.js?v=20261006.13').then(async module=>{sceneApi=await module.createCanScene();sceneApi?.setLanguage(strings[state.lang]);}).catch(()=>{$('sceneStage').dataset.state='fallback';});
+for(const [id,key] of [['appearanceSetting','theme'],['motionSetting','motion'],['qualitySetting','quality'],['densitySetting','density']])$(id).addEventListener('change',e=>{preferences[key]=e.target.value;applyPreferences();});
+$('flowSetting').addEventListener('input',e=>{preferences.flowSpeed=Number(e.target.value);applyPreferences();});
+$('rotateSetting').addEventListener('change',e=>{preferences.autoRotate=e.target.checked;applyPreferences();});
+$('settingsButton').addEventListener('click',()=>{$('settingsDialog').showModal();$('closeSettings').focus();});
+function closeSettings(){$('settingsDialog').close();$('settingsButton').focus({preventScroll:true});}
+for(const id of ['closeSettings','doneSettings'])$(id).addEventListener('click',closeSettings);
+$('settingsDialog').addEventListener('cancel',e=>{e.preventDefault();closeSettings();});
+$('settingsDialog').addEventListener('click',e=>{if(e.target===$('settingsDialog')){const r=e.target.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)closeSettings();}});
+$('restoreSettings').addEventListener('click',()=>{preferences={...defaultPreferences};applyPreferences();});
+function stopIntro(){introGeneration++;clearTimeout(introTimeout);introApi?.stop();$('brandLoader').hidden=true;$('brandLoader').classList.remove('leaving');}
+async function showBrandIntro(replay=false){
+  if(reduced.matches||preferences.motion==='reduced'||state.product||document.hidden)return;
+  if(!replay){if(location.hash&&location.hash!=='#home')return;try{if(sessionStorage.getItem('elementpaint-intro-20261009'))return;sessionStorage.setItem('elementpaint-intro-20261009','seen');}catch{}}
+  const generation=++introGeneration;
+  try{introApi ||= await Promise.race([createPaintIntro({loader:$('brandLoader'),canvas:$('introCanvas'),onProgress:value=>$('introProgress').style.width=`${value*100}%`}),new Promise(resolve=>setTimeout(()=>resolve(null),900))]);}catch{return;}
+  if(!introApi||generation!==introGeneration||reduced.matches||preferences.motion==='reduced'||document.hidden)return;
+  $('brandLoader').hidden=false;$('brandLoader').classList.remove('leaving');
+  introApi.play(()=>{clearTimeout(introTimeout);$('brandLoader').classList.add('leaving');introTimeout=setTimeout(stopIntro,300);});
+  introTimeout=setTimeout(stopIntro,3300);
+}
+$('skipIntro').addEventListener('click',stopIntro);
+$('replayIntro').addEventListener('click',()=>{closeSettings();showBrandIntro(true);});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('brandLoader').hidden)stopIntro();});
+document.addEventListener('visibilitychange',()=>{if(document.hidden)stopIntro();});reduced.addEventListener('change',applyPreferences);
+applyPreferences();showBrandIntro();
+import('./berlak-scene.js?v=20261009.2').then(async module=>{sceneApi=await module.createCanScene(preferences);sceneApi?.setLanguage(strings[state.lang]);$('sceneUnavailable').hidden=Boolean(sceneApi);$('sceneHint').hidden=!sceneApi;document.querySelector('.paint-readout').hidden=!sceneApi;$('paintLevel').setAttribute('aria-label',t('paintLeft'));}).catch(()=>{$('sceneStage').dataset.state='fallback';$('sceneUnavailable').hidden=false;$('sceneHint').hidden=true;document.querySelector('.paint-readout').hidden=true;});
