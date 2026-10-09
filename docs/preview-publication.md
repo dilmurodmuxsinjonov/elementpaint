@@ -43,3 +43,12 @@ MILANO dekorativ qoplamasi, 25 kg qadoq bilan qo‘shildi. Katalog 24 mahsulot o
 - Sites checkout: `D:\Codex\elementpaint-client-site`; source commit `1ccb6ade81ad4f907a6651f5d6d6bc5a219c0f52`. `.openai/hosting.json` project identity va static directoryni saqlaydi. Credential faylga yozilmagan.
 
 Sinov nusxasi yakuniy ishlab chiqarish chiqarilishi emas. Mijoz tuzatishlari, asl yorliq va haqiqiy telefondagi ishlash tekshiruvi keyingi bosqich.
+
+## 2026-10-09: studio design follow-up
+
+- Source implementation: `5d0b4489e3811d3b43432e3b7d0a13773e609db0` on `design-refresh-20261005`.
+- Preview runtime: `80ac35a555861863440923da4c71088bd609220d` on `preview-site`.
+- GitHub Pages run [37961169520](https://github.com/dilmurodmuxsinjonov/elementpaint/actions/runs/37961169520): completed successfully.
+- Live preview checked at https://dilmurodmuxsinjonov.github.io/elementpaint/?lang=uz#home : app version `20261009.2`, 45 cards, new settings dialog, active WebGL scene and increasing receiving fill. The logo introduction was replayed and its liquid filling captured at 63%.
+- Main stayed at `14fcd39e1a70198117537ee676a3874067eac6a1`; no production server access or deployment.
+- Validation details: [studio-design-20261009.md](studio-design-20261009.md).
