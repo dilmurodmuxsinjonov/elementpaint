@@ -1,4 +1,4 @@
-import { categories, products, strings, findProduct } from './catalog-data.js?v=20261008.1';
+import { categories, products, strings, findProduct } from './catalog-data.js?v=20261009.1';
 
 const $ = id => document.getElementById(id);
 const validLang = value => ['uz','ru','en'].includes(value) ? value : 'uz';
@@ -75,6 +75,7 @@ function applyLanguage() {
   for(const el of document.querySelectorAll('[data-i18n-placeholder]')){el.placeholder=t(el.dataset.i18nPlaceholder);el.setAttribute('aria-label',t(el.dataset.i18nPlaceholder));}
   for(const button of document.querySelectorAll('[data-lang]'))button.setAttribute('aria-pressed',String(button.dataset.lang===state.lang));
   const brands=[...new Set(products.map(p=>p.brand))];if(!brands.includes(state.brand))state.brand='all';
+  $('brandCount').textContent=String(brands.length);
   $('brandSelect').replaceChildren(new Option(t('all'),'all'),...brands.map(b=>new Option(b,b)));$('brandSelect').value=state.brand;
   $('searchInput').value=state.query;renderCatalog();renderProduct();sceneApi?.setLanguage(strings[state.lang]);
   const altKeys=[['.about-image img','catalog'],['.application-grid article:nth-child(1) img','facade'],['.application-grid article:nth-child(2) img','interior'],['.application-grid article:nth-child(3) img','wood']];
