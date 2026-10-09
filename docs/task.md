@@ -1,5 +1,15 @@
 # Ish holati — 7 oktabr 2026
 
+## 9 oktabr 2026: katalog mosligi
+
+- [x] Asl 2026 PDFdagi 72 qadoq va og‘irlik qatorlari tekshirildi.
+- [x] 45 karta, 34 rang va tasdiqlangan eski mahsulotlar saqlandi.
+- [x] Qadoq og‘irliklari, astar nomlari va Artek rang nomi moslandi.
+- [x] PDF asosidagi tekshiruv fixture’i va yangilangan sinov testi qo‘shildi.
+- [x] Barcha kartalar/ranglar, UZ/RU/EN va mobil sig‘im brauzerda tekshirildi.
+
+Batafsil: `docs/catalog-2026-audit.md`. Quyida 7 oktabrdagi tarixiy holat.
+
 - [x] Yozma va rasm materiallari o‘rganildi; audio talablari foydalanuvchi orqali aniqlashtirildi.
 - [x] To‘liq dizayn hujjati va amalga oshirish rejasi yozildi.
 - [x] Alohida ish nusxasi; asosiy sayt va main o‘zgartirilmagan.

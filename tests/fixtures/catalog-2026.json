@@ -1,0 +1,1131 @@
+{
+  "source": "Element katalog 2026.pdf",
+  "sourceSha256": "d776654829ddd795674ff9ecf6d3fd5c44ce3d19dc2f6b65c701a8681bdec997",
+  "reviewDate": "2026-10-09",
+  "note": "Image assignments visually checked against the original PDF and extracted package labels. Weights are the printed kg row, not inferred from image dimensions. Existing approved products outside the PDF are retained separately.",
+  "existingApproved": {
+    "ep-plaster": [],
+    "atlas-nitro": [],
+    "atlas-glatt": [],
+    "milano-decorative": [
+      25
+    ]
+  },
+  "packages": [
+    {
+      "imageNumber": 1,
+      "pdfPage": 1,
+      "pdfBounds": [
+        191.0,
+        3814.3369140625,
+        355.0,
+        4174.3369140625
+      ],
+      "packagesKg": [
+        3.0
+      ],
+      "productId": "berlak-white"
+    },
+    {
+      "imageNumber": 2,
+      "pdfPage": 1,
+      "pdfBounds": [
+        358.6,
+        3814.3369140625,
+        522.6,
+        4174.3369140625
+      ],
+      "packagesKg": [
+        2.7
+      ],
+      "productId": "berlak-universal-white"
+    },
+    {
+      "imageNumber": 3,
+      "pdfPage": 1,
+      "pdfBounds": [
+        526.2,
+        3814.3369140625,
+        690.2,
+        4174.3369140625
+      ],
+      "packagesKg": [
+        2.7
+      ],
+      "productId": "berlak-floor"
+    },
+    {
+      "imageNumber": 4,
+      "pdfPage": 1,
+      "pdfBounds": [
+        784.7,
+        3814.3369140625,
+        948.7,
+        4174.3369140625
+      ],
+      "packagesKg": [
+        5.0,
+        10.0,
+        15.0
+      ],
+      "productId": "berlak-travertin"
+    },
+    {
+      "imageNumber": 5,
+      "pdfPage": 1,
+      "pdfBounds": [
+        952.3,
+        3814.3369140625,
+        1116.3,
+        4174.3369140625
+      ],
+      "packagesKg": [
+        4.0,
+        9.0,
+        14.0,
+        18.0,
+        20.0
+      ],
+      "productId": "berlak-facade"
+    },
+    {
+      "imageNumber": 6,
+      "pdfPage": 1,
+      "pdfBounds": [
+        1120.0,
+        3814.3369140625,
+        1284.0,
+        4174.3369140625
+      ],
+      "packagesKg": [
+        4.0,
+        9.0,
+        14.0,
+        18.0,
+        20.0
+      ],
+      "productId": "berlak-interior"
+    },
+    {
+      "imageNumber": 7,
+      "pdfPage": 1,
+      "pdfBounds": [
+        952.3,
+        4171.6435546875,
+        1116.3,
+        4531.6435546875
+      ],
+      "packagesKg": [
+        0.2,
+        0.5,
+        1.0
+      ],
+      "productId": "berlak-wallpaper-glue"
+    },
+    {
+      "imageNumber": 8,
+      "pdfPage": 1,
+      "pdfBounds": [
+        191.0,
+        4171.6435546875,
+        355.0,
+        4531.6435546875
+      ],
+      "packagesKg": [
+        2.5
+      ],
+      "productId": "berlak-primer-2kg"
+    },
+    {
+      "imageNumber": 9,
+      "pdfPage": 1,
+      "pdfBounds": [
+        358.6,
+        4171.6435546875,
+        522.6,
+        4531.6435546875
+      ],
+      "packagesKg": [
+        3.0,
+        5.0,
+        15.0
+      ],
+      "productId": "berlak-ottocento"
+    },
+    {
+      "imageNumber": 10,
+      "pdfPage": 1,
+      "pdfBounds": [
+        526.2,
+        4171.6435546875,
+        690.2,
+        4531.6435546875
+      ],
+      "packagesKg": [
+        5.0,
+        10.0
+      ],
+      "productId": "berlak-pearl"
+    },
+    {
+      "imageNumber": 11,
+      "pdfPage": 1,
+      "pdfBounds": [
+        784.7,
+        4171.6435546875,
+        948.7,
+        4531.6435546875
+      ],
+      "packagesKg": [
+        5.0,
+        10.0,
+        15.0
+      ],
+      "productId": "berlak-travertin-lak"
+    },
+    {
+      "imageNumber": 12,
+      "pdfPage": 1,
+      "pdfBounds": [
+        1120.0,
+        4171.6435546875,
+        1284.0,
+        4531.6435546875
+      ],
+      "packagesKg": [
+        3.0,
+        4.0
+      ],
+      "productId": "berlak-wallpaper"
+    },
+    {
+      "imageNumber": 13,
+      "pdfPage": 1,
+      "pdfBounds": [
+        526.2,
+        4698.70654296875,
+        690.2,
+        5058.70654296875
+      ],
+      "packagesKg": [
+        0.9,
+        2.7
+      ],
+      "productId": "atlas-pf115",
+      "variantId": "white"
+    },
+    {
+      "imageNumber": 14,
+      "pdfPage": 1,
+      "pdfBounds": [
+        784.7,
+        4698.70654296875,
+        948.7,
+        5058.70654296875
+      ],
+      "packagesKg": [
+        0.9,
+        2.7
+      ],
+      "productId": "atlas-pf115",
+      "variantId": "dark-red"
+    },
+    {
+      "imageNumber": 15,
+      "pdfPage": 1,
+      "pdfBounds": [
+        952.3,
+        4698.70654296875,
+        1116.3,
+        5058.70654296875
+      ],
+      "packagesKg": [
+        0.9,
+        2.7
+      ],
+      "productId": "atlas-pf115",
+      "variantId": "asphalt"
+    },
+    {
+      "imageNumber": 16,
+      "pdfPage": 1,
+      "pdfBounds": [
+        1120.0,
+        4698.70654296875,
+        1284.0,
+        5058.70654296875
+      ],
+      "packagesKg": [
+        0.9,
+        2.7
+      ],
+      "productId": "atlas-pf266"
+    },
+    {
+      "imageNumber": 17,
+      "pdfPage": 1,
+      "pdfBounds": [
+        191.0,
+        4698.70654296875,
+        355.0,
+        5058.70654296875
+      ],
+      "packagesKg": [
+        2.8,
+        5.0
+      ],
+      "productId": "berlak-primer-5kg"
+    },
+    {
+      "imageNumber": 18,
+      "pdfPage": 1,
+      "pdfBounds": [
+        358.6,
+        4698.70654296875,
+        522.6,
+        5058.70654296875
+      ],
+      "packagesKg": [
+        2.8,
+        5.0
+      ],
+      "productId": "atlas-primer"
+    },
+    {
+      "imageNumber": 19,
+      "pdfPage": 1,
+      "pdfBounds": [
+        191.0,
+        5055.814453125,
+        355.0,
+        5415.814453125
+      ],
+      "packagesKg": [
+        0.9,
+        2.7
+      ],
+      "productId": "atlas-white"
+    },
+    {
+      "imageNumber": 20,
+      "pdfPage": 1,
+      "pdfBounds": [
+        358.6,
+        5055.814453125,
+        522.6,
+        5415.814453125
+      ],
+      "packagesKg": [
+        0.9,
+        2.7
+      ],
+      "productId": "atlas-pf115",
+      "variantId": "grey"
+    },
+    {
+      "imageNumber": 21,
+      "pdfPage": 1,
+      "pdfBounds": [
+        526.2,
+        5055.814453125,
+        690.2,
+        5415.814453125
+      ],
+      "packagesKg": [
+        0.9,
+        2.7
+      ],
+      "productId": "atlas-pf115",
+      "variantId": "brown"
+    },
+    {
+      "imageNumber": 22,
+      "pdfPage": 1,
+      "pdfBounds": [
+        784.7,
+        5055.814453125,
+        948.7,
+        5415.814453125
+      ],
+      "packagesKg": [
+        0.9,
+        2.7
+      ],
+      "productId": "atlas-pf115",
+      "variantId": "blue"
+    },
+    {
+      "imageNumber": 23,
+      "pdfPage": 1,
+      "pdfBounds": [
+        952.3,
+        5055.814453125,
+        1116.3,
+        5415.814453125
+      ],
+      "packagesKg": [
+        0.9,
+        2.7
+      ],
+      "productId": "atlas-pf115",
+      "variantId": "red"
+    },
+    {
+      "imageNumber": 24,
+      "pdfPage": 1,
+      "pdfBounds": [
+        1120.0,
+        5055.814453125,
+        1284.0,
+        5415.814453125
+      ],
+      "packagesKg": [
+        0.9,
+        2.7
+      ],
+      "productId": "atlas-pf115",
+      "variantId": "dark-blue"
+    },
+    {
+      "imageNumber": 25,
+      "pdfPage": 1,
+      "pdfBounds": [
+        191.0,
+        5573.47705078125,
+        355.0,
+        5933.47705078125
+      ],
+      "packagesKg": [
+        0.9,
+        2.7
+      ],
+      "productId": "atlas-pf115",
+      "variantId": "black"
+    },
+    {
+      "imageNumber": 26,
+      "pdfPage": 1,
+      "pdfBounds": [
+        358.6,
+        5573.47705078125,
+        522.6,
+        5933.47705078125
+      ],
+      "packagesKg": [
+        0.9,
+        2.7
+      ],
+      "productId": "atlas-pf115",
+      "variantId": "yellow"
+    },
+    {
+      "imageNumber": 27,
+      "pdfPage": 1,
+      "pdfBounds": [
+        526.2,
+        5573.47705078125,
+        690.2,
+        5933.47705078125
+      ],
+      "packagesKg": [
+        0.9,
+        2.7
+      ],
+      "productId": "atlas-pf115",
+      "variantId": "green"
+    },
+    {
+      "imageNumber": 28,
+      "pdfPage": 1,
+      "pdfBounds": [
+        784.7,
+        5573.47705078125,
+        948.7,
+        5933.47705078125
+      ],
+      "packagesKg": [
+        0.8,
+        2.2
+      ],
+      "productId": "atlas-pf283"
+    },
+    {
+      "imageNumber": 29,
+      "pdfPage": 1,
+      "pdfBounds": [
+        952.3,
+        5573.47705078125,
+        1116.3,
+        5933.47705078125
+      ],
+      "packagesKg": [
+        0.8,
+        2.2
+      ],
+      "productId": "atlas-yacht-lacquer"
+    },
+    {
+      "imageNumber": 30,
+      "pdfPage": 1,
+      "pdfBounds": [
+        1120.0,
+        5573.47705078125,
+        1284.0,
+        5933.47705078125
+      ],
+      "packagesKg": [
+        0.8
+      ],
+      "productId": "atlas-pva"
+    },
+    {
+      "imageNumber": 31,
+      "pdfPage": 1,
+      "pdfBounds": [
+        191.0,
+        5930.82421875,
+        355.0,
+        6290.82421875
+      ],
+      "packagesKg": [
+        18.0,
+        20.0
+      ],
+      "productId": "atlas-interior"
+    },
+    {
+      "imageNumber": 32,
+      "pdfPage": 1,
+      "pdfBounds": [
+        358.6,
+        5930.82421875,
+        522.6,
+        6290.82421875
+      ],
+      "packagesKg": [
+        18.0,
+        20.0
+      ],
+      "productId": "atlas-facade"
+    },
+    {
+      "imageNumber": 33,
+      "pdfPage": 1,
+      "pdfBounds": [
+        526.2,
+        5930.82421875,
+        690.2,
+        6290.82421875
+      ],
+      "packagesKg": [
+        18.0,
+        20.0
+      ],
+      "productId": "atlas-facade-washable"
+    },
+    {
+      "imageNumber": 34,
+      "pdfPage": 1,
+      "pdfBounds": [
+        784.7,
+        5930.82421875,
+        948.7,
+        6290.82421875
+      ],
+      "packagesKg": [
+        0.9,
+        2.7
+      ],
+      "productId": "artek-improved",
+      "variantId": "white"
+    },
+    {
+      "imageNumber": 35,
+      "pdfPage": 1,
+      "pdfBounds": [
+        952.3,
+        5930.82421875,
+        1116.3,
+        6290.82421875
+      ],
+      "packagesKg": [
+        0.9,
+        2.7
+      ],
+      "productId": "artek-improved",
+      "variantId": "asphalt"
+    },
+    {
+      "imageNumber": 36,
+      "pdfPage": 1,
+      "pdfBounds": [
+        1120.0,
+        5930.82421875,
+        1284.0,
+        6290.82421875
+      ],
+      "packagesKg": [
+        0.9,
+        2.7
+      ],
+      "productId": "artek-improved",
+      "variantId": "claret"
+    },
+    {
+      "imageNumber": 37,
+      "pdfPage": 1,
+      "pdfBounds": [
+        191.0,
+        6468.646484375,
+        355.0,
+        6828.646484375
+      ],
+      "packagesKg": [
+        0.9,
+        2.7
+      ],
+      "productId": "artek-floor-improved"
+    },
+    {
+      "imageNumber": 38,
+      "pdfPage": 1,
+      "pdfBounds": [
+        358.6,
+        6468.646484375,
+        522.6,
+        6828.646484375
+      ],
+      "packagesKg": [
+        0.9,
+        2.7
+      ],
+      "productId": "artek-improved",
+      "variantId": "chocolate"
+    },
+    {
+      "imageNumber": 39,
+      "pdfPage": 1,
+      "pdfBounds": [
+        526.2,
+        6468.646484375,
+        690.2,
+        6828.646484375
+      ],
+      "packagesKg": [
+        0.9,
+        2.7
+      ],
+      "productId": "artek-improved",
+      "variantId": "green"
+    },
+    {
+      "imageNumber": 40,
+      "pdfPage": 1,
+      "pdfBounds": [
+        784.7,
+        6468.646484375,
+        948.7,
+        6828.646484375
+      ],
+      "packagesKg": [
+        0.9,
+        2.7
+      ],
+      "productId": "artek-improved",
+      "variantId": "black"
+    },
+    {
+      "imageNumber": 41,
+      "pdfPage": 1,
+      "pdfBounds": [
+        952.3,
+        6468.646484375,
+        1116.3,
+        6828.646484375
+      ],
+      "packagesKg": [
+        0.9,
+        2.7
+      ],
+      "productId": "artek-improved",
+      "variantId": "yellow"
+    },
+    {
+      "imageNumber": 42,
+      "pdfPage": 1,
+      "pdfBounds": [
+        1120.0,
+        6468.646484375,
+        1284.0,
+        6828.646484375
+      ],
+      "packagesKg": [
+        0.9,
+        2.7
+      ],
+      "productId": "artek-improved",
+      "variantId": "red"
+    },
+    {
+      "imageNumber": 43,
+      "pdfPage": 1,
+      "pdfBounds": [
+        191.0,
+        6825.75390625,
+        355.0,
+        7185.75390625
+      ],
+      "packagesKg": [
+        0.9,
+        2.7
+      ],
+      "productId": "artek-improved",
+      "variantId": "grey"
+    },
+    {
+      "imageNumber": 44,
+      "pdfPage": 1,
+      "pdfBounds": [
+        358.6,
+        6825.75390625,
+        522.6,
+        7185.75390625
+      ],
+      "packagesKg": [
+        0.9,
+        2.7
+      ],
+      "productId": "artek-improved",
+      "variantId": "blue"
+    },
+    {
+      "imageNumber": 45,
+      "pdfPage": 1,
+      "pdfBounds": [
+        526.2,
+        6825.75390625,
+        690.2,
+        7185.75390625
+      ],
+      "packagesKg": [
+        0.9,
+        2.7
+      ],
+      "productId": "artek-improved",
+      "variantId": "dark-blue"
+    },
+    {
+      "imageNumber": 46,
+      "pdfPage": 1,
+      "pdfBounds": [
+        784.7,
+        6825.75390625,
+        948.7,
+        7185.75390625
+      ],
+      "packagesKg": [
+        0.9,
+        2.7
+      ],
+      "productId": "artek-improved",
+      "variantId": "dark-red"
+    },
+    {
+      "imageNumber": 47,
+      "pdfPage": 1,
+      "pdfBounds": [
+        952.3,
+        6825.75390625,
+        1116.3,
+        7185.75390625
+      ],
+      "packagesKg": [
+        0.9,
+        2.7
+      ],
+      "productId": "artek-universal",
+      "variantId": "yellow"
+    },
+    {
+      "imageNumber": 48,
+      "pdfPage": 1,
+      "pdfBounds": [
+        1120.0,
+        6825.75390625,
+        1284.0,
+        7185.75390625
+      ],
+      "packagesKg": [
+        0.9,
+        2.7
+      ],
+      "productId": "artek-floor-universal"
+    },
+    {
+      "imageNumber": 49,
+      "pdfPage": 1,
+      "pdfBounds": [
+        191.0,
+        7355.17578125,
+        355.0,
+        7715.17578125
+      ],
+      "packagesKg": [
+        0.9,
+        2.7
+      ],
+      "productId": "artek-universal",
+      "variantId": "grey"
+    },
+    {
+      "imageNumber": 50,
+      "pdfPage": 1,
+      "pdfBounds": [
+        358.6,
+        7355.17578125,
+        522.6,
+        7715.17578125
+      ],
+      "packagesKg": [
+        0.9,
+        2.7
+      ],
+      "productId": "artek-universal",
+      "variantId": "dark-blue"
+    },
+    {
+      "imageNumber": 51,
+      "pdfPage": 1,
+      "pdfBounds": [
+        526.2,
+        7355.17578125,
+        690.2,
+        7715.17578125
+      ],
+      "packagesKg": [
+        0.9,
+        2.7
+      ],
+      "productId": "artek-universal",
+      "variantId": "asphalt"
+    },
+    {
+      "imageNumber": 52,
+      "pdfPage": 1,
+      "pdfBounds": [
+        784.7,
+        7355.17578125,
+        948.7,
+        7715.17578125
+      ],
+      "packagesKg": [
+        0.9,
+        2.7
+      ],
+      "productId": "artek-universal",
+      "variantId": "white"
+    },
+    {
+      "imageNumber": 53,
+      "pdfPage": 1,
+      "pdfBounds": [
+        952.3,
+        7355.17578125,
+        1116.3,
+        7715.17578125
+      ],
+      "packagesKg": [
+        0.9,
+        2.7
+      ],
+      "productId": "artek-universal",
+      "variantId": "black"
+    },
+    {
+      "imageNumber": 54,
+      "pdfPage": 1,
+      "pdfBounds": [
+        1120.0,
+        7355.17578125,
+        1284.0,
+        7715.17578125
+      ],
+      "packagesKg": [
+        0.9,
+        2.7
+      ],
+      "productId": "artek-universal",
+      "variantId": "chocolate"
+    },
+    {
+      "imageNumber": 55,
+      "pdfPage": 1,
+      "pdfBounds": [
+        191.0,
+        7712.52392578125,
+        355.0,
+        8072.52392578125
+      ],
+      "packagesKg": [
+        0.9,
+        2.7
+      ],
+      "productId": "artek-universal",
+      "variantId": "blue"
+    },
+    {
+      "imageNumber": 56,
+      "pdfPage": 1,
+      "pdfBounds": [
+        358.6,
+        7712.52392578125,
+        522.6,
+        8072.52392578125
+      ],
+      "packagesKg": [
+        0.9,
+        2.7
+      ],
+      "productId": "artek-universal",
+      "variantId": "claret"
+    },
+    {
+      "imageNumber": 57,
+      "pdfPage": 1,
+      "pdfBounds": [
+        526.2,
+        7712.52392578125,
+        690.2,
+        8072.52392578125
+      ],
+      "packagesKg": [
+        0.9,
+        2.7
+      ],
+      "productId": "artek-universal",
+      "variantId": "red"
+    },
+    {
+      "imageNumber": 58,
+      "pdfPage": 1,
+      "pdfBounds": [
+        784.7,
+        7712.52392578125,
+        948.7,
+        8072.52392578125
+      ],
+      "packagesKg": [
+        0.9,
+        2.7
+      ],
+      "productId": "artek-universal",
+      "variantId": "green"
+    },
+    {
+      "imageNumber": 59,
+      "pdfPage": 1,
+      "pdfBounds": [
+        952.3,
+        7712.52392578125,
+        1116.3,
+        8072.52392578125
+      ],
+      "packagesKg": [
+        18.0,
+        20.0
+      ],
+      "productId": "artek-facade-white"
+    },
+    {
+      "imageNumber": 60,
+      "pdfPage": 1,
+      "pdfBounds": [
+        1120.0,
+        7712.52392578125,
+        1284.0,
+        8072.52392578125
+      ],
+      "packagesKg": [
+        18.0,
+        20.0
+      ],
+      "productId": "artek-interior"
+    },
+    {
+      "imageNumber": 61,
+      "pdfPage": 1,
+      "pdfBounds": [
+        191.0,
+        8267.8642578125,
+        355.0,
+        8627.8642578125
+      ],
+      "packagesKg": [
+        18.0,
+        20.0
+      ],
+      "productId": "artek-facade-black"
+    },
+    {
+      "imageNumber": 62,
+      "pdfPage": 1,
+      "pdfBounds": [
+        358.6,
+        8267.8642578125,
+        522.6,
+        8627.8642578125
+      ],
+      "packagesKg": [
+        25.0
+      ],
+      "productId": "ep-travertin"
+    },
+    {
+      "imageNumber": 63,
+      "pdfPage": 1,
+      "pdfBounds": [
+        526.2,
+        8267.8642578125,
+        690.2,
+        8627.8642578125
+      ],
+      "packagesKg": [
+        25.0
+      ],
+      "productId": "delta-travertine"
+    },
+    {
+      "imageNumber": 64,
+      "pdfPage": 1,
+      "pdfBounds": [
+        784.7,
+        8267.8642578125,
+        948.7,
+        8627.8642578125
+      ],
+      "packagesKg": [
+        25.0
+      ],
+      "productId": "crown-travertin"
+    },
+    {
+      "imageNumber": 65,
+      "pdfPage": 1,
+      "pdfBounds": [
+        952.3,
+        8267.8642578125,
+        1116.3,
+        8627.8642578125
+      ],
+      "packagesKg": [
+        4.0,
+        9.0,
+        14.0,
+        18.0,
+        20.0
+      ],
+      "productId": "waterlux-facade"
+    },
+    {
+      "imageNumber": 66,
+      "pdfPage": 1,
+      "pdfBounds": [
+        1120.0,
+        8267.8642578125,
+        1284.0,
+        8627.8642578125
+      ],
+      "packagesKg": [
+        3.0
+      ],
+      "productId": "element-primer"
+    },
+    {
+      "imageNumber": 67,
+      "pdfPage": 1,
+      "pdfBounds": [
+        191.0,
+        8625.2119140625,
+        355.0,
+        8985.2119140625
+      ],
+      "packagesKg": [
+        5.0,
+        10.0,
+        15.0
+      ],
+      "productId": "element-travertine-lacquer"
+    },
+    {
+      "imageNumber": 68,
+      "pdfPage": 1,
+      "pdfBounds": [
+        526.2,
+        8625.2119140625,
+        690.2,
+        8985.2119140625
+      ],
+      "packagesKg": [
+        20.0
+      ],
+      "productId": "element-primer-plus"
+    },
+    {
+      "imageNumber": 69,
+      "pdfPage": 1,
+      "pdfBounds": [
+        784.7,
+        8625.2119140625,
+        948.7,
+        8985.2119140625
+      ],
+      "packagesKg": [
+        0.8
+      ],
+      "productId": "argon-pva"
+    },
+    {
+      "imageNumber": 70,
+      "pdfPage": 1,
+      "pdfBounds": [
+        952.3,
+        8625.2119140625,
+        1116.3,
+        8985.2119140625
+      ],
+      "packagesKg": [
+        20.0
+      ],
+      "productId": "dekor-red"
+    },
+    {
+      "imageNumber": 71,
+      "pdfPage": 1,
+      "pdfBounds": [
+        1120.0,
+        8625.2119140625,
+        1284.0,
+        8985.2119140625
+      ],
+      "packagesKg": [
+        20.0
+      ],
+      "productId": "dekor-blue"
+    },
+    {
+      "imageNumber": 72,
+      "pdfPage": 1,
+      "pdfBounds": [
+        358.6,
+        8625.2119140625,
+        522.6,
+        8985.2119140625
+      ],
+      "packagesKg": [
+        2.8,
+        5.0
+      ],
+      "productId": "delta-primer"
+    }
+  ]
+}

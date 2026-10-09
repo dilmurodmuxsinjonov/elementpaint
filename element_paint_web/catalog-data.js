@@ -31,7 +31,7 @@ const names = {
   'berlak-travertin-lak': tr('Travertin uchun lak', 'Лак для травертина', 'Travertine varnish'),
   'atlas-nitro': tr('Nitro lak NC-2144', 'Нитролак НЦ-2144', 'NC-2144 nitro varnish'),
   'atlas-pf283': tr('PF-283 porloq lak', 'Глянцевый лак ПФ-283', 'PF-283 gloss varnish'),
-  'berlak-primer-5kg': tr('Akril astar 1/7 — 5 kg', 'Акриловая грунтовка 1/7 — 5 кг', 'Acrylic primer 1/7 — 5 kg'),
+  'berlak-primer-5kg': tr('Akril astar 1/7 — kanistr', 'Акриловая грунтовка 1/7 — канистра', 'Acrylic primer 1/7 — canister'),
   'berlak-primer-2kg': tr('Akril astar — 2,5 kg', 'Акриловая грунтовка — 2,5 кг', 'Acrylic primer — 2.5 kg'),
   'atlas-pva': tr('801 PVA yelimi', 'Клей ПВА 801', '801 PVA adhesive'),
   'atlas-glatt': tr('Glatt gips shpatlyovka', 'Гипсовая шпатлёвка Glatt', 'Glatt gypsum finishing filler'),
@@ -57,9 +57,6 @@ export const products = legacyProducts.filter(p => !['atlas-blue', 'atlas-yellow
   title: names[p.id], description: descriptions[mapping[p.id] || p.cat], image: p.img,
   variants: [], packages: [], sourceStatus: 'existing',
 }));
-products.find(p => p.id === 'atlas-white').packages = [2.7];
-products.find(p => p.id === 'berlak-primer-5kg').packages = [5];
-products.find(p => p.id === 'berlak-primer-2kg').packages = [2.5];
 const catalogImage = number => `assets/catalog-2026/product-${String(number).padStart(3,'0')}.webp`;
 const catalogProductImages = {
   'berlak-white': 1, 'berlak-floor': 3, 'berlak-travertin': 4, 'berlak-ottocento': 9,
@@ -71,10 +68,9 @@ for (const [id,number] of Object.entries(catalogProductImages)) {
   const product=products.find(item=>item.id===id);
   if(product) product.image=catalogImage(number);
 }
-products.find(p => p.id === 'atlas-white').packages = [.9,2.7];
 const colorRows = [
   ['white', '#F5F4EB', 'Qordek oq', 'Белоснежный', 'Snow white', 13],
-  ['dark-red', '#A82B2D', 'To‘q qizil', 'Тёмно-красный', 'Dark red', 14],
+  ['dark-red', '#A82B2D', 'To‘q qizil', 'Бордовый', 'Dark red', 14],
   ['asphalt', '#4B5554', 'Ho‘l asfalt', 'Мокрый асфальт', 'Wet asphalt', 15],
   ['grey', '#818280', 'Kulrang', 'Серый', 'Grey', 20],
   ['brown', '#5D3025', 'Shokolad jigarrang', 'Шоколадно-коричневый', 'Chocolate brown', 21],
@@ -103,7 +99,7 @@ const additions = [
   ['berlak-facade', 'BERLAK', 'water', 'Akril fasad bo‘yog‘i', 'Акриловая фасадная краска', 'Acrylic facade paint'],
   ['berlak-interior', 'BERLAK', 'water', 'Akril interyer bo‘yog‘i', 'Акриловая краска для интерьера', 'Acrylic interior paint'],
   ['berlak-wallpaper-glue', 'BERLAK', 'adhesive', 'Universal gulqog‘oz yelimi', 'Универсальный клей для обоев', 'Universal wallpaper adhesive'],
-  ['atlas-primer', 'ATLAS', 'primer', 'Akril astar 1/7 — 2,8 kg', 'Акриловая грунтовка 1/7 — 2,8 кг', 'Acrylic primer 1/7 — 2.8 kg'],
+  ['atlas-primer', 'ATLAS', 'primer', 'Akril astar 1/7', 'Акриловая грунтовка 1/7', 'Acrylic primer 1/7'],
   ['atlas-yacht-lacquer', 'ATLAS', 'lak', 'Suvga chidamli yaxta laki', 'Водостойкий яхтный лак', 'Water-resistant yacht lacquer'],
   ['atlas-interior', 'ATLAS', 'water', 'Akril interyer bo‘yog‘i', 'Акриловая краска для интерьера', 'Acrylic interior paint'],
   ['atlas-facade', 'ATLAS', 'water', 'Akril fasad bo‘yog‘i', 'Акриловая фасадная краска', 'Acrylic facade paint'],
@@ -118,7 +114,7 @@ const additions = [
   ['dekor-red', 'DEKOR', 'decor', 'DEKOR — qizil qadoq', 'DEKOR — красная упаковка', 'DEKOR — red package'],
   ['dekor-blue', 'DEKOR', 'decor', 'DEKOR — ko‘k qadoq', 'DEKOR — синяя упаковка', 'DEKOR — blue package'],
   ['delta-travertine', 'DELTA', 'travertin', 'Delta suyuq travertin', 'Жидкий травертин Delta', 'Delta liquid travertine'],
-  ['delta-primer', 'DELTA', 'primer', 'Delta akril astari — 5 kg', 'Акриловая грунтовка Delta — 5 кг', 'Delta acrylic primer — 5 kg'],
+  ['delta-primer', 'DELTA', 'primer', 'Delta akril astari', 'Акриловая грунтовка Delta', 'Delta acrylic primer'],
 ];
 const additionNumbers={
   'atlas-pf266':16, 'artek-facade-black':61, 'artek-facade-white':59, 'artek-interior':60,
@@ -140,7 +136,7 @@ const improvedColors = [
   ['green','#168A42','Yashil','Зелёная','Green',39], ['black','#171717','Qora','Чёрная','Black',40],
   ['yellow','#DBB56B','Sariq','Жёлтая','Yellow',41], ['red','#E43C30','Qizil','Красная','Red',42],
   ['grey','#7C8081','Kulrang','Серая','Grey',43], ['blue','#12A7D6','Havorang','Голубая','Blue',44],
-  ['dark-blue','#1B4692','To‘q ko‘k','Тёмно-синяя','Dark blue',45], ['dark-red','#8E1724','To‘q qizil','Красно-коричневая','Dark red',46],
+  ['dark-blue','#1B4692','To‘q ko‘k','Тёмно-синяя','Dark blue',45], ['dark-red','#8E1724','Qizg‘ish pol','Красно-коричневая','Reddish brown',46],
 ];
 products.push({
   id:'artek-improved', aliases:[], categoryId:'emal', brand:'ARTEK',
@@ -160,20 +156,24 @@ const artekUniversal=products.find(product=>product.id==='artek-universal');
 artekUniversal.image=catalogImage(47);
 artekUniversal.variants=artekUniversalColors.map(([id,color,uz,ru,en,number])=>({id,color,name:tr(uz,ru,en),image:catalogImage(number),packages:[.9,2.7]}));
 artekUniversal.packages=[];
-for(const product of products){
-  if(product.id==='berlak-white') product.packages=[3];
-  if(product.id==='berlak-floor') product.packages=[2.7];
-  if(product.id==='berlak-travertin') product.packages=[5,10,15];
-  if(product.id==='berlak-primer-5kg') product.packages=[5];
-  if(product.id==='berlak-primer-2kg') product.packages=[2.5];
-  if(product.id==='atlas-pf266') product.packages=[.9,2.7];
-  if(product.id==='atlas-pva') product.packages=[.8];
-  if(product.id==='berlak-ottocento') product.packages=[3,5,15];
-  if(product.id==='berlak-pearl') product.packages=[5,10];
-  if(product.id==='berlak-travertin-lak') product.packages=[5,10,15];
-  if(product.id==='berlak-wallpaper') product.packages=[3,4];
-  if(product.id==='berlak-universal-white') product.packages=[3];
-  if(product.id==='berlak-wallpaper-glue') product.packages=[.2,.5,1];
+// Weights printed below the corresponding package in the supplied 2026 PDF.
+// Image numbering follows extraction order, not left-to-right PDF column order.
+const catalogPackages = {
+  'berlak-white': [3], 'berlak-universal-white': [2.7], 'berlak-floor': [2.7],
+  'berlak-travertin': [5,10,15], 'berlak-facade': [4,9,14,18,20], 'berlak-interior': [4,9,14,18,20],
+  'berlak-wallpaper-glue': [.2,.5,1], 'berlak-primer-2kg': [2.5], 'berlak-ottocento': [3,5,15],
+  'berlak-pearl': [5,10], 'berlak-travertin-lak': [5,10,15], 'berlak-wallpaper': [3,4],
+  'berlak-primer-5kg': [2.8,5], 'atlas-primer': [2.8,5], 'atlas-pf266': [.9,2.7], 'atlas-white': [.9,2.7],
+  'atlas-pf283': [.8,2.2], 'atlas-yacht-lacquer': [.8,2.2], 'atlas-pva': [.8],
+  'atlas-interior': [18,20], 'atlas-facade': [18,20], 'atlas-facade-washable': [18,20],
+  'artek-floor-improved': [.9,2.7], 'artek-floor-universal': [.9,2.7],
+  'artek-facade-white': [18,20], 'artek-interior': [18,20], 'artek-facade-black': [18,20],
+  'ep-travertin': [25], 'delta-travertine': [25], 'crown-travertin': [25],
+  'waterlux-facade': [4,9,14,18,20], 'element-primer': [3], 'element-travertine-lacquer': [5,10,15],
+  'element-primer-plus': [20], 'argon-pva': [.8], 'dekor-red': [20], 'dekor-blue': [20], 'delta-primer': [2.8,5],
+};
+for (const product of products) {
+  if (catalogPackages[product.id]) product.packages = catalogPackages[product.id];
 }
 export const strings = {
   uz: {

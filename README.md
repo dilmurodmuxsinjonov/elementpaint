@@ -7,6 +7,18 @@ Three.js 0.186.1 (MIT) sayt bilan birga saqlanadi; fondagi bo‘yoq animatsiyasi
 ko‘rinmayotganda to‘xtaydi, harakatni kamaytirish sozlamasiga rioya qiladi.
 WebGL mavjud bo‘lmasa, statik fon va barcha katalog imkoniyatlari ishlaydi.
 
+## Mijoz uchun 2026 sinov katalogi
+
+`design-refresh-20261005` — sinov saytining manba tarmog‘i;
+`preview-site` — faqat GitHub Pages uchun tayyorlangan runtime.
+`element_paint_web/preview.html` va `catalog-data.js` 45 ta tasdiqlangan karta,
+34 ta rang varianti hamda PDFdan tayyorlangan 72 ta qadoq rasmini ishlatadi.
+Yuqoridagi 20 mahsulot eski asosiy sayt kodiga tegishli.
+
+Sinov katalogini tekshirish: `node tests/verify_preview_data.mjs`.
+Manba bilan solishtirish dalillari: `docs/catalog-2026-audit.md`.
+Asosiy serverga chiqarish bu sinov yangilanishining doirasiga kirmaydi.
+
 ## Fayllar
 
 `element_paint_web/` — HTML, CSS, JavaScript, mahsulot rasmlari, HTTPS va eski
