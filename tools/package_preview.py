@@ -8,7 +8,7 @@ from pathlib import Path
 
 WEB = Path(__file__).resolve().parent.parent / 'element_paint_web'
 CORE = ('preview.html', 'preview.css', 'preview-app.js', 'catalog-data.js',
-        'legacy-products.js', 'product-selector.js', 'paint-intro.js', 'paint-liquid.js', 'paint-logo.js',
+        'legacy-products.js', 'product-selector.js', 'paint-video.js',
         'studio-preferences.js', 'vendor/MANROPE-OFL.txt')
 
 def main():
@@ -16,7 +16,7 @@ def main():
     parser.add_argument('--output', type=Path, required=True)
     args = parser.parse_args()
     source = '\n'.join((WEB / item).read_text(encoding='utf-8-sig') for item in CORE)
-    assets = set(re.findall(r'assets/(?:[A-Za-z0-9_.-]+/)*[A-Za-z0-9_.-]+\.(?:jpg|png|webp|svg|woff2)', source))
+    assets = set(re.findall(r'assets/(?:[A-Za-z0-9_.-]+/)*[A-Za-z0-9_.-]+\.(?:jpg|png|webp|svg|woff2|webm|mp4)', source))
     for directory in set(re.findall(r'(assets/(?:[A-Za-z0-9_.-]+/)+)', source)):
         assets.update(path.relative_to(WEB).as_posix() for path in (WEB / directory).rglob('*')
                       if path.is_file() and path.suffix.lower() in {'.jpg', '.png', '.webp', '.svg', '.woff2'})

@@ -1,7 +1,7 @@
-import {createProductSelector} from './product-selector.js?v=20261010.4';
-import { categories, products, strings, findProduct } from './catalog-data.js?v=20261010.4';
-import {readPreferences,savePreferences,defaultPreferences} from './studio-preferences.js?v=20261010.4';
-import {createPaintIntro} from './paint-intro.js?v=20261010.4';
+import {createProductSelector} from './product-selector.js?v=20261010.5';
+import { categories, products, strings, findProduct } from './catalog-data.js?v=20261010.5';
+import {readPreferences,savePreferences,defaultPreferences} from './studio-preferences.js?v=20261010.5';
+import {createVideoIntro} from './paint-video.js?v=20261010.5';
 
 const $ = id => document.getElementById(id);
 const validLang = value => ['uz','ru','en'].includes(value) ? value : 'uz';
@@ -75,6 +75,7 @@ function closeProduct(fromHistory=false) {
 }
 function applyLanguage() {
   document.documentElement.lang=state.lang;document.title=`Element Paint — ${t('catalog')}`;
+  $('skipIntro').setAttribute('aria-label',t('skipIntro'));
   document.querySelector('.logo').href=`?lang=${state.lang}#home`;
   document.querySelector('meta[name=description]').content=t('footer');
   for(const el of document.querySelectorAll('[data-i18n]'))el.textContent=t(el.dataset.i18n);
@@ -125,18 +126,22 @@ for(const id of ['closeSettings','doneSettings'])$(id).addEventListener('click',
 $('settingsDialog').addEventListener('cancel',e=>{e.preventDefault();closeSettings();});
 $('settingsDialog').addEventListener('click',e=>{if(e.target===$('settingsDialog')){const r=e.target.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)closeSettings();}});
 $('restoreSettings').addEventListener('click',()=>{preferences={...defaultPreferences};applyPreferences();});
-function stopIntro(){introGeneration++;clearTimeout(introTimeout);introApi?.stop();$('brandLoader').hidden=true;$('brandLoader').classList.remove('leaving');}
+function stopIntro(){introGeneration++;clearTimeout(introTimeout);introApi?.stop();$('brandLoader').hidden=true;$('brandLoader').classList.remove('leaving');delete document.documentElement.dataset.intro;}
+function finishIntro(){clearTimeout(introTimeout);$('brandLoader').classList.add('leaving');introTimeout=setTimeout(stopIntro,300);}
 async function showBrandIntro(replay=false){
   if(reduced.matches||preferences.motion==='reduced'||state.product||document.hidden)return;
-  if(!replay){if(location.hash&&location.hash!=='#home')return;try{if(sessionStorage.getItem('elementpaint-intro-logo-20261010'))return;sessionStorage.setItem('elementpaint-intro-logo-20261010','seen');}catch{}}
+  if(!replay){if(location.hash&&location.hash!=='#home')return;try{if(sessionStorage.getItem('elementpaint-intro-video-20261010'))return;sessionStorage.setItem('elementpaint-intro-video-20261010','seen');}catch{}}
   const generation=++introGeneration;
-  try{introApi ||= await Promise.race([createPaintIntro({loader:$('brandLoader'),canvas:$('introCanvas'),onProgress:value=>$('introProgress').style.width=`${value*100}%`}),new Promise(resolve=>setTimeout(()=>resolve(null),900))]);}catch{return;}
-  if(!introApi||generation!==introGeneration||reduced.matches||preferences.motion==='reduced'||document.hidden)return;
+  $('brandLoader').dataset.fill='0';$('brandLoader').dataset.phase='glass';
+  introApi ||= createVideoIntro($('introVideo'),{onFinish:finishIntro,onFailure:stopIntro});
+  const started=await introApi.play();
+  if(!started||generation!==introGeneration||reduced.matches||preferences.motion==='reduced'||document.hidden)return;
   $('brandLoader').hidden=false;$('brandLoader').classList.remove('leaving');
-  introApi.play(()=>{clearTimeout(introTimeout);$('brandLoader').classList.add('leaving');introTimeout=setTimeout(stopIntro,300);});
-  introTimeout=setTimeout(stopIntro,4900);
+  document.documentElement.dataset.intro='playing';
+  introTimeout=setTimeout(stopIntro,6500);
 }
 $('skipIntro').addEventListener('click',stopIntro);
+$('introVideo').addEventListener('timeupdate',()=>{const time=$('introVideo').currentTime;$('brandLoader').dataset.fill=String(Math.round(Math.max(0,Math.min(1,(time-.7)/3))*100));$('brandLoader').dataset.phase=time<.7?'glass':time<3.7?'pouring':time<4.5?'settling':'filled';});
 $('replayIntro').addEventListener('click',()=>{closeSettings();showBrandIntro(true);});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('brandLoader').hidden)stopIntro();});
 document.addEventListener('visibilitychange',()=>{if(document.hidden)stopIntro();});reduced.addEventListener('change',applyPreferences);
