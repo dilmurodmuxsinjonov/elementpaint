@@ -1,7 +1,7 @@
-import {createProductSelector} from './product-selector.js?v=20261010.3';
-import { categories, products, strings, findProduct } from './catalog-data.js?v=20261010.3';
-import {readPreferences,savePreferences,defaultPreferences} from './studio-preferences.js?v=20261010.3';
-import {createPaintIntro} from './paint-intro.js?v=20261010.3';
+import {createProductSelector} from './product-selector.js?v=20261010.4';
+import { categories, products, strings, findProduct } from './catalog-data.js?v=20261010.4';
+import {readPreferences,savePreferences,defaultPreferences} from './studio-preferences.js?v=20261010.4';
+import {createPaintIntro} from './paint-intro.js?v=20261010.4';
 
 const $ = id => document.getElementById(id);
 const validLang = value => ['uz','ru','en'].includes(value) ? value : 'uz';
@@ -128,7 +128,7 @@ $('restoreSettings').addEventListener('click',()=>{preferences={...defaultPrefer
 function stopIntro(){introGeneration++;clearTimeout(introTimeout);introApi?.stop();$('brandLoader').hidden=true;$('brandLoader').classList.remove('leaving');}
 async function showBrandIntro(replay=false){
   if(reduced.matches||preferences.motion==='reduced'||state.product||document.hidden)return;
-  if(!replay){if(location.hash&&location.hash!=='#home')return;try{if(sessionStorage.getItem('elementpaint-intro-20261010'))return;sessionStorage.setItem('elementpaint-intro-20261010','seen');}catch{}}
+  if(!replay){if(location.hash&&location.hash!=='#home')return;try{if(sessionStorage.getItem('elementpaint-intro-logo-20261010'))return;sessionStorage.setItem('elementpaint-intro-logo-20261010','seen');}catch{}}
   const generation=++introGeneration;
   try{introApi ||= await Promise.race([createPaintIntro({loader:$('brandLoader'),canvas:$('introCanvas'),onProgress:value=>$('introProgress').style.width=`${value*100}%`}),new Promise(resolve=>setTimeout(()=>resolve(null),900))]);}catch{return;}
   if(!introApi||generation!==introGeneration||reduced.matches||preferences.motion==='reduced'||document.hidden)return;
