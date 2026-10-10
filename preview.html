@@ -6,8 +6,8 @@
   <meta name="description" content="Element Paint — bo‘yoqlar va dekorativ qoplamalar ishlab chiqaruvchisi. Mahsulotlar katalogi.">
   <title>Element Paint — Mahsulotlar</title>
   <link rel="preload" as="image" href="assets/berlak_loader_can_v1.webp" fetchpriority="high">
-  <link rel="icon" href="assets/logo_light.png"><link rel="stylesheet" href="preview.css?v=20261009.2">
-  <script type="module" src="preview-app.js?v=20261009.2"></script>
+  <link rel="icon" href="assets/logo_light.png"><link rel="stylesheet" href="preview.css?v=20261010.2">
+  <script type="module" src="preview-app.js?v=20261010.2"></script>
 </head>
 <body>
   <a class="skip-link" href="#main" data-i18n="skip">Asosiy mazmunga o‘tish</a>
@@ -32,15 +32,13 @@
   <main id="main">
     <section class="hero container" id="home">
       <div class="hero-copy"><p class="eyebrow" data-i18n="eyebrow">RANG. SIFAT. ISHLAB CHIQARISH.</p><h1><span data-i18n="hero">Har bir sirt uchun</span><br><em data-i18n="heroAccent">o‘z bo‘yog‘imiz.</em></h1><p class="hero-intro" data-i18n="intro">Emaldan dekorativ qoplamagacha. Element Paint mahsulotlari bilan rangni, qadoqni va o‘zingizga mos yechimni tanlang.</p><div class="hero-actions"><a class="button" href="#catalog"><span data-i18n="explore">Katalogni ochish</span><span aria-hidden="true">↗</span></a><a class="text-link" href="#contact" data-i18n="advice">Maslahat olish</a></div><div class="facts"><div><strong>15<span>+</span></strong><small data-i18n="years">yillik tajriba</small></div><div><strong>10</strong><small data-i18n="directions">asosiy yo‘nalish</small></div><div><strong id="brandCount">10</strong><small data-i18n="brands">mahsulot brendi</small></div></div></div>
-      <div class="hero-studio">
-        <div class="studio-head"><span data-i18n="studio">BO‘YOQ STUDIYASI</span><span class="studio-indicator"><i></i> BERLAK / PF-115</span></div>
-        <p class="studio-intro" data-i18n="studioCopy">Aylantiring. Qopqoqni oching. Bo‘yoqni quying.</p>
-        <div id="sceneStage" class="scene-stage" data-state="fallback"><img id="sceneFallback" src="assets/berlak_blue_bank.jpg" alt="Berlak PF-115" width="1122" height="1402"><canvas id="paintCanCanvas" hidden aria-label="Berlak PF-115 3D" tabindex="0"></canvas><div class="studio-watermark" aria-hidden="true">Berlak</div></div>
-        <div class="studio-caption"><span data-i18n="interact">Bankani aylantirib ko‘ring</span><span id="canState" role="status" data-i18n="fallback">Berlak PF-115</span></div>
-        <div class="scene-controls" id="sceneControls" hidden><button type="button" id="lidButton" data-i18n="open">Qopqoqni ochish</button><button type="button" id="pourButton" data-i18n="pour" disabled>Bo‘yoq quyish</button><button type="button" id="resetButton" data-i18n="reset">Qayta boshlash</button></div>
-        <div class="paint-readout"><div><span data-i18n="paintLeft">Bankadagi bo‘yoq</span><meter id="paintLevel" min="0" max="100" value="100" aria-label="Paint remaining"></meter></div><div class="paint-receiver"><div class="receiver-logo" aria-hidden="true"><img src="assets/logo_light.png" alt=""><div id="paintFill" style="--fill:0%"></div></div><span><span data-i18n="collected">Quyilgan bo‘yoq</span> <strong id="paintPercent">0%</strong></span></div></div>
-        <p class="scene-hint" id="sceneHint" data-i18n="sceneHint">Bankani surib aylantiring yoki ← → tugmalaridan foydalaning.</p>
-        <p class="scene-hint" id="sceneUnavailable" data-i18n="studioUnavailable" hidden>3D bu brauzerda ishlamayapti. Mahsulot rasmi va katalogdan foydalanishingiz mumkin.</p>
+      <div class="featured-selector" id="featuredSelector" role="region" aria-labelledby="featuredHeading">
+        <div class="featured-head"><h2 id="featuredHeading" data-i18n="chooseProduct">Mahsulotni tanlang</h2><span>2026 / EP</span></div>
+        <div class="featured-types" id="featuredTypes" role="group" data-i18n-aria="productTypes"></div>
+        <div class="featured-stage"><span class="featured-wordmark" aria-hidden="true">element.</span><div id="productRail" class="product-rail" tabindex="0" data-i18n-aria="chooseProduct" aria-describedby="selectorHint"></div><span class="featured-stamp" aria-hidden="true">ELEMENT PAINT<br>UZBEKISTAN / 2011</span></div>
+        <div class="featured-copy"><div class="featured-meta"><span id="featuredBrand"></span><span id="featuredCategory"></span></div><h3 id="featuredName"></h3><p id="featuredDescription"></p><small id="featuredPackages"></small></div>
+        <div class="featured-controls"><div class="featured-arrows"><button type="button" id="featuredPrev" data-i18n-aria="previousProduct">←</button><span id="featuredCounter" role="status" aria-live="polite" aria-atomic="true"></span><button type="button" id="featuredNext" data-i18n-aria="nextProduct">→</button></div><button type="button" id="featuredDetail" class="featured-detail"><span data-i18n="detail">Batafsil</span><span aria-hidden="true">↗</span></button></div>
+        <p id="selectorHint" class="selector-hint" data-i18n="selectorHint">Yon tomonga suring yoki ← → tugmalaridan foydalaning.</p>
       </div>
     </section>
     <section class="catalog-section" id="catalog"><div class="container"><div class="section-heading"><div><p class="eyebrow"><span class="section-number">02</span> <span data-i18n="catalogEyebrow">RANG VA QOPLAMA</span></p><h2 data-i18n="browse">Mahsulotni toping.</h2></div><p data-i18n="browseCopy">Yo‘nalishdan boshlang yoki mahsulot nomini qidiring.</p></div>
@@ -54,14 +52,12 @@
   <dialog id="productDialog" aria-labelledby="productTitle"><div class="dialog-shell"><button type="button" id="closeProduct" class="dialog-close" data-i18n-aria="closeDialog">×</button><div id="productMedia" class="dialog-media"></div><div class="dialog-copy"><p class="eyebrow" id="productBrand"></p><h2 id="productTitle"></h2><p id="productDescription"></p><div class="product-category" id="productCategory"></div><div id="variantPanel" hidden><h3 data-i18n="colors">Ranglar</h3><div id="variantList"></div><p id="variantName"></p></div><p id="packageInfo"></p><a class="button" href="tel:+998953003000" data-i18n="ask">Mahsulot haqida so‘rash</a><button type="button" class="text-link back-button" id="backToCatalog" data-i18n="back">Katalogga qaytish</button></div></div></dialog>
   <dialog id="settingsDialog" class="settings-dialog" aria-labelledby="settingsTitle">
     <div class="settings-shell"><button type="button" id="closeSettings" class="dialog-close" data-i18n-aria="closeDialog">×</button>
-      <p class="eyebrow">ELEMENT PAINT / STUDIO</p><h2 id="settingsTitle" data-i18n="settings">Ko‘rinish sozlamalari</h2><p class="settings-copy" data-i18n="settingsCopy">Saytni o‘zingizga moslang. Tanlov shu brauzerda saqlanadi.</p>
+      <p class="eyebrow">ELEMENT PAINT / 2026</p><h2 id="settingsTitle" data-i18n="settings">Ko‘rinish sozlamalari</h2><p class="settings-copy" data-i18n="settingsCopy">Saytni o‘zingizga moslang. Tanlov shu brauzerda saqlanadi.</p>
       <div class="settings-grid">
         <label><span data-i18n="appearance">Ko‘rinish</span><select id="appearanceSetting"><option value="light" data-i18n="lightMode">Yorug‘</option><option value="dark" data-i18n="darkMode">Qorong‘i</option></select></label>
         <label><span data-i18n="animation">Harakatlar</span><select id="motionSetting"><option value="full" data-i18n="fullMotion">To‘liq animatsiya</option><option value="reduced" data-i18n="lessMotion">Kamroq harakat</option></select></label>
-        <label><span data-i18n="quality">3D sifati</span><select id="qualitySetting"><option value="auto" data-i18n="autoQuality">Avtomatik</option><option value="eco" data-i18n="ecoQuality">Tejamkor</option><option value="high" data-i18n="highQuality">Yuqori</option></select></label>
         <label><span data-i18n="catalogView">Katalog ko‘rinishi</span><select id="densitySetting"><option value="comfortable" data-i18n="comfortable">Keng kartalar</option><option value="compact" data-i18n="compact">Ixcham kartalar</option></select></label>
-        <label class="flow-setting"><span><span data-i18n="flowSpeed">Quyilish tezligi</span><output id="flowOutput" for="flowSetting">1×</output></span><input type="range" id="flowSetting" min="0.5" max="1.5" step="0.25" value="1"></label>
-        <label class="toggle-setting"><span data-i18n="autoRotate">Bankani avtomatik aylantirish</span><input type="checkbox" id="rotateSetting" role="switch"></label>
+        <label class="toggle-setting"><span data-i18n="autoSlide">Mahsulotlarni avtomatik almashtirish</span><input type="checkbox" id="slideSetting" role="switch"></label>
       </div>
       <p class="settings-note" data-i18n="settingsSystem">Qurilmangizdagi harakatni kamaytirish sozlamasi ham hisobga olinadi.</p>
       <button type="button" class="replay-button" id="replayIntro"><span aria-hidden="true">↻</span> <span data-i18n="replay">Boshlanishni qayta ko‘rish</span></button>

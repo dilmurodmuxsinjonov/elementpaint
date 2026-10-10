@@ -232,3 +232,10 @@ const studioCopy = {
 };
 for (const lang of ['uz','ru','en']) Object.assign(strings[lang],studioCopy[lang]);
 export function findProduct(id) { return products.find(p => p.id === id || p.aliases.includes(id)); }
+
+const selectorCopy={
+  uz:{chooseProduct:'Mahsulotni tanlang',productTypes:'Mahsulot turlari',previousProduct:'Oldingi mahsulot',nextProduct:'Keyingi mahsulot',selectorHint:'Yon tomonga suring yoki ← → tugmalaridan foydalaning.',autoSlide:'Mahsulotlarni avtomatik almashtirish'},
+  ru:{chooseProduct:'Выберите продукт',productTypes:'Виды продукции',previousProduct:'Предыдущий продукт',nextProduct:'Следующий продукт',selectorHint:'Листайте в сторону или используйте клавиши ← →.',autoSlide:'Автоматически переключать продукты'},
+  en:{chooseProduct:'Choose your product',productTypes:'Product types',previousProduct:'Previous product',nextProduct:'Next product',selectorHint:'Swipe sideways or use the ← → keys.',autoSlide:'Switch products automatically'},
+};
+for(const lang of ['uz','ru','en'])Object.assign(strings[lang],selectorCopy[lang]);
