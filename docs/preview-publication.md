@@ -82,3 +82,14 @@ Sinov nusxasi yakuniy ishlab chiqarish chiqarilishi emas. Mijoz tuzatishlari, as
 - Nine alpha-containment frames passed: zero escaped pixels; full native logo coverage at 100%; empty reset. Native hashes for all 72 catalogue images remain unchanged. Light/dark and 375 × 812 phone layout, skip and reduced-motion suppression verified locally.
 - Main remained `14fcd39e1a70198117537ee676a3874067eac6a1`. No production server/DNS deployment.
 - Details: [logo-fill-20261010.md](logo-fill-20261010.md).
+
+## 2026-10-10: caption-free 3D video intro
+
+- Source: `c39141e` on `design-refresh-20261005`.
+- Preview runtime: `89209526c2e5cc6dbad73ac03c7559adbd5a455f` on `preview-site`.
+- [Pages run 38073822126](https://github.com/dilmurodmuxsinjonov/elementpaint/actions/runs/38073822126) completed successfully.
+- Live `20261010.5` verified: 45 products; catalogue entry leaves video source empty; settings replay decodes the actual WebM at 1080 × 1080, duration 5 s, muted. Overlay text is solely the × control; no captions or progress meter. Playback reached 100%, ended and paused, then removed the overlay and scroll lock. No browser errors/warnings.
+- Locally rendered from 150 frames using original logo alpha geometry and Berlak photo texture. WebM VP9 is 236,757 bytes; H.264 MP4 fallback is 349,016 bytes. Both 30 fps, 5.000 s, without audio. Rendering intermediates remain outside the runtime package.
+- Lazy playback/replay/cancellation/error/timeout checks, 375 × 812 layout, skip and reduced motion passed. 72 original catalogue PNG hashes remain unchanged.
+- Main stayed `14fcd39e1a70198117537ee676a3874067eac6a1`. No main server or DNS deployment.
+- Details: [intro-video-20261010.md](intro-video-20261010.md).
