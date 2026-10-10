@@ -57,7 +57,7 @@ export const products = legacyProducts.filter(p => !['atlas-blue', 'atlas-yellow
   title: names[p.id], description: descriptions[mapping[p.id] || p.cat], image: p.img,
   variants: [], packages: [], sourceStatus: 'existing',
 }));
-const catalogImage = number => `assets/catalog-2026/product-${String(number).padStart(3,'0')}.webp`;
+const catalogImage = number => `assets/catalog-2026/product-${String(number).padStart(3,'0')}.png`;
 const catalogProductImages = {
   'berlak-white': 1, 'berlak-floor': 3, 'berlak-travertin': 4, 'berlak-ottocento': 9,
   'berlak-pearl': 10, 'berlak-travertin-lak': 11, 'berlak-wallpaper': 12,
@@ -239,3 +239,4 @@ const selectorCopy={
   en:{chooseProduct:'Choose your product',productTypes:'Product types',previousProduct:'Previous product',nextProduct:'Next product',selectorHint:'Swipe sideways or use the ← → keys.',autoSlide:'Switch products automatically'},
 };
 for(const lang of ['uz','ru','en'])Object.assign(strings[lang],selectorCopy[lang]);
+for(const [lang,fullImage] of Object.entries({uz:'Asl rasmni ochish',ru:'Открыть оригинал',en:'Open original image'}))strings[lang].fullImage=fullImage;
