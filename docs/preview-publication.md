@@ -62,3 +62,13 @@ Sinov nusxasi yakuniy ishlab chiqarish chiqarilishi emas. Mijoz tuzatishlari, as
 - Local browser checks covered UZ/RU/EN, light/dark, 375 and 320 px phone widths, keyboard navigation, category filters, optional automatic switching and reduced motion. The fluid introduction was captured during pouring at 53% and completed automatically.
 - `main` remained `14fcd39e1a70198117537ee676a3874067eac6a1`. No production server or DNS deployment.
 - Design and checks: [glass-design-20261010.md](glass-design-20261010.md).
+
+## 2026-10-10: original package images
+
+- Source implementation: `c43b525` on `design-refresh-20261005`.
+- Preview runtime: `046f5f447cc086853c307ed9c90c31099115eefe` on `preview-site`.
+- [Pages run 38070626901](https://github.com/dilmurodmuxsinjonov/elementpaint/actions/runs/38070626901) completed successfully.
+- Live app version `20261010.3` verified: 45 products, native Atlas primer PNG at 319 × 604 px, its original-image link, complete red cap and uncropped package framing. Browser reported no warnings or errors.
+- All 72 served PNG files match native PDF extraction hashes; no image-text regeneration or lossy re-encoding. Mobile and desktop image containment were checked. The available native resolution is retained, rather than synthesizing missing lettering.
+- `main` stayed at `14fcd39e1a70198117537ee676a3874067eac6a1`; production server and DNS untouched.
+- Details: [original-images-20261010.md](original-images-20261010.md).
