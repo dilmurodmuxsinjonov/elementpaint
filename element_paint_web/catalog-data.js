@@ -190,7 +190,7 @@ export const strings = {
     applications: 'Mahsulotlarimiz qo‘llanadigan joylar', facade: 'Fasad', interior: 'Interyer', wood: 'Yog‘och va metall',
     contactTitle: 'Mos mahsulotni birga tanlaymiz.', contactCopy: 'Qaysi yuzani bo‘yamoqchisiz? Biz bilan bog‘laning — mahsulot va qadoqni tanlashda yordam beramiz.',
     phone: 'Qo‘ng‘iroq qilish', telegram: 'Telegram', footer: 'Bo‘yoqlar va dekorativ qoplamalar ishlab chiqaruvchisi.', skip: 'Asosiy mazmunga o‘tish', menu: 'Menyu', closeDialog: 'Yopish',
-    theme: 'Ko‘rinishni o‘zgartirish', loading: 'Rang bilan boshlanadi.', preview: 'Sinov versiyasi',
+    theme: 'Ko‘rinishni o‘zgartirish', loading: 'Logotip bo‘yoq bilan to‘lmoqda.', preview: 'Sinov versiyasi',
   },
   ru: {
     made: 'Произведено в Узбекистане · С 2011 года', catalog: 'Продукция', about: 'О производстве', contact: 'Контакты', advice: 'Консультация',
@@ -206,7 +206,7 @@ export const strings = {
     applications: 'Где применяются наши продукты', facade: 'Фасад', interior: 'Интерьер', wood: 'Дерево и металл',
     contactTitle: 'Подберём подходящий продукт вместе.', contactCopy: 'Какую поверхность вы хотите покрасить? Свяжитесь с нами — поможем выбрать продукт и упаковку.',
     phone: 'Позвонить', telegram: 'Telegram', footer: 'Производитель красок и декоративных покрытий.', skip: 'Перейти к содержимому', menu: 'Меню', closeDialog: 'Закрыть',
-    theme: 'Изменить оформление', loading: 'Всё начинается с цвета.', preview: 'Тестовая версия',
+    theme: 'Изменить оформление', loading: 'Логотип наполняется краской.', preview: 'Тестовая версия',
   },
   en: {
     made: 'Made in Uzbekistan · Since 2011', catalog: 'Products', about: 'Our factory', contact: 'Contact', advice: 'Get advice',
@@ -222,7 +222,7 @@ export const strings = {
     applications: 'Where our products are used', facade: 'Facades', interior: 'Interiors', wood: 'Wood and metal',
     contactTitle: 'Let’s find the right product.', contactCopy: 'What surface are you painting? Contact us and we will help you choose the product and packaging.',
     phone: 'Call us', telegram: 'Telegram', footer: 'Manufacturer of paints and decorative coatings.', skip: 'Skip to content', menu: 'Menu', closeDialog: 'Close',
-    theme: 'Change appearance', loading: 'It begins with colour.', preview: 'Preview version',
+    theme: 'Change appearance', loading: 'Paint is filling the logo.', preview: 'Preview version',
   },
 };
 const studioCopy = {

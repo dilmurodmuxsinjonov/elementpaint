@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><title>Logo paint containment checks</title>
+<style>body{font:16px system-ui;background:#eee9df;color:#24453a;padding:24px}canvas{width:360px;max-width:100%;display:block;margin:18px 0}p{max-width:800px}</style>
+<h1>Logo paint containment checks</h1><p id="result">Checking original logo alpha…</p><div id="frames"></div>
+<script type="module">
+import {createLogoPaint} from '/paint-logo.js';
+import {createLiquidSurface} from '/paint-liquid.js';
+const image=new Image();image.src='/assets/logo_light.png';await image.decode();
+const painter=createLogoPaint(image),surface=createLiquidSurface();
+const reference=document.createElement('canvas');reference.width=painter.canvas.width;reference.height=painter.canvas.height;
+const original=reference.getContext('2d',{willReadFrequently:true});original.drawImage(image,0,0,reference.width,reference.height);
+const alpha=original.getImageData(0,0,reference.width,reference.height).data;
+const failures=[];let intermediateCount=0,completeCount=0;
+for(const fill of [0,.01,.25,.5,.75,.99,1,0,1]){
+  for(let i=0;i<30;i++)surface.advance(1/60,40);
+  const output=painter.draw({fill,time:.65+fill*2.7,height:surface.height,pouring:fill>0&&fill<1});
+  const pixels=output.getContext('2d',{willReadFrequently:true}).getImageData(0,0,output.width,output.height).data;
+  let escaped=0,missing=0,painted=0;
+  for(let i=3;i<pixels.length;i+=4){
+    if(!alpha[i]&&pixels[i])escaped++;
+    if(alpha[i]>16&&pixels[i]<alpha[i]-1)missing++;
+    if(pixels[i]>16)painted++;
+  }
+  if(escaped)failures.push('Paint escaped at '+fill+': '+escaped+' pixels');
+  if(fill===0&&painted)failures.push('Empty/replay logo contains paint');
+  if(fill===1&&missing)failures.push('Complete logo has unfilled pixels: '+missing);
+  if(fill===.5)intermediateCount=painted;
+  if(fill===1)completeCount=painted;
+  if([0,.5,1].includes(fill)){
+    const canvas=document.createElement('canvas');canvas.width=output.width;canvas.height=output.height;canvas.getContext('2d').drawImage(output,0,0);
+    const label=document.createElement('p');label.textContent=Math.round(fill*100)+'% · outside alpha: '+escaped+' · unfilled: '+missing;
+    document.querySelector('#frames').append(label,canvas);
+  }
+}
+if(!intermediateCount||intermediateCount>=completeCount)failures.push('Fill must increase');
+const entryPixel=(Math.round(painter.entry.y*reference.height)*reference.width+Math.round(painter.entry.x*reference.width))*4+3;
+if(alpha[entryPixel]<220)failures.push('Pour entry must land inside the original logo');
+document.querySelector('#result').textContent=failures.length?'FAIL: '+failures.join('; '):'PASS: 9 frames; zero escaped pixels; original letter holes and crest preserved; fully filled at 100%; empty on reset; entry inside original logo.';
+document.querySelector('#result').dataset.result=failures.length?'fail':'pass';
+</script></html>
