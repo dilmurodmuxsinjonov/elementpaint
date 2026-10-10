@@ -1,0 +1,726 @@
+{
+  "sourceSha256": "d776654829ddd795674ff9ecf6d3fd5c44ce3d19dc2f6b65c701a8681bdec997",
+  "method": "Direct embedded-image extraction; no resizing, background removal, sharpening, generated text or lossy re-encoding.",
+  "images": [
+    {
+      "imageNumber": 1,
+      "file": "assets/catalog-2026/product-001.png",
+      "width": 628,
+      "height": 695,
+      "bytes": 312569,
+      "sha256": "926a80d9d032d707d43d55cf7ce3441af7d2b51404c5c5020523a630c30e3c20",
+      "pdfXref": 1514,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 2,
+      "file": "assets/catalog-2026/product-002.png",
+      "width": 627,
+      "height": 695,
+      "bytes": 187598,
+      "sha256": "f78ecdfb709ddc81584f4a8ae65b0430a3780af0f48dba73916942b0cf14c6c8",
+      "pdfXref": 1515,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 3,
+      "file": "assets/catalog-2026/product-003.png",
+      "width": 627,
+      "height": 695,
+      "bytes": 191637,
+      "sha256": "d3c29d9346f43d06234844a623537a82b8bea8623d93b88c206309919cc09df1",
+      "pdfXref": 1516,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 4,
+      "file": "assets/catalog-2026/product-004.png",
+      "width": 628,
+      "height": 695,
+      "bytes": 170333,
+      "sha256": "a886bb1fed1445c49fb707be74d0e64257814c7f6d8c4a3c1925681126167db6",
+      "pdfXref": 744,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 5,
+      "file": "assets/catalog-2026/product-005.png",
+      "width": 628,
+      "height": 695,
+      "bytes": 182822,
+      "sha256": "e261c2f98313afb298ad744a5296c7d0b7ef97c2b164deb35f7630b7440b9f9f",
+      "pdfXref": 748,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 6,
+      "file": "assets/catalog-2026/product-006.png",
+      "width": 630,
+      "height": 695,
+      "bytes": 258293,
+      "sha256": "e7e297250226c9afb71bbe22ad2b0017070c1f0a85b6d7ad0ca1115b0d3449e6",
+      "pdfXref": 749,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 7,
+      "file": "assets/catalog-2026/product-007.png",
+      "width": 627,
+      "height": 694,
+      "bytes": 241774,
+      "sha256": "fed24bcb776f548d0e2dc081d02420682a39011fdaf3d6211634d3bd20e171da",
+      "pdfXref": 747,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 8,
+      "file": "assets/catalog-2026/product-008.png",
+      "width": 628,
+      "height": 694,
+      "bytes": 188197,
+      "sha256": "4bb18b6eabbf6f087c5735647d63d981eed26e5c4340c5b7acc987a338ebd44b",
+      "pdfXref": 1517,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 9,
+      "file": "assets/catalog-2026/product-009.png",
+      "width": 627,
+      "height": 694,
+      "bytes": 172008,
+      "sha256": "af2273b78e274591597897278cfc4eb7a92e0f96e354db6f72d23f2f0317521b",
+      "pdfXref": 1518,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 10,
+      "file": "assets/catalog-2026/product-010.png",
+      "width": 627,
+      "height": 694,
+      "bytes": 354775,
+      "sha256": "9db44ea442d314c60abfbef8215685764fa72c653388355f6135f4bc47de9251",
+      "pdfXref": 1519,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 11,
+      "file": "assets/catalog-2026/product-011.png",
+      "width": 628,
+      "height": 694,
+      "bytes": 227703,
+      "sha256": "67a6a6b11b8f29618d3be1a1a4013e031227657d5700d0ab08797c01360c5b7b",
+      "pdfXref": 746,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 12,
+      "file": "assets/catalog-2026/product-012.png",
+      "width": 630,
+      "height": 694,
+      "bytes": 302534,
+      "sha256": "87f82c5fe2e9dd333af867d2a2bfb3b8e0a0e3a80125f32dd45985bdfcd9b439",
+      "pdfXref": 745,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 13,
+      "file": "assets/catalog-2026/product-013.png",
+      "width": 591,
+      "height": 694,
+      "bytes": 198717,
+      "sha256": "48d69d31f17b1138cb43855057d6afd83acd6e7ff8616cd60cba8c1ce5d98d42",
+      "pdfXref": 1529,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 14,
+      "file": "assets/catalog-2026/product-014.png",
+      "width": 592,
+      "height": 694,
+      "bytes": 249503,
+      "sha256": "0ed3169add0dab260c3ae77b3c6d5886275d6c2e8a98ea4ac8dcc580b19a39f0",
+      "pdfXref": 1466,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 15,
+      "file": "assets/catalog-2026/product-015.png",
+      "width": 591,
+      "height": 694,
+      "bytes": 265022,
+      "sha256": "13509d33d8b2f0203b3cde59c53287d075578207f58c370e5ca10c1010ec1aa2",
+      "pdfXref": 888,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 16,
+      "file": "assets/catalog-2026/product-016.png",
+      "width": 592,
+      "height": 694,
+      "bytes": 238641,
+      "sha256": "034090d821f4862667bcd64af1b5f801424d860d011e0fe4c73678b342bee5b5",
+      "pdfXref": 889,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 17,
+      "file": "assets/catalog-2026/product-017.png",
+      "width": 318,
+      "height": 602,
+      "bytes": 145278,
+      "sha256": "6cae6ce23fc5df5d9e08615c81f5eda5bd6ca7749c3bda14f9c93c819ddfa08b",
+      "pdfXref": 1532,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 18,
+      "file": "assets/catalog-2026/product-018.png",
+      "width": 319,
+      "height": 604,
+      "bytes": 75853,
+      "sha256": "7e08885754a6ed28fe9bc2ef54a9971fdabcee6f232f09aa1bc3d8f6ba733683",
+      "pdfXref": 1533,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 19,
+      "file": "assets/catalog-2026/product-019.png",
+      "width": 591,
+      "height": 694,
+      "bytes": 196276,
+      "sha256": "56670d2f21b828e37818171b3a7f943ca299a987d5a08e133df99089967f7c76",
+      "pdfXref": 1534,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 20,
+      "file": "assets/catalog-2026/product-020.png",
+      "width": 591,
+      "height": 694,
+      "bytes": 193069,
+      "sha256": "f37769619cd7adb6bc5a52a225ae93906dc14af7dd4585bcf32b82f4a81ed5af",
+      "pdfXref": 1531,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 21,
+      "file": "assets/catalog-2026/product-021.png",
+      "width": 591,
+      "height": 694,
+      "bytes": 260042,
+      "sha256": "e9a847024271295ad9e2329398ea2cbd1e53e38b33fd8eaa163652d75b3af7c4",
+      "pdfXref": 1530,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 22,
+      "file": "assets/catalog-2026/product-022.png",
+      "width": 592,
+      "height": 694,
+      "bytes": 214203,
+      "sha256": "1689c230f85fb0ab2c5bdf4088b56afc29c8638eb67c17e38eb9de6ffd3e6bd0",
+      "pdfXref": 892,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 23,
+      "file": "assets/catalog-2026/product-023.png",
+      "width": 591,
+      "height": 694,
+      "bytes": 218671,
+      "sha256": "3562b4ac002c94fa1ebc95ecfebe8ebb2ff1ed53d6eb06cb77913383a933b5f6",
+      "pdfXref": 890,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 24,
+      "file": "assets/catalog-2026/product-024.png",
+      "width": 592,
+      "height": 694,
+      "bytes": 244381,
+      "sha256": "32d21a2340800473aba3a535f74f2822cd320619197f949533993a6fe3d3af4c",
+      "pdfXref": 891,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 25,
+      "file": "assets/catalog-2026/product-025.png",
+      "width": 592,
+      "height": 695,
+      "bytes": 231478,
+      "sha256": "f5adb67757319af1f38bb7e371a5a8994526089169ee89bea04d77f63760284d",
+      "pdfXref": 1044,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 26,
+      "file": "assets/catalog-2026/product-026.png",
+      "width": 592,
+      "height": 695,
+      "bytes": 218010,
+      "sha256": "b07b7ac6459b00ff72a6bb0829a96dc7d53df234b3f9f882a1b965fba93fa303",
+      "pdfXref": 1046,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 27,
+      "file": "assets/catalog-2026/product-027.png",
+      "width": 591,
+      "height": 695,
+      "bytes": 233097,
+      "sha256": "af9ca5e9c9016b2097cad1324419111dba4c02917fa514fba5e3b6fcdc6403a4",
+      "pdfXref": 1047,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 28,
+      "file": "assets/catalog-2026/product-028.png",
+      "width": 628,
+      "height": 695,
+      "bytes": 354730,
+      "sha256": "b76d2b35e08d488941a338e8a46c9146c2d70787c5cc1f8388fad0e99ec9a7d3",
+      "pdfXref": 1045,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 29,
+      "file": "assets/catalog-2026/product-029.png",
+      "width": 581,
+      "height": 695,
+      "bytes": 384652,
+      "sha256": "db8c7b7e4a986fb7e4f9ffe0912dd445e070de043754882e3e9f5d91a618282e",
+      "pdfXref": 1499,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 30,
+      "file": "assets/catalog-2026/product-030.png",
+      "width": 630,
+      "height": 695,
+      "bytes": 269797,
+      "sha256": "c40670fa256a0f1aa202fa6a31e2b7453ce5f03b5b4161dc25b8bfb07171059f",
+      "pdfXref": 1043,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 31,
+      "file": "assets/catalog-2026/product-031.png",
+      "width": 628,
+      "height": 696,
+      "bytes": 284098,
+      "sha256": "7f6ce4feee4c84651c98b548259406ea8e337c3b4ab7b356a68b699e18dd2d7d",
+      "pdfXref": 1040,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 32,
+      "file": "assets/catalog-2026/product-032.png",
+      "width": 627,
+      "height": 696,
+      "bytes": 262021,
+      "sha256": "3220942452160246208118a4921b3cc1bff2f68e71f92d4a94795fb725f05314",
+      "pdfXref": 1042,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 33,
+      "file": "assets/catalog-2026/product-033.png",
+      "width": 627,
+      "height": 696,
+      "bytes": 236571,
+      "sha256": "13a101bf46a823befb2e120104355b8192dcd8a7f4b50649b34a62f09cc14347",
+      "pdfXref": 1041,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 34,
+      "file": "assets/catalog-2026/product-034.png",
+      "width": 508,
+      "height": 696,
+      "bytes": 193698,
+      "sha256": "3ecce800dcb07b7ac67c63577a8f36e96a6702c13e38f2bd3c5db6a568773f23",
+      "pdfXref": 1463,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 35,
+      "file": "assets/catalog-2026/product-035.png",
+      "width": 509,
+      "height": 696,
+      "bytes": 231820,
+      "sha256": "a6a1048668e3f158db059223d173de0123000f0377608068cdfc7eb5881b2496",
+      "pdfXref": 1464,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 36,
+      "file": "assets/catalog-2026/product-036.png",
+      "width": 580,
+      "height": 696,
+      "bytes": 216540,
+      "sha256": "0e0814c829e20078acd4ae93cc0b5579aeed82bec99c199fc76ea63cdc3a3bc1",
+      "pdfXref": 1496,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 37,
+      "file": "assets/catalog-2026/product-037.png",
+      "width": 580,
+      "height": 694,
+      "bytes": 218463,
+      "sha256": "a388aa6314091f446e3d3aa480efb83de1b920d60bfd91c2ecb6158b9f8c4676",
+      "pdfXref": 1467,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 38,
+      "file": "assets/catalog-2026/product-038.png",
+      "width": 580,
+      "height": 694,
+      "bytes": 222718,
+      "sha256": "ad24ffe5a5682c0c6dfa88a03a48f779e06686123727826fdce3b78644612198",
+      "pdfXref": 1468,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 39,
+      "file": "assets/catalog-2026/product-039.png",
+      "width": 580,
+      "height": 694,
+      "bytes": 212169,
+      "sha256": "62ec54755acd545d239a86546569928de3ef8977fce5ecc9ae661033de325610",
+      "pdfXref": 1469,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 40,
+      "file": "assets/catalog-2026/product-040.png",
+      "width": 580,
+      "height": 694,
+      "bytes": 202777,
+      "sha256": "0113c6d86d8d48014437279a4a09acb95290e6a67beaa62d693c62b04b87e98d",
+      "pdfXref": 1473,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 41,
+      "file": "assets/catalog-2026/product-041.png",
+      "width": 580,
+      "height": 694,
+      "bytes": 210991,
+      "sha256": "9a57db9b99a275c6dabddfc9f5b56e9e954853170c9d43fae99b70383ce72c39",
+      "pdfXref": 1474,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 42,
+      "file": "assets/catalog-2026/product-042.png",
+      "width": 580,
+      "height": 694,
+      "bytes": 202111,
+      "sha256": "4cc867c6474f04917cfe8f05a4d8f6e3408f5a52e3a6dbacf44d8ed1e694682d",
+      "pdfXref": 1475,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 43,
+      "file": "assets/catalog-2026/product-043.png",
+      "width": 580,
+      "height": 695,
+      "bytes": 208537,
+      "sha256": "150772464009149e08ee9344250f3aa210c79f184efa292e700466f26d78f6d9",
+      "pdfXref": 1470,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 44,
+      "file": "assets/catalog-2026/product-044.png",
+      "width": 580,
+      "height": 695,
+      "bytes": 200400,
+      "sha256": "2c3601aed4e5bb676b02ab4c10ec54f2fbdc620be69a820535c4b51857901193",
+      "pdfXref": 1471,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 45,
+      "file": "assets/catalog-2026/product-045.png",
+      "width": 580,
+      "height": 695,
+      "bytes": 234959,
+      "sha256": "7fd069088067ff8abf86e0f5f7d1ba900b1fbc826e57edd01d990d860037b5ed",
+      "pdfXref": 1472,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 46,
+      "file": "assets/catalog-2026/product-046.png",
+      "width": 508,
+      "height": 695,
+      "bytes": 207831,
+      "sha256": "8e00a678add5d96d176c147efd2d92ad7903aa8a2fec8932227b198135bd8b60",
+      "pdfXref": 1509,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 47,
+      "file": "assets/catalog-2026/product-047.png",
+      "width": 591,
+      "height": 695,
+      "bytes": 228715,
+      "sha256": "bb3dbe295253238d75f553520c34b67d70edb15493002d3c332e003623b0007c",
+      "pdfXref": 1465,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 48,
+      "file": "assets/catalog-2026/product-048.png",
+      "width": 592,
+      "height": 695,
+      "bytes": 235393,
+      "sha256": "09c8e6817af6f3cc78bf6e2179c6b4d811628b28960d61a32ac3dda5b7e50f31",
+      "pdfXref": 1186,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 49,
+      "file": "assets/catalog-2026/product-049.png",
+      "width": 592,
+      "height": 696,
+      "bytes": 219349,
+      "sha256": "2a5d7b4fb2135426b6356b78aa4b03e5925793b7a7b0a138ff7f81db8eed0bc6",
+      "pdfXref": 1476,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 50,
+      "file": "assets/catalog-2026/product-050.png",
+      "width": 592,
+      "height": 696,
+      "bytes": 266976,
+      "sha256": "52cdb61922aa85f6ad08e39987dac866e598bb42b7da19a3d4eba747a95d3d99",
+      "pdfXref": 1484,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 51,
+      "file": "assets/catalog-2026/product-051.png",
+      "width": 592,
+      "height": 696,
+      "bytes": 268956,
+      "sha256": "32dc1e3bd3c66c53d74385915b5aafc06b8a5cfb27a2e961c1b1dce11e765942",
+      "pdfXref": 1479,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 52,
+      "file": "assets/catalog-2026/product-052.png",
+      "width": 592,
+      "height": 696,
+      "bytes": 189033,
+      "sha256": "41dfb625fd5238a9726615cd0e7988a51215a467be014922df01593812bc4bbd",
+      "pdfXref": 1478,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 53,
+      "file": "assets/catalog-2026/product-053.png",
+      "width": 591,
+      "height": 696,
+      "bytes": 234719,
+      "sha256": "85b55ce2dd05949fb0ce8229851013069f9b0be2e8ac5cdb0816c6f8db3c1d44",
+      "pdfXref": 1482,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 54,
+      "file": "assets/catalog-2026/product-054.png",
+      "width": 592,
+      "height": 696,
+      "bytes": 257017,
+      "sha256": "90556d2025b3fc0b4a5acd088c11e3b5f2695ebc928dd6b46c164897ee57d304",
+      "pdfXref": 1483,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 55,
+      "file": "assets/catalog-2026/product-055.png",
+      "width": 592,
+      "height": 694,
+      "bytes": 210739,
+      "sha256": "ac0f64044e5ddbe729185aa7bf564b21b15ed0a2ea65dda48cbeafcb4b72a4df",
+      "pdfXref": 1481,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 56,
+      "file": "assets/catalog-2026/product-056.png",
+      "width": 591,
+      "height": 694,
+      "bytes": 247343,
+      "sha256": "31c46229f14384962dfc77479526fc647d90bcc138b932c8a4251e211d170a0e",
+      "pdfXref": 1477,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 57,
+      "file": "assets/catalog-2026/product-057.png",
+      "width": 591,
+      "height": 694,
+      "bytes": 210022,
+      "sha256": "00a662c61828442401207d2c2ba0ff78a53b71e6b18a10ceac18a2c4572fe3bb",
+      "pdfXref": 1480,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 58,
+      "file": "assets/catalog-2026/product-058.png",
+      "width": 592,
+      "height": 694,
+      "bytes": 232484,
+      "sha256": "e5f89be52fc67792277e3e856df489aba749b1dc6ef237284bd1ec722d17f960",
+      "pdfXref": 1510,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 59,
+      "file": "assets/catalog-2026/product-059.png",
+      "width": 628,
+      "height": 694,
+      "bytes": 308891,
+      "sha256": "b7e3e468632acab9a0a326ca355b9a3581e7b1140b9ea87f51a7fd6434260164",
+      "pdfXref": 1486,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 60,
+      "file": "assets/catalog-2026/product-060.png",
+      "width": 630,
+      "height": 694,
+      "bytes": 268861,
+      "sha256": "646178e77bfd43957d5e6f868e7087062bacfcd09528093c6a5e502522814afd",
+      "pdfXref": 1485,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 61,
+      "file": "assets/catalog-2026/product-061.png",
+      "width": 628,
+      "height": 695,
+      "bytes": 240889,
+      "sha256": "57a59ca165a936712e6899ed6958e1cf14c9f487b3a69c6c28b59ee9548a6fe3",
+      "pdfXref": 1511,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 62,
+      "file": "assets/catalog-2026/product-062.png",
+      "width": 627,
+      "height": 695,
+      "bytes": 167278,
+      "sha256": "25b5227852e9d20322f5fd2533daa68ae5a388f200d2f979728eb75c1a605503",
+      "pdfXref": 1489,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 63,
+      "file": "assets/catalog-2026/product-063.png",
+      "width": 627,
+      "height": 695,
+      "bytes": 266368,
+      "sha256": "39c1e8268b9f72472d765ff15d3712e2a00ce26bb67ee6db187d18e0ef4421e4",
+      "pdfXref": 1488,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 64,
+      "file": "assets/catalog-2026/product-064.png",
+      "width": 628,
+      "height": 695,
+      "bytes": 190979,
+      "sha256": "bfcfa17c3a93422703848b20aeb8f9a9f3aabc219a2cede1cf953a111da2fb1f",
+      "pdfXref": 1495,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 65,
+      "file": "assets/catalog-2026/product-065.png",
+      "width": 628,
+      "height": 695,
+      "bytes": 304695,
+      "sha256": "5b1af1621f8de7169871bbfcdc0430acd2337b09f7cedf4417b5c3becffe059c",
+      "pdfXref": 1487,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 66,
+      "file": "assets/catalog-2026/product-066.png",
+      "width": 548,
+      "height": 694,
+      "bytes": 306842,
+      "sha256": "cf5b248d8a2f23a8949f3b6076f08e7b9c66fed0776a66014469f7b262387d6a",
+      "pdfXref": 1493,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 67,
+      "file": "assets/catalog-2026/product-067.png",
+      "width": 628,
+      "height": 696,
+      "bytes": 410395,
+      "sha256": "1b56361415ea24c36ed7d1d8e8b4dd2671e96162cc816c63bfaa799f643d18e5",
+      "pdfXref": 1492,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 68,
+      "file": "assets/catalog-2026/product-068.png",
+      "width": 627,
+      "height": 696,
+      "bytes": 161704,
+      "sha256": "0d82e5975df7177f1da8e48c09acf724b8fe812cc11a5542f098be246f598ec9",
+      "pdfXref": 1490,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 69,
+      "file": "assets/catalog-2026/product-069.png",
+      "width": 628,
+      "height": 696,
+      "bytes": 184470,
+      "sha256": "6222203f95515b4e94d71dfa3a53b46ae562553d5a9eb7aa22394a17536f8131",
+      "pdfXref": 1494,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 70,
+      "file": "assets/catalog-2026/product-070.png",
+      "width": 628,
+      "height": 696,
+      "bytes": 197551,
+      "sha256": "8643436dff388ac353000405d0e97d60909db248db3e064db5476826c61dd1cc",
+      "pdfXref": 1497,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 71,
+      "file": "assets/catalog-2026/product-071.png",
+      "width": 630,
+      "height": 696,
+      "bytes": 154353,
+      "sha256": "79cb4fb2996483357a13d2ff36dcf4feecd885163264fbc012e1bdf2cf5a1004",
+      "pdfXref": 1498,
+      "pdfMask": 0
+    },
+    {
+      "imageNumber": 72,
+      "file": "assets/catalog-2026/product-072.png",
+      "width": 314,
+      "height": 594,
+      "bytes": 69804,
+      "sha256": "5e4286e7b3dbd1b41b56d8d5805e53b21187f0501051cf93676805774832366c",
+      "pdfXref": 1491,
+      "pdfMask": 0
+    }
+  ]
+}

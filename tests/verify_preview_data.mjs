@@ -31,11 +31,11 @@ for(const row of fixture.packages){
   const product=findProduct(row.productId);
   const target=row.variantId?product.variants.find(v=>v.id===row.variantId):product;
   assert.ok(target,`PDF package ${row.imageNumber}: missing ${row.productId}/${row.variantId||''}`);
-  assert.equal(target.image,`assets/catalog-2026/product-${String(row.imageNumber).padStart(3,'0')}.webp`,`Wrong PDF image for ${row.productId}/${row.variantId||''}`);
+  assert.equal(target.image,`assets/catalog-2026/product-${String(row.imageNumber).padStart(3,'0')}.png`,`Wrong PDF image for ${row.productId}/${row.variantId||''}`);
   assert.deepEqual(target.packages,row.packagesKg,`Wrong PDF weight for ${row.productId}/${row.variantId||''}`);
 }
 const images=await readdir(new URL('../element_paint_web/assets/catalog-2026/',import.meta.url));
-assert.equal(images.filter(name=>/^product-\d{3}\.webp$/.test(name)).length,72);
+assert.equal(images.filter(name=>/^product-\d{3}\.png$/.test(name)).length,72);
 for(const [id,packages] of Object.entries(fixture.existingApproved))assert.deepEqual(findProduct(id).packages,packages,`Unverified weight added to ${id}`);
 const expectedVariants=fixture.packages.filter(row=>row.variantId).map(row=>`${row.productId}/${row.variantId}`).sort();
 assert.deepEqual(products.flatMap(p=>p.variants.map(v=>`${p.id}/${v.id}`)).sort(),expectedVariants,'Unapproved colour added or catalog colour missing');

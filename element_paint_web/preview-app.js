@@ -1,7 +1,7 @@
-import {createProductSelector} from './product-selector.js?v=20261010.2';
-import { categories, products, strings, findProduct } from './catalog-data.js?v=20261010.2';
-import {readPreferences,savePreferences,defaultPreferences} from './studio-preferences.js?v=20261010.2';
-import {createPaintIntro} from './paint-intro.js?v=20261010.2';
+import {createProductSelector} from './product-selector.js?v=20261010.3';
+import { categories, products, strings, findProduct } from './catalog-data.js?v=20261010.3';
+import {readPreferences,savePreferences,defaultPreferences} from './studio-preferences.js?v=20261010.3';
+import {createPaintIntro} from './paint-intro.js?v=20261010.3';
 
 const $ = id => document.getElementById(id);
 const validLang = value => ['uz','ru','en'].includes(value) ? value : 'uz';
@@ -54,7 +54,9 @@ function renderProduct() {
   if(variant)state.variant=variant.id;else state.variant='';
   $('productBrand').textContent=product.brand;$('productTitle').textContent=product.title[state.lang];$('productDescription').textContent=product.description[state.lang];
   $('productCategory').textContent=`${t('category')} / ${categories.find(c=>c.id===product.categoryId).name[state.lang]}`;
-  const media=imageMedia(product,variant?(variant.image||null):product.image);$('productMedia').replaceChildren(...media.childNodes);
+  const selectedImage=variant?(variant.image||null):product.image;
+  const media=imageMedia(product,selectedImage);$('productMedia').replaceChildren(...media.childNodes);
+  if(selectedImage){const full=node('a','image-original-link',`${t('fullImage')} ↗`);full.href=selectedImage;full.target='_blank';full.rel='noopener';$('productMedia').append(full);}
   $('variantPanel').hidden=!product.variants.length;$('variantList').replaceChildren();
   for(const v of product.variants){const button=node('button');button.type='button';button.style.setProperty('--swatch',v.color);button.title=v.name[state.lang];button.setAttribute('aria-label',v.name[state.lang]);button.setAttribute('aria-pressed',String(v.id===state.variant));button.append(node('span'));button.addEventListener('click',()=>{state.variant=v.id;saveURL();renderProduct();});$('variantList').append(button);}
   $('variantName').textContent=variant?`${variant.name[state.lang]}${variant.image?'':` · ${t('photoPending')}`}`:'';
