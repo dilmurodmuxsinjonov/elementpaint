@@ -1,0 +1,12 @@
+import assert from 'node:assert/strict';
+import {createLiquidSurface} from '../element_paint_web/paint-liquid.js';
+const surface=createLiquidSurface();
+for(let i=0;i<180;i++)surface.advance(1/60,40);
+assert.ok(Math.max(...surface.height)>.1,'The stream must disturb the surface');
+assert.ok(surface.height[40]>0,'Waves must propagate away from the impact');
+for(let i=0;i<600;i++)surface.advance(1/60);
+assert.ok(Math.max(...surface.height.map(Math.abs))<.001,'Viscous waves must settle after pouring stops');
+surface.advance(10,60);
+assert.ok([...surface.height].every(Number.isFinite),'A background-tab time jump must remain stable');
+surface.reset();assert.ok([...surface.height].every(value=>value===0),'Replay must start with a fresh surface');
+console.log('PASS: fluid impact, wave propagation, damping, long-frame stability and replay reset.');

@@ -1,10 +1,11 @@
-import { categories, products, strings, findProduct } from './catalog-data.js?v=20261009.2';
-import {readPreferences,savePreferences,defaultPreferences} from './studio-preferences.js?v=20261009.2';
-import {createPaintIntro} from './paint-intro.js?v=20261009.2';
+import {createProductSelector} from './product-selector.js?v=20261010.2';
+import { categories, products, strings, findProduct } from './catalog-data.js?v=20261010.2';
+import {readPreferences,savePreferences,defaultPreferences} from './studio-preferences.js?v=20261010.2';
+import {createPaintIntro} from './paint-intro.js?v=20261010.2';
 
 const $ = id => document.getElementById(id);
 const validLang = value => ['uz','ru','en'].includes(value) ? value : 'uz';
-let sceneApi, returnFocus, urlTimer;
+let selectorApi, returnFocus, urlTimer;
 let preferences=readPreferences(),introApi,introGeneration=0,introTimeout;
 const params = new URLSearchParams(location.search);
 export const state = { lang: validLang(params.get('lang')), category: categories.some(c=>c.id===params.get('category')) ? params.get('category') : 'all', brand: params.get('brand') || 'all', query: params.get('q') || '', product: params.get('product') || '', variant: params.get('variant') || '' };
@@ -71,8 +72,8 @@ function closeProduct(fromHistory=false) {
   const target=returnFocus?.isConnected?returnFocus:productId?document.querySelector(`[data-product="${productId}"] .product-open`):$('searchInput');target?.focus({preventScroll:true});
 }
 function applyLanguage() {
-  $('paintLevel').setAttribute('aria-label',t('paintLeft'));document.documentElement.lang=state.lang;document.title=`Element Paint — ${t('catalog')}`;
-  document.querySelector('.logo').href=`preview.html?lang=${state.lang}`;
+  document.documentElement.lang=state.lang;document.title=`Element Paint — ${t('catalog')}`;
+  document.querySelector('.logo').href=`?lang=${state.lang}#home`;
   document.querySelector('meta[name=description]').content=t('footer');
   for(const el of document.querySelectorAll('[data-i18n]'))el.textContent=t(el.dataset.i18n);
   for(const el of document.querySelectorAll('[data-i18n-aria]'))el.setAttribute('aria-label',t(el.dataset.i18nAria));
@@ -81,7 +82,7 @@ function applyLanguage() {
   const brands=[...new Set(products.map(p=>p.brand))];if(!brands.includes(state.brand))state.brand='all';
   $('brandCount').textContent=String(brands.length);
   $('brandSelect').replaceChildren(new Option(t('all'),'all'),...brands.map(b=>new Option(b,b)));$('brandSelect').value=state.brand;
-  $('searchInput').value=state.query;renderCatalog();renderProduct();sceneApi?.setLanguage(strings[state.lang]);
+  $('searchInput').value=state.query;renderCatalog();renderProduct();selectorApi?.setLanguage();
   const altKeys=[['.about-image img','catalog'],['.application-grid article:nth-child(1) img','facade'],['.application-grid article:nth-child(2) img','interior'],['.application-grid article:nth-child(3) img','wood']];
   for(const [selector,key] of altKeys)document.querySelector(selector).alt=t(key);
 }
@@ -101,21 +102,21 @@ document.addEventListener('click',e=>{if(!e.target.closest('.navigation'))closeM
 function adaptHeader(){const mobile=matchMedia('(max-width:760px)').matches;const theme=$('themeButton');if(mobile)$('navigationLinks').append(theme);else document.querySelector('.nav-tools').insertBefore(theme,$('menuButton'));closeMenu();}
 matchMedia('(min-width:761px)').addEventListener('change',adaptHeader);adaptHeader();
 window.addEventListener('popstate',()=>{const q=new URLSearchParams(location.search);state.lang=validLang(q.get('lang'));state.category=categories.some(c=>c.id===q.get('category'))?q.get('category'):'all';state.brand=q.get('brand')||'all';state.query=q.get('q')||'';state.product=q.get('product')||'';state.variant=q.get('variant')||'';applyLanguage();if(findProduct(state.product)){if(!$('productDialog').open)$('productDialog').showModal();}else closeProduct(true);});
+selectorApi=createProductSelector({products,categories,getLanguage:()=>state.lang,getText:t,onOpen:showProduct});
 $('year').textContent=new Date().getFullYear();applyLanguage();
 if(findProduct(state.product)){$('productDialog').showModal();renderProduct();}
 const reduced=matchMedia('(prefers-reduced-motion:reduce)');
 function applyPreferences(){
   document.documentElement.dataset.theme=preferences.theme;document.documentElement.dataset.motion=reduced.matches?'reduced':preferences.motion;document.documentElement.dataset.density=preferences.density;
   $('themeButton').setAttribute('aria-pressed',String(preferences.theme==='dark'));
-  for(const [id,key] of [['appearanceSetting','theme'],['motionSetting','motion'],['qualitySetting','quality'],['densitySetting','density'],['flowSetting','flowSpeed']])$(id).value=preferences[key];
-  $('rotateSetting').checked=preferences.autoRotate;$('flowOutput').value=`${preferences.flowSpeed}×`;
+  for(const [id,key] of [['appearanceSetting','theme'],['motionSetting','motion'],['densitySetting','density']])$(id).value=preferences[key];
+  $('slideSetting').checked=preferences.autoSlide;
   $('replayIntro').disabled=reduced.matches||preferences.motion==='reduced';
-  sceneApi?.configure(preferences);savePreferences(preferences);
+  selectorApi?.configure(preferences);savePreferences(preferences);
   if(reduced.matches||preferences.motion==='reduced')stopIntro();
 }
-for(const [id,key] of [['appearanceSetting','theme'],['motionSetting','motion'],['qualitySetting','quality'],['densitySetting','density']])$(id).addEventListener('change',e=>{preferences[key]=e.target.value;applyPreferences();});
-$('flowSetting').addEventListener('input',e=>{preferences.flowSpeed=Number(e.target.value);applyPreferences();});
-$('rotateSetting').addEventListener('change',e=>{preferences.autoRotate=e.target.checked;applyPreferences();});
+for(const [id,key] of [['appearanceSetting','theme'],['motionSetting','motion'],['densitySetting','density']])$(id).addEventListener('change',e=>{preferences[key]=e.target.value;applyPreferences();});
+$('slideSetting').addEventListener('change',e=>{preferences.autoSlide=e.target.checked;applyPreferences();});
 $('settingsButton').addEventListener('click',()=>{$('settingsDialog').showModal();$('closeSettings').focus();});
 function closeSettings(){$('settingsDialog').close();$('settingsButton').focus({preventScroll:true});}
 for(const id of ['closeSettings','doneSettings'])$(id).addEventListener('click',closeSettings);
@@ -125,17 +126,16 @@ $('restoreSettings').addEventListener('click',()=>{preferences={...defaultPrefer
 function stopIntro(){introGeneration++;clearTimeout(introTimeout);introApi?.stop();$('brandLoader').hidden=true;$('brandLoader').classList.remove('leaving');}
 async function showBrandIntro(replay=false){
   if(reduced.matches||preferences.motion==='reduced'||state.product||document.hidden)return;
-  if(!replay){if(location.hash&&location.hash!=='#home')return;try{if(sessionStorage.getItem('elementpaint-intro-20261009'))return;sessionStorage.setItem('elementpaint-intro-20261009','seen');}catch{}}
+  if(!replay){if(location.hash&&location.hash!=='#home')return;try{if(sessionStorage.getItem('elementpaint-intro-20261010'))return;sessionStorage.setItem('elementpaint-intro-20261010','seen');}catch{}}
   const generation=++introGeneration;
   try{introApi ||= await Promise.race([createPaintIntro({loader:$('brandLoader'),canvas:$('introCanvas'),onProgress:value=>$('introProgress').style.width=`${value*100}%`}),new Promise(resolve=>setTimeout(()=>resolve(null),900))]);}catch{return;}
   if(!introApi||generation!==introGeneration||reduced.matches||preferences.motion==='reduced'||document.hidden)return;
   $('brandLoader').hidden=false;$('brandLoader').classList.remove('leaving');
   introApi.play(()=>{clearTimeout(introTimeout);$('brandLoader').classList.add('leaving');introTimeout=setTimeout(stopIntro,300);});
-  introTimeout=setTimeout(stopIntro,3300);
+  introTimeout=setTimeout(stopIntro,4900);
 }
 $('skipIntro').addEventListener('click',stopIntro);
 $('replayIntro').addEventListener('click',()=>{closeSettings();showBrandIntro(true);});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('brandLoader').hidden)stopIntro();});
 document.addEventListener('visibilitychange',()=>{if(document.hidden)stopIntro();});reduced.addEventListener('change',applyPreferences);
 applyPreferences();showBrandIntro();
-import('./berlak-scene.js?v=20261009.2').then(async module=>{sceneApi=await module.createCanScene(preferences);sceneApi?.setLanguage(strings[state.lang]);$('sceneUnavailable').hidden=Boolean(sceneApi);$('sceneHint').hidden=!sceneApi;document.querySelector('.paint-readout').hidden=!sceneApi;$('paintLevel').setAttribute('aria-label',t('paintLeft'));}).catch(()=>{$('sceneStage').dataset.state='fallback';$('sceneUnavailable').hidden=false;$('sceneHint').hidden=true;document.querySelector('.paint-readout').hidden=true;});
