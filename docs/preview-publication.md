@@ -72,3 +72,13 @@ Sinov nusxasi yakuniy ishlab chiqarish chiqarilishi emas. Mijoz tuzatishlari, as
 - All 72 served PNG files match native PDF extraction hashes; no image-text regeneration or lossy re-encoding. Mobile and desktop image containment were checked. The available native resolution is retained, rather than synthesizing missing lettering.
 - `main` stayed at `14fcd39e1a70198117537ee676a3874067eac6a1`; production server and DNS untouched.
 - Details: [original-images-20261010.md](original-images-20261010.md).
+
+## 2026-10-10: paint fills the exact logo
+
+- Source implementation: `c9d88e4` on `design-refresh-20261005`.
+- Preview runtime: `3568360d2799100732e9b14047c54c621903723f` on `preview-site`.
+- [Pages run 38071592139](https://github.com/dilmurodmuxsinjonov/elementpaint/actions/runs/38071592139) completed successfully.
+- Live version `20261010.4` verified with 45 products. Settings replay showed the unchanged Berlak package, its matching Snow White stream, translucent starting logo and liquid filling the original crest/letter shapes. The live introduction reached `fill=100`, `phase=filled`, then closed automatically. No browser warnings/errors.
+- Nine alpha-containment frames passed: zero escaped pixels; full native logo coverage at 100%; empty reset. Native hashes for all 72 catalogue images remain unchanged. Light/dark and 375 × 812 phone layout, skip and reduced-motion suppression verified locally.
+- Main remained `14fcd39e1a70198117537ee676a3874067eac6a1`. No production server/DNS deployment.
+- Details: [logo-fill-20261010.md](logo-fill-20261010.md).
