@@ -52,3 +52,13 @@ Sinov nusxasi yakuniy ishlab chiqarish chiqarilishi emas. Mijoz tuzatishlari, as
 - Live preview checked at https://dilmurodmuxsinjonov.github.io/elementpaint/?lang=uz#home : app version `20261009.2`, 45 cards, new settings dialog, active WebGL scene and increasing receiving fill. The logo introduction was replayed and its liquid filling captured at 63%.
 - Main stayed at `14fcd39e1a70198117537ee676a3874067eac6a1`; no production server access or deployment.
 - Validation details: [studio-design-20261009.md](studio-design-20261009.md).
+
+## 2026-10-10: warm crystal glass design
+
+- Source: `9ee6e95` on `design-refresh-20261005`.
+- Preview runtime: `e404a73efca3f2088cd71ebeb6aa1f25471b06bf` on `preview-site`.
+- [GitHub Pages run 38069939822](https://github.com/dilmurodmuxsinjonov/elementpaint/actions/runs/38069939822) completed successfully.
+- Live preview shows app version `20261010.2`, 45 catalogue cards and 45 hero slides. The hero's Next/Details action opened Crown travertine with its verified 25 kg package. No browser warnings or errors were reported on the live page.
+- Local browser checks covered UZ/RU/EN, light/dark, 375 and 320 px phone widths, keyboard navigation, category filters, optional automatic switching and reduced motion. The fluid introduction was captured during pouring at 53% and completed automatically.
+- `main` remained `14fcd39e1a70198117537ee676a3874067eac6a1`. No production server or DNS deployment.
+- Design and checks: [glass-design-20261010.md](glass-design-20261010.md).
