@@ -1,5 +1,14 @@
 # Jonli sinov — 7 oktabr 2026
 
+## 11 oktabr 2026: ATLAS astari rasmi
+
+- Manba: `7567c73` (`design-refresh-20261005`); sinov commit: `ba72e70` (`preview-site`), runtime `20261011.7`.
+- [Pages run 38139163587](https://github.com/dilmurodmuxsinjonov/elementpaint/actions/runs/38139163587) muvaffaqiyatli tugadi.
+- Jonli `/?lang=uz#catalog` va `preview.html` HTTP `200` qaytardi; ikkalasida `20261011.7` runtime bor. Yangi ATLAS rasmi HTTP `200`, SHA-256 `e2037f9b38ad0cbba10299756996c51d2ae9d6a9a50e79f2fb7cc3448ce2ac49` bilan tekshirildi.
+- Mijoz tanlagan eski qizil yorliqli surat #29 kartada ishlatiladi. Mahsulot tafsilotlaridagi asl rasm havolasi tasdiqlangan 2026-yilgi yashil yorliqli PDF tasvirini ochadi. Surat manbasi: https://glotr.uz/akrilovaya-gruntovka-atlas-p-495570/.
+- Tekshiruvlar: 45 mahsulot, 34 rang, 72 PDF rasmi; barcha 72 asl tasvir baytma-bayt mos; to‘rtta oq tasvir ramkasi va yuklanish animatsiyasining 288 kadri sinovdan o‘tdi.
+- `main` SHA o‘zgarmadi: `14fcd39e1a70198117537ee676a3874067eac6a1`. O‘zgarishlar faqat mijoz sinov saytiga chiqarildi.
+
 ## 11 oktabr 2026: mijoz matnlari va sinov nashri
 
 - Manba: `2aa79db` (`design-refresh-20261005`); UZ menyusida “Korxona haqida” ishlatiladi.
