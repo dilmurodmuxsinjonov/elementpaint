@@ -175,6 +175,11 @@ const catalogPackages = {
 for (const product of products) {
   if (catalogPackages[product.id]) product.packages = catalogPackages[product.id];
 }
+// The customer selected this sharper, older red-label ATLAS package photo.
+// Retain the approved 2026 PDF image as the direct original in product details.
+const atlasPrimer=products.find(item=>item.id==='atlas-primer');
+atlasPrimer.originalImage=atlasPrimer.image;
+atlasPrimer.image='assets/atlas_primer_legacy_red-2021.jpg';
 // White vector frames display the original photograph bytes without repainting
 // the package label. Keep the source available from the details view.
 for(const [id,image] of Object.entries({
