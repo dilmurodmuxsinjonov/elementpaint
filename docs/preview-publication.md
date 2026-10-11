@@ -1,5 +1,16 @@
 # Jonli sinov — 7 oktabr 2026
 
+## 11 oktabr 2026: mijoz matnlari va sinov nashri
+
+- Manba: `2aa79db` (`design-refresh-20261005`); UZ menyusida “Korxona haqida” ishlatiladi.
+- Sinov runtime: `d7d1741e44d9c3834a618c1fb923df92111a0546` (`preview-site`), `20261011.6`.
+- [Pages run 38138833159](https://github.com/dilmurodmuxsinjonov/elementpaint/actions/runs/38138833159) muvaffaqiyatli tugadi.
+- Jonli HTTP tekshiruvi `200` qaytardi; HTML runtime `20261011.6` ni, yuklangan UZ katalog matni esa “Korxona haqida”ni ko‘rsatdi.
+- Katalog hisoblari: 45 tasdiqlangan mahsulot, 34 rang, 72 PDF qadoq rasmi; asl tasvirlar va loader kadrlarini solishtirish tekshiruvlari o‘tdi.
+- Mahsulot kartasini qayta bosib vizual ko‘rish brauzerning xavfsizlik cheklovi bilan to‘sildi. Mahalliy brauzerda bundan oldin Atlas detallari, asl 319 × 604 px rasm va “Korxona haqida” ko‘rilgan edi; 20261011.6 o‘zgarishi shu ko‘rinish matni va asset kesh raqami bilan cheklangan.
+- Atlasning tasdiqlangan 2026 PDFidagi yashil yorlig‘i ichki tasviri xiralashgan. Topilgan eski qizil yorliqli surati boshqa qadoq ko‘rinishini bergani uchun ishlatilmadi.
+- `main` SHA: `14fcd39e1a70198117537ee676a3874067eac6a1`. Asosiy server va DNS o‘zgartirilmadi.
+
 ## 11 oktabr 2026: oxirgi Berlak animatsiyasi va asl ritm
 
 - Manba: `b344558` va `ac87195`, `design-refresh-20261005`.
