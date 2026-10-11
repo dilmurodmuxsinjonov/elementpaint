@@ -1,12 +1,13 @@
-import {createProductSelector} from './product-selector.js?v=20261010.5';
-import { categories, products, strings, findProduct } from './catalog-data.js?v=20261010.5';
-import {readPreferences,savePreferences,defaultPreferences} from './studio-preferences.js?v=20261010.5';
-import {createVideoIntro} from './paint-video.js?v=20261010.5';
+import {createProductSelector} from './product-selector.js?v=20261011.2';
+import { categories, products, strings, findProduct } from './catalog-data.js?v=20261011.2';
+import {readPreferences,savePreferences,defaultPreferences} from './studio-preferences.js?v=20261011.2';
+import {trackReadiness} from './loading-progress.js?v=20261011.2';
 
 const $ = id => document.getElementById(id);
 const validLang = value => ['uz','ru','en'].includes(value) ? value : 'uz';
 let selectorApi, returnFocus, urlTimer;
-let preferences=readPreferences(),introApi,introGeneration=0,introTimeout;
+let preferences=readPreferences(),introApi,introPromise,introReadiness,introGeneration=0,introTimeout,introFocus;
+const introInert=new Map();
 const params = new URLSearchParams(location.search);
 export const state = { lang: validLang(params.get('lang')), category: categories.some(c=>c.id===params.get('category')) ? params.get('category') : 'all', brand: params.get('brand') || 'all', query: params.get('q') || '', product: params.get('product') || '', variant: params.get('variant') || '' };
 const t = key => strings[state.lang][key];
@@ -126,23 +127,39 @@ for(const id of ['closeSettings','doneSettings'])$(id).addEventListener('click',
 $('settingsDialog').addEventListener('cancel',e=>{e.preventDefault();closeSettings();});
 $('settingsDialog').addEventListener('click',e=>{if(e.target===$('settingsDialog')){const r=e.target.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)closeSettings();}});
 $('restoreSettings').addEventListener('click',()=>{preferences={...defaultPreferences};applyPreferences();});
-function stopIntro(){introGeneration++;clearTimeout(introTimeout);introApi?.stop();$('brandLoader').hidden=true;$('brandLoader').classList.remove('leaving');delete document.documentElement.dataset.intro;}
-function finishIntro(){clearTimeout(introTimeout);$('brandLoader').classList.add('leaving');introTimeout=setTimeout(stopIntro,300);}
+function stopIntro(){
+  const restoreFocus=document.activeElement===$('skipIntro');
+  introGeneration++;clearTimeout(introTimeout);introReadiness?.cancel();introApi?.stop();
+  $('brandLoader').hidden=true;$('brandLoader').classList.remove('leaving');delete document.documentElement.dataset.intro;
+  for(const [element,inert] of introInert)element.inert=inert;introInert.clear();
+  if(restoreFocus)introFocus?.focus({preventScroll:true});
+}
+function finishIntro(){stopIntro();}
 async function showBrandIntro(replay=false){
   if(reduced.matches||preferences.motion==='reduced'||state.product||document.hidden)return;
-  if(!replay){if(location.hash&&location.hash!=='#home')return;try{if(sessionStorage.getItem('elementpaint-intro-video-20261010'))return;sessionStorage.setItem('elementpaint-intro-video-20261010','seen');}catch{}}
+  if(!replay){if(location.hash&&location.hash!=='#home')return;try{if(sessionStorage.getItem('elementpaint-supplied-loader-20261011'))return;sessionStorage.setItem('elementpaint-supplied-loader-20261011','seen');}catch{}}
   const generation=++introGeneration;
+  clearTimeout(introTimeout);introReadiness?.cancel();introApi?.stop();
+  introTimeout=setTimeout(stopIntro,9000);
   $('brandLoader').dataset.fill='0';$('brandLoader').dataset.phase='glass';
-  introApi ||= createVideoIntro($('introVideo'),{onFinish:finishIntro,onFailure:stopIntro});
-  const started=await introApi.play();
-  if(!started||generation!==introGeneration||reduced.matches||preferences.motion==='reduced'||document.hidden)return;
+  try{
+    introPromise ||= import('./paint-intro.js?v=20261011.2').then(({createPaintIntro})=>createPaintIntro({loader:$('brandLoader')})).catch(error=>{introPromise=null;throw error;});
+    introApi=await introPromise;
+  }catch{if(generation===introGeneration)stopIntro();return;}
+  if(generation!==introGeneration||reduced.matches||preferences.motion==='reduced'||document.hidden)return;
   $('brandLoader').hidden=false;$('brandLoader').classList.remove('leaving');
   document.documentElement.dataset.intro='playing';
-  introTimeout=setTimeout(stopIntro,6500);
+  introFocus=document.activeElement;
+  for(const child of document.body.children)if(child!==$('brandLoader')&&!['SCRIPT','STYLE'].includes(child.tagName)){introInert.set(child,child.inert);child.inert=true;}
+  $('skipIntro').focus({preventScroll:true});introApi.play(finishIntro);
+  const criticalImages=[...document.querySelectorAll('.logo img,.featured-slide.is-selected img')];
+  const tasks=[document.fonts.ready,...criticalImages.map(img=>img.decode())];
+  if(document.readyState!=='complete')tasks.push(new Promise(resolve=>window.addEventListener('load',resolve,{once:true})));
+  introReadiness=trackReadiness(tasks,value=>{if(generation===introGeneration){$('brandLoader').dataset.ready=String(value);introApi.setProgress(value);}});
 }
 $('skipIntro').addEventListener('click',stopIntro);
-$('introVideo').addEventListener('timeupdate',()=>{const time=$('introVideo').currentTime;$('brandLoader').dataset.fill=String(Math.round(Math.max(0,Math.min(1,(time-.7)/3))*100));$('brandLoader').dataset.phase=time<.7?'glass':time<3.7?'pouring':time<4.5?'settling':'filled';});
 $('replayIntro').addEventListener('click',()=>{closeSettings();showBrandIntro(true);});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('brandLoader').hidden)stopIntro();});
 document.addEventListener('visibilitychange',()=>{if(document.hidden)stopIntro();});reduced.addEventListener('change',applyPreferences);
+window.addEventListener('hashchange',()=>{if(location.hash&&location.hash!=='#home')stopIntro();});
 applyPreferences();showBrandIntro();
