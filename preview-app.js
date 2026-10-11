@@ -1,7 +1,7 @@
-import {createProductSelector} from './product-selector.js?v=20261011.3';
-import { categories, products, strings, findProduct } from './catalog-data.js?v=20261011.3';
-import {readPreferences,savePreferences,defaultPreferences} from './studio-preferences.js?v=20261011.3';
-import {trackReadiness} from './loading-progress.js?v=20261011.3';
+import {createProductSelector} from './product-selector.js?v=20261011.4';
+import { categories, products, strings, findProduct } from './catalog-data.js?v=20261011.4';
+import {readPreferences,savePreferences,defaultPreferences} from './studio-preferences.js?v=20261011.4';
+import {trackReadiness} from './loading-progress.js?v=20261011.4';
 
 const $ = id => document.getElementById(id);
 const validLang = value => ['uz','ru','en'].includes(value) ? value : 'uz';
@@ -137,16 +137,17 @@ function stopIntro(){
 function finishIntro(){stopIntro();}
 async function showBrandIntro(replay=false){
   if(reduced.matches||preferences.motion==='reduced'||state.product||document.hidden)return;
-  if(!replay){if(location.hash&&location.hash!=='#home')return;try{if(sessionStorage.getItem('elementpaint-uzlashgan-loader-20261011'))return;sessionStorage.setItem('elementpaint-uzlashgan-loader-20261011','seen');}catch{}}
+  if(!replay){if(location.hash&&location.hash!=='#home')return;try{if(sessionStorage.getItem('elementpaint-original-rhythm-loader-20261011'))return;sessionStorage.setItem('elementpaint-original-rhythm-loader-20261011','seen');}catch{}}
   const generation=++introGeneration;
   clearTimeout(introTimeout);introReadiness?.cancel();introApi?.stop();
   introTimeout=setTimeout(stopIntro,9000);
   $('brandLoader').dataset.fill='0';$('brandLoader').dataset.phase='glass';
   try{
-    introPromise ||= import('./paint-intro.js?v=20261011.3').then(({createPaintIntro})=>createPaintIntro({loader:$('brandLoader')})).catch(error=>{introPromise=null;throw error;});
+    introPromise ||= import('./paint-intro.js?v=20261011.4').then(({createPaintIntro})=>createPaintIntro({loader:$('brandLoader')})).catch(error=>{introPromise=null;throw error;});
     introApi=await introPromise;
   }catch{if(generation===introGeneration)stopIntro();return;}
   if(generation!==introGeneration||reduced.matches||preferences.motion==='reduced'||document.hidden)return;
+  clearTimeout(introTimeout);introTimeout=setTimeout(stopIntro,15000);
   $('brandLoader').hidden=false;$('brandLoader').classList.remove('leaving');
   document.documentElement.dataset.intro='playing';
   introFocus=document.activeElement;
