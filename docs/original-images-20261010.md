@@ -8,6 +8,8 @@ All 72 embedded PNG product images have now been extracted directly from the aud
 
 All product cards now place their image inside a bounded square frame with `object-fit: contain`. An absolutely positioned image prevents intrinsic portrait dimensions from stretching the square and clipping the package. The details dialog and hero selector also show the complete image. Colour-altering multiply blending is removed from product imagery. A translated “Open original image” link in product details provides direct access to the original file.
 
+On 2026-10-11, the customer flagged the Atlas acrylic-primer image (PDF image 18). The supplied catalogue's embedded original is 319 × 604 px and already contains the visibly fragmented white label graphic. A clear photo found in the BERLAK seller's older listing shows the same primer in 2.8 kg packaging, but with a red label unlike the approved 2026 PDF's green label. It is not used because that would present a different package design as current. A current, higher-resolution approved image is needed to replace the damaged source without changing packaging details.
+
 Verification:
 
 - `node tests/verify_original_images.mjs`: 72 unmodified native originals.

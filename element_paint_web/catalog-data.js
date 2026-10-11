@@ -188,7 +188,7 @@ for(const [id,image] of Object.entries({
 }
 export const strings = {
   uz: {
-    made: 'O‘zbekistonda ishlab chiqarilgan · 2011-yildan', catalog: 'Mahsulotlar', about: 'Zavod haqida', contact: 'Aloqa', advice: 'Maslahat olish',
+    made: 'O‘zbekistonda ishlab chiqarilgan · 2011-yildan', catalog: 'Mahsulotlar', about: 'Korxona haqida', contact: 'Aloqa', advice: 'Maslahat olish',
     eyebrow: 'ELEMENT PAINT · 2011-YILDAN', hero: 'Har bir yuza uchun', heroAccent: 'mos bo‘yoq va qoplama.',
     intro: 'Emal, devor bo‘yoqlari va dekorativ qoplamalar. Katalogdan ishlaringizga mos mahsulot, rang va qadoqni tanlang.',
     explore: 'Katalogni ochish',
