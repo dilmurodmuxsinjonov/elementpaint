@@ -40,7 +40,7 @@ for(const [id,packages] of Object.entries(fixture.existingApproved))assert.deepE
 const expectedVariants=fixture.packages.filter(row=>row.variantId).map(row=>`${row.productId}/${row.variantId}`).sort();
 assert.deepEqual(products.flatMap(p=>p.variants.map(v=>`${p.id}/${v.id}`)).sort(),expectedVariants,'Unapproved colour added or catalog colour missing');
 const reddishBrown=findProduct('artek-improved').variants.find(v=>v.id==='dark-red');
-assert.deepEqual(reddishBrown.name,{uz:'Qizg‘ish pol',ru:'Красно-коричневая',en:'Reddish brown'});
+assert.deepEqual(reddishBrown.name,{uz:'Qizg‘ish jigarrang',ru:'Красно-коричневая',en:'Reddish brown'});
 assert.equal(findProduct('atlas-pf115').variants.find(v=>v.id==='dark-red').name.ru,'Бордовый');
 for(const id of ['berlak-primer-5kg','atlas-primer','delta-primer'])assert.doesNotMatch(JSON.stringify(findProduct(id).title),/\d[,.]?\d*\s*(?:kg|кг)/,'Multi-size product title advertises only one weight');
 const html=await readFile(new URL('../element_paint_web/preview.html',import.meta.url),'utf8');

@@ -2,19 +2,19 @@ import legacyProducts from './legacy-products.js';
 
 const tr = (uz, ru, en) => ({ uz, ru, en });
 export const categories = [
-  ['emal', 'Alkid emal bo‘yoqlari', 'Алкидные эмали', 'Alkyd enamels'],
-  ['water', 'Suvli emulsiya bo‘yoqlari', 'Водно-дисперсионные краски', 'Water-based paints'],
+  ['emal', 'Emal bo‘yoqlar', 'Эмали', 'Enamel paints'],
+  ['water', 'Devor bo‘yoqlari', 'Краски для стен', 'Wall paints'],
   ['pva', 'PVA yelimlari', 'Клеи ПВА', 'PVA adhesives'],
-  ['primer', 'Akril astar bo‘yoqlari', 'Акриловые грунтовки', 'Acrylic primers'],
+  ['primer', 'Astarlar (gruntovka)', 'Грунтовки', 'Primers'],
   ['travertin', 'Suyuq travertin', 'Жидкий травертин', 'Liquid travertine'],
   ['decor', 'Dekorativ qoplamalar', 'Декоративные покрытия', 'Decorative coatings'],
   ['ottocento', 'Ottocento', 'Отточенто', 'Ottocento'],
-  ['wallpaper', 'Suyuq gul qog‘ozlari', 'Жидкие обои', 'Liquid wallpaper'],
+  ['wallpaper', 'Suyuq gulqog‘oz', 'Жидкие обои', 'Liquid wallpaper'],
   ['road', 'Yo‘l uchun bo‘yoqlar', 'Краски для дорог', 'Road paints'],
   ['salt', 'Sho‘rlashga qarshi vositalar', 'Средства против высолов', 'Anti-efflorescence products'],
-  ['lak', 'Himoyalovchi laklar', 'Защитные лаки', 'Protective varnishes'],
-  ['preparation', 'Sirt tayyorlash', 'Подготовка поверхности', 'Surface preparation'],
-  ['adhesive', 'Yelimlar', 'Клеи', 'Adhesives'],
+  ['lak', 'Laklar', 'Лаки', 'Varnishes'],
+  ['preparation', 'Shpaklyovkalar', 'Шпатлёвки', 'Fillers'],
+  ['adhesive', 'Gulqog‘oz yelimlari', 'Клеи для обоев', 'Wallpaper adhesives'],
 ].map(([id, uz, ru, en], order) => ({ id, name: tr(uz, ru, en), core: order < 10 }));
 
 const names = {
@@ -23,32 +23,32 @@ const names = {
   'berlak-travertin': tr('Berlak suyuq travertin', 'Жидкий травертин Berlak', 'Berlak liquid travertine'),
   'berlak-ottocento': tr('Ottocento — ipak va baxmal', 'Отточенто — шёлк и бархат', 'Ottocento — silk and velvet'),
   'ep-plaster': tr('Element Plaster dekorativ suvoq', 'Декоративная штукатурка Element Plaster', 'Element Plaster decorative plaster'),
-  'berlak-wallpaper': tr('Fantasy suyuq gul qog‘ozi', 'Жидкие обои Fantasy', 'Fantasy liquid wallpaper'),
+  'berlak-wallpaper': tr('Fantasy suyuq gulqog‘oz', 'Жидкие обои Fantasy', 'Fantasy liquid wallpaper'),
   'atlas-white': tr('Emal Standart — oq', 'Эмаль Стандарт — белая', 'Standard enamel — white'),
   'berlak-white': tr('Berlak PF-115 — qordek oq', 'Berlak ПФ-115 — белоснежная', 'Berlak PF-115 — snow white'),
   'berlak-floor': tr('Berlak pol emali', 'Эмаль для пола Berlak', 'Berlak floor enamel'),
-  'berlak-pearl': tr('Marvarid effektli lak', 'Лак с перламутровым эффектом', 'Pearl-effect varnish'),
+  'berlak-pearl': tr('Marvarid tusli lak', 'Лак с перламутровым эффектом', 'Pearl-effect varnish'),
   'berlak-travertin-lak': tr('Travertin uchun lak', 'Лак для травертина', 'Travertine varnish'),
-  'atlas-nitro': tr('Nitro lak NC-2144', 'Нитролак НЦ-2144', 'NC-2144 nitro varnish'),
-  'atlas-pf283': tr('PF-283 porloq lak', 'Глянцевый лак ПФ-283', 'PF-283 gloss varnish'),
+  'atlas-nitro': tr('Nitrolak NC-2144', 'Нитролак НЦ-2144', 'NC-2144 nitro varnish'),
+  'atlas-pf283': tr('PF-283 yaltiroq lak', 'Глянцевый лак ПФ-283', 'PF-283 gloss varnish'),
   'berlak-primer-5kg': tr('Akril astar 1/7 — kanistr', 'Акриловая грунтовка 1/7 — канистра', 'Acrylic primer 1/7 — canister'),
   'berlak-primer-2kg': tr('Akril astar — 2,5 kg', 'Акриловая грунтовка — 2,5 кг', 'Acrylic primer — 2.5 kg'),
   'atlas-pva': tr('801 PVA yelimi', 'Клей ПВА 801', '801 PVA adhesive'),
-  'atlas-glatt': tr('Glatt gips shpatlyovka', 'Гипсовая шпатлёвка Glatt', 'Glatt gypsum finishing filler'),
+  'atlas-glatt': tr('Glatt gipsli shpaklyovka', 'Гипсовая шпатлёвка Glatt', 'Glatt gypsum filler'),
 };
 const descriptions = {
   emal: tr('Metall va yog‘och yuzalar uchun emal bo‘yoqlar.', 'Эмали для металлических и деревянных поверхностей.', 'Enamel paints for metal and wood surfaces.'),
   travertin: tr('Devorlarda tabiiy tosh ko‘rinishini hosil qiluvchi qoplama.', 'Покрытие для стен с фактурой натурального камня.', 'A wall coating with a natural stone texture.'),
   decor: tr('Devor yuzalari uchun dekorativ qoplama.', 'Декоративное покрытие для стен.', 'A decorative coating for wall surfaces.'),
   ottocento: tr('Ipak va baxmal ko‘rinishidagi dekorativ devor qoplamasi.', 'Декоративное покрытие стен с эффектом шёлка и бархата.', 'A decorative wall finish with a silk and velvet appearance.'),
-  wallpaper: tr('Interyer devorlari uchun suyuq gul qog‘ozi.', 'Жидкие обои для внутренних стен.', 'Liquid wallpaper for interior walls.'),
-  lak: tr('Yuzani pardozlash uchun lak. Mos mahsulotni tanlashda maslahat oling.', 'Лак для финишной отделки. Уточните подходящий продукт у специалиста.', 'A finishing varnish. Contact us to select a suitable product.'),
+  wallpaper: tr('Ichki devorlar uchun suyuq gulqog‘oz.', 'Жидкие обои для внутренних стен.', 'Liquid wallpaper for interior walls.'),
+  lak: tr('Yuzaga yakuniy qoplama berish uchun lak. Qaysi yuzaga ishlatishingizga qarab tanlang.', 'Лак для финишного покрытия. Выбирайте с учётом поверхности.', 'A varnish for the final coat. Choose one suited to your surface.'),
   milano: tr('Interyer devorlari uchun dekorativ qoplama.', 'Декоративное покрытие для внутренних стен.', 'A decorative coating for interior walls.'),
   primer: tr('Bo‘yashdan avval yuzani tayyorlash uchun akril astar.', 'Акриловая грунтовка для подготовки поверхности перед окрашиванием.', 'An acrylic primer for preparing surfaces before painting.'),
   pva: tr('Yog‘och, qog‘oz va qurilish ishlari uchun PVA yelimi.', 'Клей ПВА для дерева, бумаги и строительных работ.', 'PVA adhesive for wood, paper and construction work.'),
-  preparation: tr('Ichki yuzalarni pardozlash uchun gipsli aralashma.', 'Гипсовая смесь для отделки внутренних поверхностей.', 'A gypsum compound for finishing interior surfaces.'),
+  preparation: tr('Ichki yuzalarni tekislash uchun gipsli shpaklyovka.', 'Гипсовая шпатлёвка для выравнивания внутренних поверхностей.', 'Gypsum filler for levelling interior surfaces.'),
   water: tr('Devor yuzalari uchun suv asosidagi bo‘yoq.', 'Краска на водной основе для стен.', 'A water-based paint for wall surfaces.'),
-  adhesive: tr('Gulqog‘oz yopishtirish uchun yelim.', 'Клей для надёжного приклеивания обоев.', 'Adhesive for securely attaching wallpaper.'),
+  adhesive: tr('Gulqog‘oz yopishtirish uchun yelim.', 'Клей для обоев.', 'Adhesive for wallpaper.'),
 };
 const mapping = { 'berlak-ottocento': 'ottocento', 'ep-plaster': 'decor', 'berlak-wallpaper': 'wallpaper', 'atlas-pva': 'pva', 'atlas-glatt': 'preparation' };
 export const legacyIds = legacyProducts.map(p => p.id);
@@ -107,7 +107,7 @@ const additions = [
   ['artek-floor-improved', 'ARTEK', 'emal', 'Improved pol emali', 'Эмаль Improved для пола', 'Improved floor enamel'],
   ['artek-floor-universal', 'ARTEK', 'emal', 'Universal pol emali', 'Универсальная эмаль для пола', 'Universal floor enamel'],
   ['waterlux-facade', 'WATERLUX', 'water', 'Fasad va interyer akril bo‘yog‘i', 'Акриловая краска для фасада и интерьера', 'Acrylic paint for facade and interior'],
-  ['element-primer', 'ELEMENT PAINT', 'primer', 'Gruntovka', 'Грунтовка', 'Primer'],
+  ['element-primer', 'ELEMENT PAINT', 'primer', 'Astar (gruntovka)', 'Грунтовка', 'Primer'],
   ['element-travertine-lacquer', 'ELEMENT PAINT', 'lak', 'Travertin uchun lak', 'Лак для травертина', 'Travertine lacquer'],
   ['element-primer-plus', 'ELEMENT PAINT', 'primer', 'Primer Plus', 'Primer Plus', 'Primer Plus'],
   ['argon-pva', 'ARGON', 'pva', 'Argon 801 PVA yelimi', 'Клей ПВА Argon 801', 'Argon 801 PVA adhesive'],
@@ -132,11 +132,11 @@ for (const [id, brand, categoryId, uz, ru, en] of additions) products.push({
 });
 const improvedColors = [
   ['white','#F5F4EB','Oq','Белая','White',34], ['asphalt','#59605F','Ho‘l asfalt','Мокрый асфальт','Wet asphalt',35],
-  ['claret','#C84237','To‘q qizil','Бордовая','Claret red',36], ['chocolate','#693E2A','Shokolad','Шоколадная','Chocolate',38],
+  ['claret','#C84237','To‘q qizil','Бордовая','Claret red',36], ['chocolate','#693E2A','Shokolad jigarrang','Шоколадная','Chocolate',38],
   ['green','#168A42','Yashil','Зелёная','Green',39], ['black','#171717','Qora','Чёрная','Black',40],
   ['yellow','#DBB56B','Sariq','Жёлтая','Yellow',41], ['red','#E43C30','Qizil','Красная','Red',42],
   ['grey','#7C8081','Kulrang','Серая','Grey',43], ['blue','#12A7D6','Havorang','Голубая','Blue',44],
-  ['dark-blue','#1B4692','To‘q ko‘k','Тёмно-синяя','Dark blue',45], ['dark-red','#8E1724','Qizg‘ish pol','Красно-коричневая','Reddish brown',46],
+  ['dark-blue','#1B4692','To‘q ko‘k','Тёмно-синяя','Dark blue',45], ['dark-red','#8E1724','Qizg‘ish jigarrang','Красно-коричневая','Reddish brown',46],
 ];
 products.push({
   id:'artek-improved', aliases:[], categoryId:'emal', brand:'ARTEK',
@@ -148,7 +148,7 @@ const artekUniversalColors = [
   ['yellow','#DBB56B','Sariq','Жёлтая','Yellow',47], ['grey','#7C8081','Kulrang','Серая','Grey',49],
   ['dark-blue','#1B4692','To‘q ko‘k','Тёмно-синяя','Dark blue',50], ['asphalt','#59605F','Ho‘l asfalt','Мокрый асфальт','Wet asphalt',51],
   ['white','#F5F4EB','Oq','Белая','White',52], ['black','#171717','Qora','Чёрная','Black',53],
-  ['chocolate','#693E2A','Shokolad','Шоколадная','Chocolate',54], ['blue','#12A7D6','Havorang','Голубая','Blue',55],
+  ['chocolate','#693E2A','Shokolad jigarrang','Шоколадная','Chocolate',54], ['blue','#12A7D6','Havorang','Голубая','Blue',55],
   ['claret','#C84237','To‘q qizil','Бордовая','Claret red',56], ['red','#E43C30','Qizil','Красная','Red',57],
   ['green','#168A42','Yashil','Зелёная','Green',58],
 ];
@@ -175,62 +175,70 @@ const catalogPackages = {
 for (const product of products) {
   if (catalogPackages[product.id]) product.packages = catalogPackages[product.id];
 }
+// White vector frames display the original photograph bytes without repainting
+// the package label. Keep the source available from the details view.
+for(const [id,image] of Object.entries({
+  'atlas-nitro':'assets/nitro_lak_studio-white.svg',
+  'ep-plaster':'assets/element_plaster_studio-white.svg',
+  'atlas-glatt':'assets/glatt_studio-white.svg',
+  'milano-decorative':'assets/milano_decorative_coating_v2-white.svg',
+})){
+  const product=products.find(item=>item.id===id);
+  product.originalImage=product.image;product.image=image;
+}
 export const strings = {
   uz: {
     made: 'O‘zbekistonda ishlab chiqarilgan · 2011-yildan', catalog: 'Mahsulotlar', about: 'Zavod haqida', contact: 'Aloqa', advice: 'Maslahat olish',
-    eyebrow: 'RANG. SIFAT. ISHLAB CHIQARISH.', hero: 'Har bir sirt uchun', heroAccent: 'o‘z bo‘yog‘imiz.',
-    intro: 'Emaldan dekorativ qoplamagacha. Element Paint mahsulotlari bilan rangni, qadoqni va o‘zingizga mos yechimni tanlang.',
-    explore: 'Katalogni ochish', interact: 'Bankani aylantirib ko‘ring', open: 'Qopqoqni ochish', close: 'Qopqoqni yopish', pour: 'Bo‘yoq quyish', stop: 'Quyishni to‘xtatish', reset: 'Qayta boshlash',
-    closed: 'Banka yopiq', opened: 'Qopqoq ochiq', pouring: 'Bo‘yoq quyilmoqda', emptyCan: 'Bo‘yoq tugadi — qayta boshlang', fallback: 'Berlak PF-115',
-    years: 'yillik tajriba', directions: 'asosiy yo‘nalish', brands: 'mahsulot brendi', browse: 'Mahsulotni toping.', browseCopy: 'Yo‘nalishdan boshlang yoki mahsulot nomini qidiring.',
-    all: 'Barchasi', search: 'Mahsulot yoki brendni qidirish', brand: 'Brend', clear: 'Tozalash', results: 'ta mahsulot', detail: 'Batafsil', new: 'Yangi mahsulot', imagePending: 'Mahsulot rasmi tayyorlanmoqda',
-    empty: 'Bu yo‘nalish bo‘yicha batafsil ma’lumotni bizdan oling.', noMatch: 'Qidiruvingizga mos mahsulot topilmadi.', ask: 'Mahsulot haqida so‘rash', colors: 'Ranglar', packages: 'Qadoqlar',
-    category: 'Yo‘nalish', photoPending: 'Bu rangning yangi qadoq rasmi tayyorlanmoqda.', back: 'Katalogga qaytish', aboutTitle: 'Rang yaratadigan ishlab chiqaruvchi.',
-    aboutCopy: 'Element Paint — Namanganda ishlab chiqariladigan bo‘yoq va qoplamalar. Turli yuzalar uchun mahsulotlarni bir katalogda jamladik: emal, astar, yelim, lak va dekorativ qoplamalar.',
-    applications: 'Mahsulotlarimiz qo‘llanadigan joylar', facade: 'Fasad', interior: 'Interyer', wood: 'Yog‘och va metall',
-    contactTitle: 'Mos mahsulotni birga tanlaymiz.', contactCopy: 'Qaysi yuzani bo‘yamoqchisiz? Biz bilan bog‘laning — mahsulot va qadoqni tanlashda yordam beramiz.',
-    phone: 'Qo‘ng‘iroq qilish', telegram: 'Telegram', footer: 'Bo‘yoqlar va dekorativ qoplamalar ishlab chiqaruvchisi.', skip: 'Asosiy mazmunga o‘tish', menu: 'Menyu', closeDialog: 'Yopish',
+    eyebrow: 'ELEMENT PAINT · 2011-YILDAN', hero: 'Har bir yuza uchun', heroAccent: 'mos bo‘yoq va qoplama.',
+    intro: 'Emal, devor bo‘yoqlari va dekorativ qoplamalar. Katalogdan ishlaringizga mos mahsulot, rang va qadoqni tanlang.',
+    explore: 'Katalogni ochish',
+    years: 'yillik tajriba', directions: 'mahsulot turi', brands: 'brend', browse: 'Mahsulotlarni ko‘rib chiqing.', browseCopy: 'Mahsulot turini tanlang yoki nomi bo‘yicha qidiring.',
+    all: 'Barchasi', search: 'Mahsulot yoki brend nomini yozing', brand: 'Brend', clear: 'Filtrlarni tozalash', results: 'ta mahsulot', detail: 'Batafsil', new: 'Yangi mahsulot', imagePending: 'Mahsulot rasmi mavjud emas',
+    empty: 'Bu turdagi mahsulotlar haqida ma’lumot olish uchun biz bilan bog‘laning.', noMatch: 'Mahsulot topilmadi. Boshqa nom bilan qidiring yoki filtrlarni tozalang.', ask: 'Shu mahsulot haqida maslahat olish', colors: 'Ranglar', packages: 'Qadoqlar',
+    category: 'Mahsulot turi', photoPending: 'Bu rangning qadoq rasmi mavjud emas.', back: 'Katalogga qaytish', aboutTitle: 'Namanganda ishlab chiqaramiz.',
+    aboutCopy: 'Element Paint 2011-yildan Namanganda bo‘yoq va qoplamalar ishlab chiqaradi. Katalogimizda emal, devor bo‘yoqlari, astar, yelim, lak va dekorativ qoplamalarni topasiz.',
+    applications: 'Qayerga ishlatmoqchisiz?', facade: 'Tashqi devorlar', interior: 'Ichki devorlar', wood: 'Yog‘och va metall',
+    contactTitle: 'Mahsulot tanlashingizga yordam beramiz.', contactCopy: 'Qaysi yuzaga ishlatishingizni ayting. Sizga mos mahsulot, rang va qadoqni tanlashda yordam beramiz.',
+    phone: 'Qo‘ng‘iroq qiling', telegram: 'Telegramda yozing', footer: 'Bo‘yoqlar va dekorativ qoplamalar ishlab chiqaruvchisi.', skip: 'Asosiy mazmunga o‘tish', menu: 'Menyu', closeDialog: 'Yopish',
     theme: 'Ko‘rinishni o‘zgartirish', loading: 'Logotip bo‘yoq bilan to‘lmoqda.', preview: 'Sinov versiyasi',
   },
   ru: {
     made: 'Произведено в Узбекистане · С 2011 года', catalog: 'Продукция', about: 'О производстве', contact: 'Контакты', advice: 'Консультация',
-    eyebrow: 'ЦВЕТ. КАЧЕСТВО. ПРОИЗВОДСТВО.', hero: 'Для каждой поверхности', heroAccent: 'своя краска.',
-    intro: 'От эмалей до декоративных покрытий. Выберите цвет, упаковку и подходящее решение в каталоге Element Paint.',
-    explore: 'Открыть каталог', interact: 'Попробуйте вращать банку', open: 'Открыть крышку', close: 'Закрыть крышку', pour: 'Налить краску', stop: 'Остановить', reset: 'Начать заново',
-    closed: 'Банка закрыта', opened: 'Крышка открыта', pouring: 'Краска наливается', emptyCan: 'Краска закончилась — начните заново', fallback: 'Berlak ПФ-115',
-    years: 'лет опыта', directions: 'основных направлений', brands: 'брендов продукции', browse: 'Найдите свою краску.', browseCopy: 'Выберите направление или найдите продукт по названию.',
-    all: 'Все', search: 'Поиск продукта или бренда', brand: 'Бренд', clear: 'Очистить', results: 'продуктов', detail: 'Подробнее', new: 'Новый продукт', imagePending: 'Фото продукта готовится',
-    empty: 'Свяжитесь с нами для подробностей о продукции этого направления.', noMatch: 'По вашему запросу ничего не найдено.', ask: 'Спросить о продукте', colors: 'Цвета', packages: 'Упаковка',
-    category: 'Направление', photoPending: 'Фото новой упаковки этого цвета готовится.', back: 'Вернуться в каталог', aboutTitle: 'Производитель, создающий цвет.',
-    aboutCopy: 'Element Paint — краски и покрытия из Намангана. В одном каталоге собраны решения для разных поверхностей: эмали, грунтовки, клеи, лаки и декоративные покрытия.',
-    applications: 'Где применяются наши продукты', facade: 'Фасад', interior: 'Интерьер', wood: 'Дерево и металл',
-    contactTitle: 'Подберём подходящий продукт вместе.', contactCopy: 'Какую поверхность вы хотите покрасить? Свяжитесь с нами — поможем выбрать продукт и упаковку.',
-    phone: 'Позвонить', telegram: 'Telegram', footer: 'Производитель красок и декоративных покрытий.', skip: 'Перейти к содержимому', menu: 'Меню', closeDialog: 'Закрыть',
+    eyebrow: 'ELEMENT PAINT · С 2011 ГОДА', hero: 'Для каждой поверхности', heroAccent: 'подходящее покрытие.',
+    intro: 'Эмали, краски для стен и декоративные покрытия. Выберите продукт, цвет и упаковку для ваших работ.',
+    explore: 'Открыть каталог',
+    years: 'лет опыта', directions: 'видов продукции', brands: 'брендов', browse: 'Посмотрите нашу продукцию.', browseCopy: 'Выберите вид продукции или найдите продукт по названию.',
+    all: 'Все', search: 'Введите название продукта или бренда', brand: 'Бренд', clear: 'Сбросить фильтры', results: 'продуктов', detail: 'Подробнее', new: 'Новый продукт', imagePending: 'Фото продукта отсутствует',
+    empty: 'Свяжитесь с нами, чтобы узнать о продукции этого вида.', noMatch: 'Продукт не найден. Попробуйте другое название или сбросьте фильтры.', ask: 'Получить консультацию об этом продукте', colors: 'Цвета', packages: 'Упаковка',
+    category: 'Вид продукции', photoPending: 'Фото упаковки этого цвета отсутствует.', back: 'Вернуться в каталог', aboutTitle: 'Производим в Намангане.',
+    aboutCopy: 'Element Paint производит краски и покрытия в Намангане с 2011 года. В каталоге вы найдёте эмали, краски для стен, грунтовки, клеи, лаки и декоративные покрытия.',
+    applications: 'Где планируете использовать?', facade: 'Наружные стены', interior: 'Внутренние стены', wood: 'Дерево и металл',
+    contactTitle: 'Поможем вам выбрать продукт.', contactCopy: 'Расскажите, для какой поверхности нужен материал. Поможем выбрать продукт, цвет и упаковку.',
+    phone: 'Позвоните нам', telegram: 'Напишите в Telegram', footer: 'Производитель красок и декоративных покрытий.', skip: 'Перейти к содержимому', menu: 'Меню', closeDialog: 'Закрыть',
     theme: 'Изменить оформление', loading: 'Логотип наполняется краской.', preview: 'Тестовая версия',
   },
   en: {
     made: 'Made in Uzbekistan · Since 2011', catalog: 'Products', about: 'Our factory', contact: 'Contact', advice: 'Get advice',
-    eyebrow: 'COLOUR. QUALITY. MANUFACTURING.', hero: 'For every surface,', heroAccent: 'a paint of our own.',
-    intro: 'From enamels to decorative coatings. Find your colour, packaging and the right solution in the Element Paint catalogue.',
-    explore: 'Explore products', interact: 'Try rotating the can', open: 'Open the lid', close: 'Close the lid', pour: 'Pour the paint', stop: 'Stop pouring', reset: 'Start again',
-    closed: 'Can closed', opened: 'Lid open', pouring: 'Pouring paint', emptyCan: 'The can is empty — start again', fallback: 'Berlak PF-115',
-    years: 'years of experience', directions: 'core categories', brands: 'product brands', browse: 'Find your paint.', browseCopy: 'Choose a category or search by product name.',
-    all: 'All', search: 'Search products or brands', brand: 'Brand', clear: 'Clear', results: 'products', detail: 'View product', new: 'New product', imagePending: 'Product photo in preparation',
-    empty: 'Contact us for details about products in this category.', noMatch: 'No products match your search.', ask: 'Ask about this product', colors: 'Colours', packages: 'Packaging',
-    category: 'Category', photoPending: 'The new packaging photo for this colour is in preparation.', back: 'Back to products', aboutTitle: 'A manufacturer that creates colour.',
+    eyebrow: 'ELEMENT PAINT · SINCE 2011', hero: 'For every surface,', heroAccent: 'a suitable finish.',
+    intro: 'Enamels, wall paints and decorative coatings. Choose the product, colour and packaging for your project.',
+    explore: 'Explore products',
+    years: 'years of experience', directions: 'product types', brands: 'brands', browse: 'Browse our products.', browseCopy: 'Choose a product type or search by name.',
+    all: 'All', search: 'Enter a product or brand name', brand: 'Brand', clear: 'Clear filters', results: 'products', detail: 'View product', new: 'New product', imagePending: 'Product photo unavailable',
+    empty: 'Contact us to learn about products of this type.', noMatch: 'No products found. Try a different name or clear the filters.', ask: 'Get advice about this product', colors: 'Colours', packages: 'Packaging',
+    category: 'Product type', photoPending: 'The packaging photo for this colour is unavailable.', back: 'Back to products', aboutTitle: 'Made in Namangan.',
     aboutCopy: 'Element Paint manufactures paints and coatings in Namangan. Our catalogue brings together solutions for different surfaces: enamels, primers, adhesives, varnishes and decorative coatings.',
-    applications: 'Where our products are used', facade: 'Facades', interior: 'Interiors', wood: 'Wood and metal',
-    contactTitle: 'Let’s find the right product.', contactCopy: 'What surface are you painting? Contact us and we will help you choose the product and packaging.',
-    phone: 'Call us', telegram: 'Telegram', footer: 'Manufacturer of paints and decorative coatings.', skip: 'Skip to content', menu: 'Menu', closeDialog: 'Close',
+    applications: 'Where will you use it?', facade: 'Exterior walls', interior: 'Interior walls', wood: 'Wood and metal',
+    contactTitle: 'We’ll help you choose your product.', contactCopy: 'Tell us which surface you are working on. We will help you choose the product, colour and packaging.',
+    phone: 'Call us', telegram: 'Message us on Telegram', footer: 'Manufacturer of paints and decorative coatings.', skip: 'Skip to content', menu: 'Menu', closeDialog: 'Close',
     theme: 'Change appearance', loading: 'Paint is filling the logo.', preview: 'Preview version',
   },
 };
-const studioCopy = {
-  uz: {settings:'Ko‘rinish sozlamalari',settingsCopy:'Saytni o‘zingizga moslang. Tanlov shu brauzerda saqlanadi.',appearance:'Ko‘rinish',lightMode:'Yorug‘',darkMode:'Qorong‘i',animation:'Harakatlar',fullMotion:'To‘liq animatsiya',lessMotion:'Kamroq harakat',quality:'3D sifati',autoQuality:'Avtomatik',ecoQuality:'Tejamkor',highQuality:'Yuqori',autoRotate:'Bankani avtomatik aylantirish',flowSpeed:'Quyilish tezligi',catalogView:'Katalog ko‘rinishi',comfortable:'Keng kartalar',compact:'Ixcham kartalar',replay:'Boshlanishni qayta ko‘rish',restore:'Standart sozlamalar',done:'Tayyor',skipIntro:'O‘tkazib yuborish',studio:'BO‘YOQ STUDIYASI',studioCopy:'Aylantiring. Qopqoqni oching. Bo‘yoqni quying.',paintLeft:'Bankadagi bo‘yoq',collected:'Quyilgan bo‘yoq',sceneHint:'Bankani surib aylantiring yoki ← → tugmalaridan foydalaning.',catalogEyebrow:'RANG VA QOPLAMA',catalogEdition:'2026 kolleksiyasi',factoryEyebrow:'NAMANGAN / 2011',applicationCopy:'Sirtga mos yechimni tanlang.',contactEyebrow:'BIRGA TANLAYMIZ',settingsSystem:'Qurilmangizdagi harakatni kamaytirish sozlamasi ham hisobga olinadi.',studioUnavailable:'3D bu brauzerda ishlamayapti. Mahsulot rasmi va katalogdan foydalanishingiz mumkin.'},
-  ru: {settings:'Настройки оформления',settingsCopy:'Настройте сайт под себя. Выбор сохраняется в этом браузере.',appearance:'Оформление',lightMode:'Светлое',darkMode:'Тёмное',animation:'Движение',fullMotion:'Полная анимация',lessMotion:'Меньше движения',quality:'Качество 3D',autoQuality:'Автоматически',ecoQuality:'Экономное',highQuality:'Высокое',autoRotate:'Автоматически вращать банку',flowSpeed:'Скорость наливания',catalogView:'Вид каталога',comfortable:'Просторные карточки',compact:'Компактные карточки',replay:'Повторить заставку',restore:'По умолчанию',done:'Готово',skipIntro:'Пропустить',studio:'СТУДИЯ КРАСКИ',studioCopy:'Поверните. Откройте крышку. Налейте краску.',paintLeft:'Краска в банке',collected:'Налитая краска',sceneHint:'Поверните банку перетаскиванием или клавишами ← →.',catalogEyebrow:'ЦВЕТ И ПОКРЫТИЕ',catalogEdition:'Коллекция 2026',factoryEyebrow:'НАМАНГАН / 2011',applicationCopy:'Выберите решение для вашей поверхности.',contactEyebrow:'ВЫБЕРЕМ ВМЕСТЕ',settingsSystem:'Также учитываются настройки уменьшения движения на вашем устройстве.',studioUnavailable:'3D недоступно в этом браузере. Фото продукта и каталог доступны.'},
-  en: {settings:'Display settings',settingsCopy:'Make the site your own. Your choices are saved in this browser.',appearance:'Appearance',lightMode:'Light',darkMode:'Dark',animation:'Motion',fullMotion:'Full animation',lessMotion:'Reduced motion',quality:'3D quality',autoQuality:'Automatic',ecoQuality:'Economy',highQuality:'High',autoRotate:'Rotate the can automatically',flowSpeed:'Pour speed',catalogView:'Catalogue view',comfortable:'Spacious cards',compact:'Compact cards',replay:'Replay the introduction',restore:'Restore defaults',done:'Done',skipIntro:'Skip introduction',studio:'PAINT STUDIO',studioCopy:'Rotate. Open the lid. Pour the paint.',paintLeft:'Paint in the can',collected:'Paint poured',sceneHint:'Drag to rotate, or use the ← → keys.',catalogEyebrow:'COLOUR AND COATING',catalogEdition:'2026 collection',factoryEyebrow:'NAMANGAN / 2011',applicationCopy:'Choose a finish for your surface.',contactEyebrow:'LET’S CHOOSE TOGETHER',settingsSystem:'Your device’s reduced motion preference is also respected.',studioUnavailable:'3D is unavailable in this browser. The product photo and catalogue are available.'},
+const pageCopy = {
+  uz:{skipIntro:'O‘tkazib yuborish',catalogEyebrow:'MAHSULOTLAR KATALOGI',catalogEdition:'2026-yil katalogi',factoryEyebrow:'NAMANGAN / 2011',applicationCopy:'Mahsulotni ishlatiladigan yuzaga qarab tanlang.',contactEyebrow:'SIZGA YORDAM BERAMIZ'},
+  ru:{skipIntro:'Пропустить',catalogEyebrow:'КАТАЛОГ ПРОДУКЦИИ',catalogEdition:'Каталог 2026',factoryEyebrow:'НАМАНГАН / 2011',applicationCopy:'Выбирайте материал с учётом поверхности.',contactEyebrow:'ПОМОЖЕМ С ВЫБОРОМ'},
+  en:{skipIntro:'Skip introduction',catalogEyebrow:'PRODUCT CATALOGUE',catalogEdition:'2026 catalogue',factoryEyebrow:'NAMANGAN / 2011',applicationCopy:'Choose a product suited to the surface.',contactEyebrow:'HERE TO HELP'},
 };
-for (const lang of ['uz','ru','en']) Object.assign(strings[lang],studioCopy[lang]);
+for(const lang of ['uz','ru','en'])Object.assign(strings[lang],pageCopy[lang]);
 export function findProduct(id) { return products.find(p => p.id === id || p.aliases.includes(id)); }
 
 const selectorCopy={
