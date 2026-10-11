@@ -42,8 +42,9 @@ script = script[:start] + '''  function leave() {
 ''' + script[end:]
 script = script.replace('    if (!root.isConnected || root.hidden) return;', '    if (!active || !root.isConnected) return;')
 script = script.replace('    frameId=requestAnimationFrame(frame);\n    if(paused){last=ts;return;}\n', '')
-script = script.replace('var dt = Math.min(.05, (ts - last) / 1000);', 'var elapsedDt = Math.max(0,(ts-last)/1000);\n    var dt = Math.min(.05,elapsedDt);')
-script = script.replace('Math.exp(-dt * 5)', 'Math.exp(-Math.min(1,elapsedDt) * 5)')
+# Keep the supplied timeline and smoothing exactly. Readiness is only a ceiling:
+# cached assets must not teleport the can across the original pouring sequence.
+script = script.replace('if (manual !== null) target = manual;', 'if (manual !== null) target = Math.min(manual, scripted(pt));')
 script = script.replace("    var pct = Math.round(p * 100);", "    root.dataset.fill=String(Math.round(p*100));\n    if(!root.classList.contains('is-leaving'))root.dataset.phase=paintDone?'filled':phase;\n    var pct = Math.round(p * 100);")
 script = script.replace('requestAnimationFrame(frame);', 'raf=requestAnimationFrame(frame);')
 script = script.replace('frameId=raf=', 'raf=')

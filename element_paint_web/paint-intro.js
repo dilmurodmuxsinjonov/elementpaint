@@ -1,8 +1,8 @@
-import {startSuppliedLoader} from './supplied-loader.js?v=20261011.3';
+import {startSuppliedLoader} from './supplied-loader.js?v=20261011.4';
 
 // Keep the supplied drawing intact; mount a fresh scene for each replay.
 export async function createPaintIntro({loader}){
-  const response=await fetch(new URL('./supplied-loader.html?v=20261011.3',import.meta.url));
+  const response=await fetch(new URL('./supplied-loader.html?v=20261011.4',import.meta.url));
   if(!response.ok)throw new Error('Loader artwork unavailable');
   const markup=await response.text();
   // Decode the supplied can before mounting the scene: never pour from an

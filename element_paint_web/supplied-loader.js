@@ -120,18 +120,17 @@ export function startSuppliedLoader(root,onFinish){
   function frame(ts) {
     if (!active || !root.isConnected) return;
     now = (ts - t0) / 1000;
-    var elapsedDt = Math.max(0,(ts-last)/1000);
-    var dt = Math.min(.05,elapsedDt);
+    var dt = Math.min(.05, (ts - last) / 1000);
     last = ts;
     var pt = now - phaseAt, vCan = 0, e, kk;
 
     /* progress: quti chapdan o'ngga yuradi */
     if (phase === 'pour') {
-      if (manual !== null) target = manual;
+      if (manual !== null) target = Math.min(manual, scripted(pt));
       else if (LOOP) target = scripted(pt);
       else target = (loaded && pt > MIN_POUR) ? 1 : Math.min(.9, .9 * (1 - Math.exp(-pt / 1.4)));
       var prev = p;
-      p += (target - p) * (1 - Math.exp(-Math.min(1,elapsedDt) * 5));
+      p += (target - p) * (1 - Math.exp(-dt * 5));
       if (target >= 1 && p > .997) p = 1;
       vCan = (p - prev) * (LAND_X1 - LAND_X0) / Math.max(dt, 1e-3);
     }
