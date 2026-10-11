@@ -1,5 +1,15 @@
 # Jonli sinov — 7 oktabr 2026
 
+## 11 oktabr 2026: oxirgi Berlak animatsiyasi va asl ritm
+
+- Manba: `b344558` va `ac87195`, `design-refresh-20261005`.
+- Sinov runtime: `e7df8b87d50a6912aa476447803760e8cf66307c`, `preview-site`.
+- [Pages run 38137474584](https://github.com/dilmurodmuxsinjonov/elementpaint/actions/runs/38137474584): success.
+- Jonli `20261011.4`: 45 mahsulot; Berlak PNG, asl logo va qahrabo oqim; atrofdagi sarlavha, izoh va foiz yo‘q. Animatsiya 100% ga yetib yopildi; brauzerda xatolik yo‘q.
+- Asl fayl bilan 288 kadrli solishtirish: banka harakati, oqim, tomchilar, logo to‘lishi va yaltirash bir xil. Bir xil desktop va telefon ekranlarida sahna o‘lchami/joylashuvi mos.
+- 72 katalog PNG asl PDF baytlari bilan mos. Main va asosiy serverga joylanmadi.
+- Tafsilot: [loader-uzlashgan-20261011.md](loader-uzlashgan-20261011.md).
+
 ## 11 oktabr 2026: mijoz yuborgan yuklanish animatsiyasi
 
 - Manba: `39a050c`, `design-refresh-20261005`.
