@@ -2,8 +2,9 @@ import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 const {products}=await import('../element_paint_web/catalog-data.js');
 const framed=products.filter(product=>product.originalImage);
-assert.equal(framed.length,4);
-for(const product of framed){
+const whiteFrames=new Set(['atlas-nitro','ep-plaster','atlas-glatt','milano-decorative']);
+assert.equal(framed.filter(product=>whiteFrames.has(product.id)).length,4);
+for(const product of framed.filter(product=>whiteFrames.has(product.id))){
   const svg=await readFile(new URL(`../element_paint_web/${product.image}`,import.meta.url),'utf8');
   const embedded=Buffer.from(svg.match(/href="data:image\/(?:jpeg|webp);base64,([^"]+)"/)[1],'base64');
   assert.deepEqual(embedded,await readFile(new URL(`../element_paint_web/${product.originalImage}`,import.meta.url)),`${product.id}: label photograph changed`);

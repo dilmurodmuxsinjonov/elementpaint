@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import { readFile, access, readdir } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 
 globalThis.window = {};
 const { products, categories, legacyIds, strings, findProduct } = await import('../element_paint_web/catalog-data.js');
@@ -19,7 +20,12 @@ for(const lang of ['uz','ru','en']){
   for(const product of products){assert.ok(product.title?.[lang],`${product.id} title missing: ${lang}`);assert.ok(product.description?.[lang],`${product.id} description missing: ${lang}`);for(const v of product.variants)assert.ok(v.name[lang]);}
   for(const category of categories)assert.ok(category.name[lang]);
 }
-for(const product of products){assert.ok(categories.some(c=>c.id===product.categoryId));for(const image of [product.image,...product.variants.map(v=>v.image)]){assert.ok(image,`Missing product photo: ${product.id}`);await access(new URL(`../element_paint_web/${image}`,import.meta.url));}}
+for(const product of products){assert.ok(categories.some(c=>c.id===product.categoryId));for(const image of [product.image,product.originalImage,...product.variants.map(v=>v.image)].filter(Boolean)){assert.ok(image,`Missing product photo: ${product.id}`);await access(new URL(`../element_paint_web/${image}`,import.meta.url));}}
+const atlasPrimer=findProduct('atlas-primer');
+assert.equal(atlasPrimer.image,'assets/atlas_primer_legacy_red-2021.jpg');
+assert.equal(atlasPrimer.originalImage,'assets/catalog-2026/product-018.png','Keep the 2026 PDF package available as the original');
+const legacyPrimerBytes=await readFile(new URL('../element_paint_web/assets/atlas_primer_legacy_red-2021.jpg',import.meta.url));
+assert.equal(createHash('sha256').update(legacyPrimerBytes).digest('hex'),'e2037f9b38ad0cbba10299756996c51d2ae9d6a9a50e79f2fb7cc3448ce2ac49','Keep the customer-selected source photo intact');
 // Independent source fixture: weights extracted from the PDF's printed kg rows,
 // with image-to-product assignments checked visually against package labels.
 const fixture=JSON.parse(await readFile(new URL('./fixtures/catalog-2026.json',import.meta.url),'utf8'));
@@ -31,7 +37,7 @@ for(const row of fixture.packages){
   const product=findProduct(row.productId);
   const target=row.variantId?product.variants.find(v=>v.id===row.variantId):product;
   assert.ok(target,`PDF package ${row.imageNumber}: missing ${row.productId}/${row.variantId||''}`);
-  assert.equal(target.image,`assets/catalog-2026/product-${String(row.imageNumber).padStart(3,'0')}.png`,`Wrong PDF image for ${row.productId}/${row.variantId||''}`);
+  assert.equal(target.originalImage||target.image,`assets/catalog-2026/product-${String(row.imageNumber).padStart(3,'0')}.png`,`Wrong PDF image for ${row.productId}/${row.variantId||''}`);
   assert.deepEqual(target.packages,row.packagesKg,`Wrong PDF weight for ${row.productId}/${row.variantId||''}`);
 }
 const images=await readdir(new URL('../element_paint_web/assets/catalog-2026/',import.meta.url));

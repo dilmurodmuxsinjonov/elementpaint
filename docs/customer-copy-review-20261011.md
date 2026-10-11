@@ -1,6 +1,6 @@
 # Customer comments — 11 October 2026
 
-Runtime `20261011.6` addresses the four browser comments:
+Runtime `20261011.7` addresses the four browser comments:
 
 - Atlas nitrolak, Element Plaster, Atlas Glatt and Milano now use white vector
   display frames. The embedded JPEG/WebP bytes are unchanged; a traced SVG
@@ -16,6 +16,8 @@ Runtime `20261011.6` addresses the four browser comments:
   “Qizg‘ish jigarrang”, matching the existing Russian/English reddish-brown name.
   Colour IDs, hex values, package assignments and weights are unchanged.
 - Uzbek navigation says “Korxona haqida”.
+- Atlas astari #29 uses the customer-selected clear red-label photo; the 2026
+  green-label PDF original remains linked from the details view.
 - The settings button, dialog and event handlers are removed. Only the existing
   light/dark toggle remains. Retired hidden settings use standard defaults;
   device reduced motion is still respected. The supplied loader is unchanged.
