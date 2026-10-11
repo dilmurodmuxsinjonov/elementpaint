@@ -1,10 +1,15 @@
-import {startSuppliedLoader} from './supplied-loader.js?v=20261011.2';
+import {startSuppliedLoader} from './supplied-loader.js?v=20261011.3';
 
 // Keep the supplied drawing intact; mount a fresh scene for each replay.
 export async function createPaintIntro({loader}){
-  const response=await fetch(new URL('./supplied-loader.html?v=20261011.2',import.meta.url));
+  const response=await fetch(new URL('./supplied-loader.html?v=20261011.3',import.meta.url));
   if(!response.ok)throw new Error('Loader artwork unavailable');
   const markup=await response.text();
+  // Decode the supplied can before mounting the scene: never pour from an
+  // empty SVG image on a slow connection. Failure releases the existing page.
+  const product=new Image();
+  product.src=new URL('./assets/product-open-amber-v3.png',import.meta.url).href;
+  await product.decode();
   const artwork=loader.querySelector('.intro-artwork');
   let animation;
   return {
