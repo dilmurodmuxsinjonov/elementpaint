@@ -1,5 +1,23 @@
 # Jonli sinov — 7 oktabr 2026
 
+## 11 oktabr 2026: mijoz yuborgan yuklanish animatsiyasi
+
+- Manba: `39a050c`, `design-refresh-20261005`.
+- Sinov runtime: `cc62d15ccc518cc6fc3a2d07497622acb0586984`, `preview-site`.
+- [GitHub Pages run 38135009340](https://github.com/dilmurodmuxsinjonov/elementpaint/actions/runs/38135009340)
+  muvaffaqiyatli yakunlandi.
+- Jonli `20261011.2`: mijoz yuborgan SVG eskizi, bo‘yoq oqimi, logotipni
+  to‘ldirish va parda chiqishi ulandi. Video elementi va video yuklash yo‘q.
+- Jonli qayta ko‘rish 42% / `pour` holatida suratga olindi; keyin 100% ga yetib,
+  overlay yopildi, sahifadagi `inert` va scroll cheklovi olib tashlandi. Brauzer
+  xatolari yoki ogohlantirishlari qayd etilmadi. Foydalanuvchining avvalgi
+  `reduced` harakat sozlamasi tekshiruvdan keyin qaytarildi.
+- 45 mahsulot, 34 rang va 72 asl qadoq rasmi saqlandi. Kutayotgan yuklanish,
+  tugash, bekor qilish, qayta boshlash, mobil 375 × 812 va ikki tema tekshirildi.
+- `main` SHA: `14fcd39e1a70198117537ee676a3874067eac6a1`. Nashr faqat sinov
+  tarmog‘iga chiqarildi.
+- Tafsilotlar: [supplied-loader-20261011.md](supplied-loader-20261011.md).
+
 ## 9 oktabr 2026: 2026 katalog mosligi
 
 45 tasdiqlangan karta, 34 rang va 72 PDF qadoq rasmi saqlandi. Qadoq
