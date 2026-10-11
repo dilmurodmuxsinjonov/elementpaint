@@ -52,6 +52,10 @@ for(const id of ['berlak-primer-5kg','atlas-primer','delta-primer'])assert.doesN
 const html=await readFile(new URL('../element_paint_web/preview.html',import.meta.url),'utf8');
 assert.match(html,/noindex,nofollow/);
 assert.match(html,/<strong id="brandCount">10<\/strong>/);
+assert.match(html,/preview-app\.js\?v=20261011\.8/);
+const previewApp=await readFile(new URL('../element_paint_web/preview-app.js',import.meta.url),'utf8');
+assert.doesNotMatch(previewApp,/if\(location\.hash&&location\.hash!=='#home'\)return/,'Direct #catalog visits must still show the loading animation');
+assert.match(previewApp,/elementpaint-customer-preview-20261011\.8/,'New preview build must not inherit a previous session dismissal');
 for(const key of [...html.matchAll(/data-i18n(?:-aria|-placeholder)?="([^"]+)"/g)].map(m=>m[1]))assert.ok(strings.uz[key],`Unknown template translation: ${key}`);
 assert.doesNotMatch(JSON.stringify({products,categories}),/krata/i);
 console.log(`PASS: ${products.length} approved cards, 34 colours, 72 PDF packages and weights; ${legacyIds.length} legacy links preserved; UZ/RU/EN complete; excluded brand absent.`);
