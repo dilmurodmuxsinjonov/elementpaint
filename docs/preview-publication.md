@@ -1,5 +1,14 @@
 # Jonli sinov — 7 oktabr 2026
 
+## 11 oktabr 2026: katalog havolasida yuklanish animatsiyasi
+
+- Sabab: avvalgi ishga tushirish sharti `#home`dan boshqa hash bo‘lsa animatsiyani chetlab o‘tardi. Mijozning `#catalog` havolasida shu sabab ko‘rinmagan.
+- Manba: `8a78ab6` (`design-refresh-20261005`); sinov commit: `9a23470` (`preview-site`), runtime `20261011.8`.
+- [Pages run 38139546706](https://github.com/dilmurodmuxsinjonov/elementpaint/actions/runs/38139546706) muvaffaqiyatli yakunlandi.
+- Jonli `/?lang=uz#catalog` HTTP `200`, `20261011.8` runtime bilan tekshirildi. Yuklanish skripti to‘g‘ridan-to‘g‘ri katalog hashida ishga tushishi va oldingi versiyaning sessiya belgisi ta’sir qilmasligi sinovdan o‘tdi.
+- 45 mahsulot, 34 rang, 72 asl PDF tasviri hamda animatsiyaning 288 kadri bo‘yicha regressiya tekshiruvlari o‘tdi. Qurilmaning “kamroq harakat” sozlamasi saqlandi.
+- O‘zgarish faqat `preview-site` sinov tarmog‘iga chiqarildi; `main` va asosiy server o‘zgartirilmagan.
+
 ## 11 oktabr 2026: ATLAS astari rasmi
 
 - Manba: `7567c73` (`design-refresh-20261005`); sinov commit: `ba72e70` (`preview-site`), runtime `20261011.7`.
