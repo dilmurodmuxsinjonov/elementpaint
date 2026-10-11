@@ -17,7 +17,7 @@ export function startSuppliedLoader(root,onFinish){
   var Y0 = -4, V_FLOW = 100, TAU = .12, V_SPREAD = 75, R_LAND = 6;
   var G = 560, U0 = 26, V0 = 20;                            // oqim fizikasi
   var LAND_X0 = 9, LAND_X1 = 487;                           // oqim tushadigan nuqta: chapdan o'ngga
-  var HOVER_Y = -150, POUR_Y = -100, POUR_ANGLE = 102;       // quti holati
+  var HOVER_Y = -174, POUR_Y = -112, POUR_ANGLE = -72;       // quti holati
   var MIN_POUR = 1.3;                                       // saytda: eng kam quyish vaqti (s)
   // namoyish rejimidagi "yuklanish" ritmi: [vaqt s, progress]
   var SCRIPT = [[0, 0], [.3, .12], [.7, .3], [1, .36], [1.4, .6], [1.7, .7], [2.05, .9], [2.35, 1]];
@@ -96,8 +96,6 @@ export function startSuppliedLoader(root,onFinish){
   var streamStart = -1, streamStop = -1, sheenAt = -1, slideAt = -1, paintDone = false, doneAt = 0, aria = -1;
   var sLipX = 0, sLipY = 0, sTf = 1, sLand = 0;                // quyish to'xtagan paytdagi oqim
 
-
-
   function go(s) { phase = s; phaseAt = now; }
   function scripted(t) {
     if (t <= 0) return 0;
@@ -131,7 +129,7 @@ export function startSuppliedLoader(root,onFinish){
     if (phase === 'pour') {
       if (manual !== null) target = manual;
       else if (LOOP) target = scripted(pt);
-      else target = loaded && pt > MIN_POUR ? 1 : .9 * (1 - Math.exp(-pt / 1.4));
+      else target = (loaded && pt > MIN_POUR) ? 1 : Math.min(.9, .9 * (1 - Math.exp(-pt / 1.4)));
       var prev = p;
       p += (target - p) * (1 - Math.exp(-Math.min(1,elapsedDt) * 5));
       if (target >= 1 && p > .997) p = 1;
@@ -284,7 +282,6 @@ export function startSuppliedLoader(root,onFinish){
     if(!root.classList.contains('is-leaving'))root.dataset.phase=paintDone?'filled':phase;
     var pct = Math.round(p * 100);
     if (pct !== aria) { root.setAttribute('aria-valuenow', pct); aria = pct; }
-
     raf=requestAnimationFrame(frame);
   }
 
