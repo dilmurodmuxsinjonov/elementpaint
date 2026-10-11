@@ -8,7 +8,9 @@ from pathlib import Path
 
 WEB = Path(__file__).resolve().parent.parent / 'element_paint_web'
 CORE = ('preview.html', 'preview.css', 'preview-app.js', 'catalog-data.js',
-        'legacy-products.js', 'product-selector.js', 'paint-video.js',
+        'legacy-products.js', 'product-selector.js', 'paint-intro.js',
+        'supplied-loader.js', 'supplied-loader.html', 'supplied-loader.css',
+        'loading-progress.js',
         'studio-preferences.js', 'vendor/MANROPE-OFL.txt')
 
 def main():

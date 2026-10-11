@@ -1,0 +1,15 @@
+<!doctype html><html lang="en" data-theme="light"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Supplied loader checks</title><link rel="stylesheet" href="/preview.css"><link rel="stylesheet" href="/supplied-loader.css">
+<div id="brandLoader" class="brand-loader ep-loader" role="progressbar" aria-label="Element Paint" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="intro-artwork"></div></div>
+<div style="position:fixed;z-index:10000;bottom:8px;left:8px;padding:8px;background:#fffd;display:flex;gap:8px"><button id="half">Pending 50%</button><button id="done">Ready</button><button id="restart">Replay</button><button id="theme">Theme</button><output id="result">Loading assets</output></div>
+<script type="module">
+import {createPaintIntro} from '/paint-intro.js';
+const loader=document.querySelector('#brandLoader');
+const api=await createPaintIntro({loader});
+const result=document.querySelector('#result');
+function play(){api.play(()=>result.textContent='Finished');api.setProgress(.5);result.textContent='Waiting on resource';}
+document.querySelector('#half').onclick=()=>api.setProgress(.5);
+document.querySelector('#done').onclick=()=>{api.setProgress(1);result.textContent='Ready';};
+document.querySelector('#restart').onclick=play;
+document.querySelector('#theme').onclick=()=>{document.documentElement.dataset.theme=document.documentElement.dataset.theme==='light'?'dark':'light';loader.dataset.theme=document.documentElement.dataset.theme;};
+play();
+</script></html>

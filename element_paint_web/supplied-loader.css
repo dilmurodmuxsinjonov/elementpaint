@@ -1,0 +1,110 @@
+
+  html.ep-loading { overflow: hidden; }
+
+  /* ================= ELEMENT PAINT LOADER ================= */
+  .ep-loader {
+    --ep-bg: #ECECEA;                      /* devor (fon) */
+    --ep-bg-edge: #DCDCD9;
+    --ep-ink: #16151A;                     /* logotip / bo'yoq rangi */
+    --ep-ghost: rgba(22, 21, 26, .075);    /* bo'sh logotip izi */
+    --ep-sketch: rgba(22, 21, 26, .42);
+    --ep-gloss: rgba(255, 255, 255, .30);  /* ho'l bo'yoq yaltirashi */
+    --ep-hi: rgba(255, 255, 255, .55);     /* oqimdagi yorug' chiziq */
+    --ep-lo: rgba(0, 0, 0, 0);             /* oqimdagi soya chiziq */
+    --ep-sheen: rgba(255, 255, 255, .42);
+
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    background: radial-gradient(120% 95% at 50% 42%, var(--ep-bg) 50%, var(--ep-bg-edge) 100%);
+    transition: transform 1s cubic-bezier(.76, 0, .24, 1) .15s;
+  }
+  .ep-loader[data-theme="dark"] {
+    --ep-bg: #1B1A20;
+    --ep-bg-edge: #0F0E13;
+    --ep-ink: #F2F0EB;
+    --ep-ghost: rgba(242, 240, 235, .06);
+    --ep-sketch: rgba(242, 240, 235, .45);
+    --ep-gloss: rgba(255, 255, 255, .95);
+    --ep-hi: rgba(255, 255, 255, 1);
+    --ep-lo: rgba(0, 0, 0, .16);
+    --ep-sheen: rgba(255, 255, 255, .6);
+  }
+
+  .ep-scene {
+    display: block;
+    width: min(92vw, 820px, 170vh);
+    height: auto;
+    overflow: visible;
+    transition: opacity .45s ease, transform .7s cubic-bezier(.4, 0, .2, 1);
+  }
+
+  /* 1) eskiz: kontur chiziladi */
+  .ep-sketch {
+    fill: none;
+    stroke: var(--ep-sketch);
+    stroke-width: .7;
+    stroke-linejoin: round;
+    animation: ep-fade-out .7s 1.15s ease forwards;
+  }
+  .ep-sketch use {
+    stroke-dasharray: 1 1;
+    stroke-dashoffset: 1;
+    animation: ep-draw 1.1s cubic-bezier(.6, .05, .3, 1) forwards;
+    animation-delay: calc(var(--i) * 40ms);
+  }
+  /* 2) bo'sh logotip izi (trafaret) */
+  .ep-ghost {
+    fill: var(--ep-ghost);
+    opacity: 0;
+    animation: ep-fade-in .7s .35s ease forwards;
+  }
+  /* 3) bo'yoq, oqim, sachratqilar */
+  .ep-paint, .ep-stream, .ep-splash, .ep-drops { fill: var(--ep-ink); }
+  .ep-paint-gloss { fill: none; stroke: var(--ep-gloss); stroke-width: 1.1; }
+  .ep-stream-hi, .ep-stream-lo { fill: none; stroke-width: .75; stroke-linecap: round; stroke-linejoin: round; }
+  .ep-stream-hi { stroke: var(--ep-hi); }
+  .ep-stream-lo { stroke: var(--ep-lo); }
+  .ep-sheen-mid { stop-color: var(--ep-sheen); }
+  .ep-sheen-end { stop-color: var(--ep-sheen); stop-opacity: 0; }
+
+  /* 4) bo'yoq qutisi */
+  .ep-can-handle { fill: none; stroke: #45454C; stroke-width: 1.5; stroke-linecap: round; }
+  .ep-can-grip, .ep-can-label, .ep-can-paint { fill: var(--ep-ink); }
+  .ep-can-emblem { fill: var(--ep-bg); }
+  .ep-can-rib { stroke: rgba(0, 0, 0, .2); stroke-width: .8; }
+  .ep-can-ear { fill: #66666E; }
+
+  /* chiqish: parda bo'yoq tomchilari bilan yuqoriga ko'tariladi */
+  .ep-edge {
+    position: absolute;
+    left: 0;
+    top: calc(100% - 1px);
+    width: 100%;
+    height: 80px;
+    fill: var(--ep-bg-edge);
+  }
+  .ep-loader.is-leaving { overflow: visible; transform: translateY(calc(-100% - 90px)); }
+  .ep-loader.is-leaving .ep-scene { opacity: 0; transform: translateY(-16px) scale(.985); }
+
+  @keyframes ep-draw     { to { stroke-dashoffset: 0; } }
+  @keyframes ep-fade-in  { to { opacity: 1; } }
+  @keyframes ep-fade-out { to { opacity: 0; } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ep-sketch, .ep-can, .ep-fx { display: none; }
+    .ep-ghost { animation: none; opacity: 1; }
+    .ep-loader, .ep-scene { transition-duration: .01s; transition-delay: 0s; }
+  }
+
+/* Preview integration: preserve the supplied scene and curtain exit. */
+.ep-loader[hidden]{display:none}
+.ep-loader::before{content:none}
+.ep-loader{pointer-events:auto}
+.ep-loader .intro-artwork{display:contents}
+.ep-loader .ep-scene{width:min(92vw,820px,170dvh)}
+.ep-loader .intro-skip{z-index:1}
+.ep-loader[data-theme="dark"] .intro-skip{color:#f2f0eb;background:#25242b99;border-color:#f2f0eb33}

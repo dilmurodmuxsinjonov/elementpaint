@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import {trackReadiness} from '../element_paint_web/loading-progress.js';
+let release,fail;const values=[];
+const pending=new Promise(resolve=>release=resolve),broken=new Promise((_,reject)=>fail=reject);
+const tracker=trackReadiness([pending,broken],value=>values.push(value));
+assert.deepEqual(values,[0]);release();await new Promise(resolve=>setImmediate(resolve));
+assert.deepEqual(values,[0,.5]);fail(new Error('Image unavailable'));await tracker.done;
+assert.deepEqual(values,[0,.5,1],'Resource failure must not trap the overlay');
+let late;const cancelled=[];const cancel=trackReadiness([new Promise(resolve=>late=resolve)],v=>cancelled.push(v));cancel.cancel();late();await cancel.done;assert.deepEqual(cancelled,[0]);
+const empty=[];await trackReadiness([],v=>empty.push(v)).done;assert.deepEqual(empty,[1]);
+console.log('PASS: resource readiness stays pending; failures settle; cancellation ignores late completion; empty resource list is ready.');
