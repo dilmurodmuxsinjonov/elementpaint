@@ -191,15 +191,39 @@ for(const [id,image] of Object.entries({
   const product=products.find(item=>item.id===id);
   product.originalImage=product.image;product.image=image;
 }
+// Each of the 72 catalogue packages gets its own card, including colour entries.
+// The separately supplied MILANO label is the sole additional catalogue item.
+const families=[...products];
+const catalogCards=families.flatMap(family=>{
+  if(family.id==='milano-decorative')return [{...family,brand:'BERLAK',categoryId:'travertin',
+    title:tr('Milano suyuq travertini','Жидкий травертин Milano','Milano liquid travertine'),
+    description:tr('Tabiiy tosh ko‘rinishidagi dekorativ qoplama. Ichki va tashqi yuzalar uchun.',
+      'Декоративное покрытие с фактурой натурального камня для внутренних и наружных поверхностей.',
+      'A decorative coating with a natural stone texture for interior and exterior surfaces.'),
+    image:'assets/milano-photo-quality-20261014.webp',originalImage:'assets/milano-photo-original-20261014.png',
+    packages:[25],variants:[],sourceStatus:'client-provided-label',catalogNumber:73,familyId:family.id}];
+  return (family.variants.length?family.variants:[null]).flatMap((variant,index)=>{
+    const original=variant?.image||family.originalImage||family.image;
+    const number=original?.match(/catalog-2026\/product-(\d{3})\.png$/)?.[1];
+    if(!number)return [];
+    const title=variant?Object.fromEntries(['uz','ru','en'].map(lang=>[lang,`${family.title[lang]} — ${variant.name[lang]}`])):family.title;
+    return [{...family,id:variant&&index?`${family.id}-${variant.id}`:family.id,
+      familyId:family.id,variantId:variant?.id||'',colorName:variant?.name||null,color:variant?.color||null,
+      aliases:variant?family.aliases.filter(alias=>alias===`atlas-${variant.id}`):family.aliases,
+      title,image:variant?variant.image:family.image,originalImage:variant?variant.image:family.originalImage,
+      packages:variant?variant.packages:family.packages,variants:[],catalogNumber:Number(number)}];
+  });
+}).sort((a,b)=>a.catalogNumber-b.catalogNumber);
+products.splice(0,products.length,...catalogCards);
 export const strings = {
   uz: {
     made: 'O‘zbekistonda ishlab chiqarilgan · 2011-yildan', catalog: 'Mahsulotlar', about: 'Korxona haqida', contact: 'Aloqa', advice: 'Maslahat olish',
     eyebrow: 'ELEMENT PAINT · 2011-YILDAN', hero: 'Har bir yuza uchun', heroAccent: 'mos bo‘yoq va qoplama.',
     intro: 'Emal, devor bo‘yoqlari va dekorativ qoplamalar. Katalogdan ishlaringizga mos mahsulot, rang va qadoqni tanlang.',
     explore: 'Katalogni ochish',
-    years: 'yillik tajriba', directions: 'mahsulot turi', brands: 'brend', browse: 'Mahsulotlarni ko‘rib chiqing.', browseCopy: 'Mahsulot turini tanlang yoki nomi bo‘yicha qidiring.',
+    years: 'yillik tajriba', directions: 'mahsulot', brands: 'brend', browse: 'Mahsulotlarni ko‘rib chiqing.', browseCopy: 'Mahsulot turini tanlang yoki nomi bo‘yicha qidiring.',
     all: 'Barchasi', search: 'Mahsulot yoki brend nomini yozing', brand: 'Brend', clear: 'Filtrlarni tozalash', results: 'ta mahsulot', detail: 'Batafsil', new: 'Yangi mahsulot', imagePending: 'Mahsulot rasmi mavjud emas',
-    empty: 'Bu turdagi mahsulotlar haqida ma’lumot olish uchun biz bilan bog‘laning.', noMatch: 'Mahsulot topilmadi. Boshqa nom bilan qidiring yoki filtrlarni tozalang.', ask: 'Shu mahsulot haqida maslahat olish', colors: 'Ranglar', packages: 'Qadoqlar',
+    empty: 'Bu turdagi mahsulotlar haqida ma’lumot olish uchun biz bilan bog‘laning.', noMatch: 'Mahsulot topilmadi. Boshqa nom bilan qidiring yoki filtrlarni tozalang.', ask: 'Shu mahsulot haqida maslahat olish', colors: 'Rang', packages: 'Qadoqlar',
     category: 'Mahsulot turi', photoPending: 'Bu rangning qadoq rasmi mavjud emas.', back: 'Katalogga qaytish', aboutTitle: 'Namanganda ishlab chiqaramiz.',
     aboutCopy: 'Element Paint 2011-yildan Namanganda bo‘yoq va qoplamalar ishlab chiqaradi. Katalogimizda emal, devor bo‘yoqlari, astar, yelim, lak va dekorativ qoplamalarni topasiz.',
     applications: 'Qayerga ishlatmoqchisiz?', facade: 'Tashqi devorlar', interior: 'Ichki devorlar', wood: 'Yog‘och va metall',
@@ -212,9 +236,9 @@ export const strings = {
     eyebrow: 'ELEMENT PAINT · С 2011 ГОДА', hero: 'Для каждой поверхности', heroAccent: 'подходящее покрытие.',
     intro: 'Эмали, краски для стен и декоративные покрытия. Выберите продукт, цвет и упаковку для ваших работ.',
     explore: 'Открыть каталог',
-    years: 'лет опыта', directions: 'видов продукции', brands: 'брендов', browse: 'Посмотрите нашу продукцию.', browseCopy: 'Выберите вид продукции или найдите продукт по названию.',
+    years: 'лет опыта', directions: 'продуктов', brands: 'брендов', browse: 'Посмотрите нашу продукцию.', browseCopy: 'Выберите вид продукции или найдите продукт по названию.',
     all: 'Все', search: 'Введите название продукта или бренда', brand: 'Бренд', clear: 'Сбросить фильтры', results: 'продуктов', detail: 'Подробнее', new: 'Новый продукт', imagePending: 'Фото продукта отсутствует',
-    empty: 'Свяжитесь с нами, чтобы узнать о продукции этого вида.', noMatch: 'Продукт не найден. Попробуйте другое название или сбросьте фильтры.', ask: 'Получить консультацию об этом продукте', colors: 'Цвета', packages: 'Упаковка',
+    empty: 'Свяжитесь с нами, чтобы узнать о продукции этого вида.', noMatch: 'Продукт не найден. Попробуйте другое название или сбросьте фильтры.', ask: 'Получить консультацию об этом продукте', colors: 'Цвет', packages: 'Упаковка',
     category: 'Вид продукции', photoPending: 'Фото упаковки этого цвета отсутствует.', back: 'Вернуться в каталог', aboutTitle: 'Производим в Намангане.',
     aboutCopy: 'Element Paint производит краски и покрытия в Намангане с 2011 года. В каталоге вы найдёте эмали, краски для стен, грунтовки, клеи, лаки и декоративные покрытия.',
     applications: 'Где планируете использовать?', facade: 'Наружные стены', interior: 'Внутренние стены', wood: 'Дерево и металл',
@@ -227,9 +251,9 @@ export const strings = {
     eyebrow: 'ELEMENT PAINT · SINCE 2011', hero: 'For every surface,', heroAccent: 'a suitable finish.',
     intro: 'Enamels, wall paints and decorative coatings. Choose the product, colour and packaging for your project.',
     explore: 'Explore products',
-    years: 'years of experience', directions: 'product types', brands: 'brands', browse: 'Browse our products.', browseCopy: 'Choose a product type or search by name.',
+    years: 'years of experience', directions: 'products', brands: 'brands', browse: 'Browse our products.', browseCopy: 'Choose a product type or search by name.',
     all: 'All', search: 'Enter a product or brand name', brand: 'Brand', clear: 'Clear filters', results: 'products', detail: 'View product', new: 'New product', imagePending: 'Product photo unavailable',
-    empty: 'Contact us to learn about products of this type.', noMatch: 'No products found. Try a different name or clear the filters.', ask: 'Get advice about this product', colors: 'Colours', packages: 'Packaging',
+    empty: 'Contact us to learn about products of this type.', noMatch: 'No products found. Try a different name or clear the filters.', ask: 'Get advice about this product', colors: 'Colour', packages: 'Packaging',
     category: 'Product type', photoPending: 'The packaging photo for this colour is unavailable.', back: 'Back to products', aboutTitle: 'Made in Namangan.',
     aboutCopy: 'Element Paint manufactures paints and coatings in Namangan. Our catalogue brings together solutions for different surfaces: enamels, primers, adhesives, varnishes and decorative coatings.',
     applications: 'Where will you use it?', facade: 'Exterior walls', interior: 'Interior walls', wood: 'Wood and metal',
@@ -244,7 +268,10 @@ const pageCopy = {
   en:{skipIntro:'Skip introduction',catalogEyebrow:'PRODUCT CATALOGUE',catalogEdition:'2026 catalogue',factoryEyebrow:'NAMANGAN / 2011',applicationCopy:'Choose a product suited to the surface.',contactEyebrow:'HERE TO HELP'},
 };
 for(const lang of ['uz','ru','en'])Object.assign(strings[lang],pageCopy[lang]);
-export function findProduct(id) { return products.find(p => p.id === id || p.aliases.includes(id)); }
+export function findProduct(id,variantId='') {
+  const product=products.find(p=>p.id===id||p.aliases.includes(id));
+  return variantId?products.find(p=>p.familyId===(product?.familyId||id)&&p.variantId===variantId)||product:product;
+}
 
 const selectorCopy={
   uz:{chooseProduct:'Mahsulotni tanlang',productTypes:'Mahsulot turlari',previousProduct:'Oldingi mahsulot',nextProduct:'Keyingi mahsulot',selectorHint:'Yon tomonga suring yoki ← → tugmalaridan foydalaning.',autoSlide:'Mahsulotlarni avtomatik almashtirish'},

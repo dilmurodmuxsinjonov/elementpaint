@@ -1,7 +1,7 @@
-import {createProductSelector} from './product-selector.js?v=20261011.8';
-import { categories, products, strings, findProduct } from './catalog-data.js?v=20261011.8';
-import {readPreferences,savePreferences,defaultPreferences} from './studio-preferences.js?v=20261011.8';
-import {trackReadiness} from './loading-progress.js?v=20261011.8';
+import {createProductSelector} from './product-selector.js?v=20261014.1';
+import { categories, products, strings, findProduct } from './catalog-data.js?v=20261014.1';
+import {readPreferences,savePreferences,defaultPreferences} from './studio-preferences.js?v=20261014.1';
+import {trackReadiness} from './loading-progress.js?v=20261014.1';
 
 const $ = id => document.getElementById(id);
 const validLang = value => ['uz','ru','en'].includes(value) ? value : 'uz';
@@ -49,19 +49,16 @@ function renderCatalog() {
   $('emptyState').hidden=filtered.length>0;$('emptyState').querySelector('p').textContent=state.query||state.brand!=='all'?t('noMatch'):t('empty');
 }
 function renderProduct() {
-  const product=findProduct(state.product);if(!product)return;
-  if(product.aliases.includes(state.product)){state.variant=state.product.replace('atlas-','');state.product=product.id;saveURL();}
-  const variant=product.variants.find(v=>v.id===state.variant)||product.variants[0];
-  if(variant)state.variant=variant.id;else state.variant='';
+  const product=findProduct(state.product,state.variant);if(!product)return;
+  if(product.id!==state.product||state.variant){state.product=product.id;state.variant='';saveURL();}
   $('productBrand').textContent=product.brand;$('productTitle').textContent=product.title[state.lang];$('productDescription').textContent=product.description[state.lang];
   $('productCategory').textContent=`${t('category')} / ${categories.find(c=>c.id===product.categoryId).name[state.lang]}`;
-  const selectedImage=variant?(variant.image||null):product.image;
+  const selectedImage=product.image;
   const media=imageMedia(product,selectedImage);$('productMedia').replaceChildren(...media.childNodes);
-  if(selectedImage){const full=node('a','image-original-link',`${t('fullImage')} ↗`);full.href=variant?selectedImage:(product.originalImage||selectedImage);full.target='_blank';full.rel='noopener';$('productMedia').append(full);}
-  $('variantPanel').hidden=!product.variants.length;$('variantList').replaceChildren();
-  for(const v of product.variants){const button=node('button');button.type='button';button.style.setProperty('--swatch',v.color);button.title=v.name[state.lang];button.setAttribute('aria-label',v.name[state.lang]);button.setAttribute('aria-pressed',String(v.id===state.variant));button.append(node('span'));button.addEventListener('click',()=>{state.variant=v.id;saveURL();renderProduct();});$('variantList').append(button);}
-  $('variantName').textContent=variant?`${variant.name[state.lang]}${variant.image?'':` · ${t('photoPending')}`}`:'';
-  const packages=variant?(variant.packages||[variant.packageKg]).filter(Boolean):product.packages;
+  if(selectedImage){const full=node('a','image-original-link',`${t('fullImage')} ↗`);full.href=product.originalImage||selectedImage;full.target='_blank';full.rel='noopener';$('productMedia').append(full);}
+  $('variantPanel').hidden=!product.colorName;$('variantList').replaceChildren();
+  $('variantName').textContent=product.colorName?.[state.lang]||'';
+  const packages=product.packages;
   const mass=new Intl.NumberFormat(state.lang==='uz'?'uz-Latn-UZ':state.lang,{maximumFractionDigits:2});
   $('packageInfo').textContent=packages.length?`${t('packages')}: ${packages.map(kg=>mass.format(kg)).join(' / ')} ${state.lang==='ru'?'кг':'kg'}`:'';
 }
@@ -85,7 +82,6 @@ function applyLanguage() {
   for(const button of document.querySelectorAll('[data-lang]'))button.setAttribute('aria-pressed',String(button.dataset.lang===state.lang));
   const brands=[...new Set(products.map(p=>p.brand))];if(!brands.includes(state.brand))state.brand='all';
   $('brandCount').textContent=String(brands.length);
-  $('categoryCount').textContent=String(new Set(products.map(p=>p.categoryId)).size);
   $('brandSelect').replaceChildren(new Option(t('all'),'all'),...brands.map(b=>new Option(b,b)));$('brandSelect').value=state.brand;
   $('searchInput').value=state.query;renderCatalog();renderProduct();selectorApi?.setLanguage();
   const altKeys=[['.about-image img','catalog'],['.application-grid article:nth-child(1) img','facade'],['.application-grid article:nth-child(2) img','interior'],['.application-grid article:nth-child(3) img','wood']];
@@ -127,13 +123,13 @@ function stopIntro(){
 function finishIntro(){stopIntro();}
 async function showBrandIntro(replay=false){
   if(reduced.matches||preferences.motion==='reduced'||state.product||document.hidden)return;
-  if(!replay){try{const seenKey='elementpaint-customer-preview-20261011.8';if(sessionStorage.getItem(seenKey))return;sessionStorage.setItem(seenKey,'seen');}catch{}}
+  if(!replay){try{const seenKey='elementpaint-customer-preview-20261014.1';if(sessionStorage.getItem(seenKey))return;sessionStorage.setItem(seenKey,'seen');}catch{}}
   const generation=++introGeneration;
   clearTimeout(introTimeout);introReadiness?.cancel();introApi?.stop();
   introTimeout=setTimeout(stopIntro,9000);
   $('brandLoader').dataset.fill='0';$('brandLoader').dataset.phase='glass';
   try{
-    introPromise ||= import('./paint-intro.js?v=20261011.8').then(({createPaintIntro})=>createPaintIntro({loader:$('brandLoader')})).catch(error=>{introPromise=null;throw error;});
+    introPromise ||= import('./paint-intro.js?v=20261014.1').then(({createPaintIntro})=>createPaintIntro({loader:$('brandLoader')})).catch(error=>{introPromise=null;throw error;});
     introApi=await introPromise;
   }catch{if(generation===introGeneration)stopIntro();return;}
   if(generation!==introGeneration||reduced.matches||preferences.motion==='reduced'||document.hidden)return;

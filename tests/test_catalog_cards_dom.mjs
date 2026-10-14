@@ -1,0 +1,53 @@
+// npm install --prefix tmp/dom-check --no-audit --no-fund jsdom@26.1.0
+// Local DOM integration; no browser, network resources or external UI automation.
+import assert from 'node:assert/strict';
+import {readFile} from 'node:fs/promises';
+import {createRequire} from 'node:module';
+import {fileURLToPath} from 'node:url';
+const require=createRequire(import.meta.url);
+const {JSDOM}=require(process.env.ELEMENTPAINT_JSDOM||fileURLToPath(new URL('../tmp/dom-check/node_modules/jsdom/lib/api.js',import.meta.url)));
+const html=await readFile(new URL('../element_paint_web/preview.html',import.meta.url),'utf8');
+const dom=new JSDOM(html,{url:'https://preview.example.test/?lang=uz#catalog',pretendToBeVisual:true});
+const {window}=dom;
+for(const key of ['window','document','location','history','localStorage','sessionStorage','Option'])globalThis[key]=key==='window'?window:window[key];
+globalThis.matchMedia=query=>({matches:query.includes('prefers-reduced-motion'),addEventListener(){},removeEventListener(){}});
+globalThis.ResizeObserver=class{observe(){}disconnect(){}};
+window.HTMLElement.prototype.scrollTo=function(){};
+window.HTMLDialogElement.prototype.showModal=function(){this.open=true;};
+window.HTMLDialogElement.prototype.close=function(){this.open=false;};
+await import('../element_paint_web/preview-app.js');
+const $=id=>document.getElementById(id);
+assert.equal(document.querySelectorAll('.product-card').length,73);
+assert.equal(document.querySelectorAll('.featured-slide').length,73);
+assert.equal($('assortmentCount').textContent,'100+');
+assert.equal($('brandCount').textContent,'9');
+for(const lang of ['ru','en','uz']){
+  document.querySelector(`[data-lang="${lang}"]`).click();
+  assert.equal(document.documentElement.lang,lang);
+  assert.equal(document.querySelectorAll('.product-card').length,73);
+  assert.ok([...document.querySelectorAll('.product-card h3')].every(n=>n.textContent.trim()));
+}
+$('searchInput').value='Milano';$('searchInput').dispatchEvent(new window.Event('input'));
+assert.equal(document.querySelectorAll('.product-card').length,1);
+document.querySelector('.product-open').click();
+assert.equal($('productDialog').open,true);
+assert.match($('productMedia').querySelector('img').src,/milano-photo-quality-20261014.webp$/);
+assert.match($('productMedia').querySelector('a').href,/milano-photo-original-20261014.png$/);
+assert.match($('packageInfo').textContent,/25 kg/);
+$('closeProduct').click();$('clearFilters').click();
+assert.equal(document.querySelectorAll('.product-card').length,73);
+history.replaceState({},'','?lang=uz&product=atlas-pf115&variant=blue#catalog');
+window.dispatchEvent(new window.PopStateEvent('popstate'));
+assert.match($('productTitle').textContent,/Havorang/);
+assert.match($('productMedia').querySelector('img').src,/product-022.png$/);
+assert.equal(new URL(location.href).searchParams.get('product'),'atlas-pf115-blue');
+assert.equal(new URL(location.href).searchParams.has('variant'),false);
+$('closeProduct').click();
+$('brandSelect').value='DELTA';$('brandSelect').dispatchEvent(new window.Event('change'));
+assert.equal(document.querySelectorAll('.product-card').length,2);
+$('clearFilters').click();
+for(let i=0;i<72;i++)$('featuredNext').click();
+assert.equal($('featuredCounter').textContent,'73 / 73');
+$('featuredDetail').click();assert.match($('productTitle').textContent,/Milano/);
+dom.window.close();
+console.log('PASS: 73 grid cards and hero slides, UZ/RU/EN, 100+ headline, MILANO photo/original/25 kg, search, filters and previous colour deep links.');
