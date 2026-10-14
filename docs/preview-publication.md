@@ -1,5 +1,14 @@
 # Jonli sinov — 7 oktabr 2026
 
+## 15 oktabr 2026: Milano qirqish chegarasi
+
+- Manba: `ecc3ae5` (`design-refresh-20261005`); runtime: `b04a9a5ef2208aa624b8e1c15efd61a999701f32` (`preview-site`), `20261015.1`.
+- [Pages run 38640669285](https://github.com/dilmurodmuxsinjonov/elementpaint/actions/runs/38640669285) holati `Success`.
+- Jonli `index.html?v=20261015.1` HTTP `200` bilan yangi runtime’ni qaytardi. Yangi Milano WebP HTTP `200`; SHA-256 `423b5744bc9a8a6c8011a6597669b23b23f9b622a79471fcd079dfa6e6b6e331` mahalliy fayl bilan mos.
+- Qo‘lda chizilgan kontur o‘rniga manba chegarasidan olingan alpha ishlatiladi. Qopqoq, yon va pastki qirralar saqlandi; 398 161 yorliq pikselining RGB qiymatlari manba bilan bir xil. Oq fonli rasm ko‘z bilan tekshirildi.
+- 73 karta, Milano detali, asl rasm havolasi, tillar va filtrlar DOM tekshiruvidan o‘tdi. Asl manba PNG o‘zgarmadi.
+- Faqat mijoz sinov nusxasi yangilandi. Tafsilot: [milano-cutout-20261015.md](milano-cutout-20261015.md).
+
 ## 14 oktabr 2026: 73 ta katalog kartasi va yangi Milano tasviri
 
 - Manba: `1534ec5`, `design-refresh-20261005`. Sinov runtime: `4187459feaf3bd2136e312fc3612b63a9113d4c0`, `preview-site`, `20261014.1`.
