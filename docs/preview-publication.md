@@ -1,5 +1,15 @@
 # Jonli sinov — 7 oktabr 2026
 
+## 14 oktabr 2026: 73 ta katalog kartasi va yangi Milano tasviri
+
+- Manba: `1534ec5`, `design-refresh-20261005`. Sinov runtime: `4187459feaf3bd2136e312fc3612b63a9113d4c0`, `preview-site`, `20261014.1`.
+- [Pages run 38606412223](https://github.com/dilmurodmuxsinjonov/elementpaint/actions/runs/38606412223) sahifasida holat `Success`.
+- Jonli `/?lang=uz&v=20261014.1#catalog` va `index.html?v=20261014.1` HTTP `200`, yangi runtime va “100+” sarlavhasini qaytardi. Yangi app skripti HTTP orqali keldi. Milano WebP HTTP `200`, SHA-256 `1dec0831850919e8e4148dbb2c0c62e736584f425d83b51d3e6cdbc18c5eab5c` bilan tasdiqlandi.
+- 72 katalog yozuvi va Berlak Milano alohida ko‘rsatiladi: jami 73 karta, 34 rang kartasi, 9 brend. Milano — mijozning oxirgi tiniq rasmi, qora chelak, 25 kg, oq fonli lossless WebP; asl mijoz PNGsi saqlanadi.
+- 73 karta/hero slaydi, uch til, filtrlar, qidiruv, Milano rasmi/25 kg/asl havola va eski rang havolalari mahalliy DOMda tekshirildi. 72 PNG asli va yuklanish animatsiyasining 288 kadri solishtirishdan o‘tdi. PNG ramkasi ko‘z bilan tekshirildi; to‘liq jonli brauzer vizual sinovi bajarilmadi.
+- `main` SHA o‘zgarmadi: `14fcd39e1a70198117537ee676a3874067eac6a1`. Nashr faqat mijoz sinov saytiga chiqarildi.
+- Tafsilot: [catalog-73-20261014.md](catalog-73-20261014.md).
+
 ## 11 oktabr 2026: katalog havolasida yuklanish animatsiyasi
 
 - Sabab: avvalgi ishga tushirish sharti `#home`dan boshqa hash bo‘lsa animatsiyani chetlab o‘tardi. Mijozning `#catalog` havolasida shu sabab ko‘rinmagan.
