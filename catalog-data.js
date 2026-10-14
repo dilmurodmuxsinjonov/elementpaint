@@ -200,7 +200,7 @@ const catalogCards=families.flatMap(family=>{
     description:tr('Tabiiy tosh ko‘rinishidagi dekorativ qoplama. Ichki va tashqi yuzalar uchun.',
       'Декоративное покрытие с фактурой натурального камня для внутренних и наружных поверхностей.',
       'A decorative coating with a natural stone texture for interior and exterior surfaces.'),
-    image:'assets/milano-photo-quality-20261014.webp',originalImage:'assets/milano-photo-original-20261014.png',
+    image:'assets/milano-photo-quality-20261015.webp',originalImage:'assets/milano-photo-original-20261014.png',
     packages:[25],variants:[],sourceStatus:'client-provided-label',catalogNumber:73,familyId:family.id}];
   return (family.variants.length?family.variants:[null]).flatMap((variant,index)=>{
     const original=variant?.image||family.originalImage||family.image;
