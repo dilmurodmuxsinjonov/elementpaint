@@ -13,7 +13,7 @@ for(const [frame,original] of [['nitro_lak_studio-white.svg','nitro_lak_studio.j
 const milano=products.find(p=>p.id==='milano-decorative');
 const original=await readFile(new URL(`../element_paint_web/${milano.originalImage}`,import.meta.url));
 const display=await readFile(new URL(`../element_paint_web/${milano.image}`,import.meta.url));
-const manifest=JSON.parse(await readFile(new URL('./fixtures/milano-photo-20261014.json',import.meta.url),'utf8'));
+const manifest=JSON.parse(await readFile(new URL('./fixtures/milano-photo-20261015.json',import.meta.url),'utf8'));
 assert.equal(createHash('sha256').update(original).digest('hex'),'de985737e87e7cc29b845ef5c5a7f86af0486212ff3d1ee339d13be26ae5bb20','Keep the latest customer image byte-for-byte intact');
 assert.equal(createHash('sha256').update(display).digest('hex'),manifest.displaySha256);
 assert.deepEqual([original.readUInt32BE(16),original.readUInt32BE(20)],manifest.sourceDimensions);

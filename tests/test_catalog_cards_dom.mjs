@@ -31,7 +31,7 @@ $('searchInput').value='Milano';$('searchInput').dispatchEvent(new window.Event(
 assert.equal(document.querySelectorAll('.product-card').length,1);
 document.querySelector('.product-open').click();
 assert.equal($('productDialog').open,true);
-assert.match($('productMedia').querySelector('img').src,/milano-photo-quality-20261014.webp$/);
+assert.match($('productMedia').querySelector('img').src,/milano-photo-quality-20261015.webp$/);
 assert.match($('productMedia').querySelector('a').href,/milano-photo-original-20261014.png$/);
 assert.match($('packageInfo').textContent,/25 kg/);
 $('closeProduct').click();$('clearFilters').click();

@@ -1,7 +1,7 @@
-import {createProductSelector} from './product-selector.js?v=20261014.1';
-import { categories, products, strings, findProduct } from './catalog-data.js?v=20261014.1';
-import {readPreferences,savePreferences,defaultPreferences} from './studio-preferences.js?v=20261014.1';
-import {trackReadiness} from './loading-progress.js?v=20261014.1';
+import {createProductSelector} from './product-selector.js?v=20261015.1';
+import { categories, products, strings, findProduct } from './catalog-data.js?v=20261015.1';
+import {readPreferences,savePreferences,defaultPreferences} from './studio-preferences.js?v=20261015.1';
+import {trackReadiness} from './loading-progress.js?v=20261015.1';
 
 const $ = id => document.getElementById(id);
 const validLang = value => ['uz','ru','en'].includes(value) ? value : 'uz';
@@ -123,13 +123,13 @@ function stopIntro(){
 function finishIntro(){stopIntro();}
 async function showBrandIntro(replay=false){
   if(reduced.matches||preferences.motion==='reduced'||state.product||document.hidden)return;
-  if(!replay){try{const seenKey='elementpaint-customer-preview-20261014.1';if(sessionStorage.getItem(seenKey))return;sessionStorage.setItem(seenKey,'seen');}catch{}}
+  if(!replay){try{const seenKey='elementpaint-customer-preview-20261015.1';if(sessionStorage.getItem(seenKey))return;sessionStorage.setItem(seenKey,'seen');}catch{}}
   const generation=++introGeneration;
   clearTimeout(introTimeout);introReadiness?.cancel();introApi?.stop();
   introTimeout=setTimeout(stopIntro,9000);
   $('brandLoader').dataset.fill='0';$('brandLoader').dataset.phase='glass';
   try{
-    introPromise ||= import('./paint-intro.js?v=20261014.1').then(({createPaintIntro})=>createPaintIntro({loader:$('brandLoader')})).catch(error=>{introPromise=null;throw error;});
+    introPromise ||= import('./paint-intro.js?v=20261015.1').then(({createPaintIntro})=>createPaintIntro({loader:$('brandLoader')})).catch(error=>{introPromise=null;throw error;});
     introApi=await introPromise;
   }catch{if(generation===introGeneration)stopIntro();return;}
   if(generation!==introGeneration||reduced.matches||preferences.motion==='reduced'||document.hidden)return;

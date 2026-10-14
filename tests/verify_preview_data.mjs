@@ -44,7 +44,7 @@ for(const row of fixture.packages){
 const images=await readdir(new URL('../element_paint_web/assets/catalog-2026/',import.meta.url));
 assert.equal(images.filter(name=>/^product-\d{3}\.png$/.test(name)).length,72);
 const milano=findProduct('milano-decorative');
-assert.deepEqual(milano.packages,[25]);assert.equal(milano.brand,'BERLAK');assert.equal(milano.image,'assets/milano-photo-quality-20261014.webp');
+assert.deepEqual(milano.packages,[25]);assert.equal(milano.brand,'BERLAK');assert.equal(milano.image,'assets/milano-photo-quality-20261015.webp');
 assert.equal(milano.originalImage,'assets/milano-photo-original-20261014.png');
 const reddishBrown=findProduct('artek-improved','dark-red');
 assert.deepEqual(reddishBrown.colorName,{uz:'Qizg‘ish jigarrang',ru:'Красно-коричневая',en:'Reddish brown'});
@@ -55,10 +55,10 @@ const html=await readFile(new URL('../element_paint_web/preview.html',import.met
 assert.match(html,/noindex,nofollow/);
 assert.match(html,/<strong id="brandCount">9<\/strong>/);
 assert.match(html,/<strong id="assortmentCount">100<span>\+<\/span><\/strong>/);
-assert.match(html,/preview-app\.js\?v=20261014\.1/);
+assert.match(html,/preview-app\.js\?v=20261015\.1/);
 const previewApp=await readFile(new URL('../element_paint_web/preview-app.js',import.meta.url),'utf8');
 assert.doesNotMatch(previewApp,/if\(location\.hash&&location\.hash!=='#home'\)return/,'Direct #catalog visits must still show the loading animation');
-assert.match(previewApp,/elementpaint-customer-preview-20261014\.1/,'New preview build must not inherit a previous session dismissal');
+assert.match(previewApp,/elementpaint-customer-preview-20261015\.1/,'New preview build must not inherit a previous session dismissal');
 for(const key of [...html.matchAll(/data-i18n(?:-aria|-placeholder)?="([^"]+)"/g)].map(m=>m[1]))assert.ok(strings.uz[key],`Unknown template translation: ${key}`);
 assert.doesNotMatch(JSON.stringify({products,categories}),/krata/i);
 console.log(`PASS: ${products.length} cards: 72 exact PDF entries plus BERLAK MILANO; 34 separate colour cards; source images and weights, old colour links, 100+ headline and UZ/RU/EN verified.`);
