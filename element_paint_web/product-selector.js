@@ -1,4 +1,5 @@
 // One catalogue is the source for both the hero selector and product details.
+import {packageUnit} from './catalog-source.js?v=20261015.2';
 export function createProductSelector({products,categories,getLanguage,getText,onOpen}) {
   const $=id=>document.getElementById(id), rail=$('productRail');
   let category='all',items=products,index=0,settleTimer,autoTimer,preferences={},hovered=false;
@@ -6,6 +7,12 @@ export function createProductSelector({products,categories,getLanguage,getText,o
   const categoryName=product=>categories.find(c=>c.id===product.categoryId).name[getLanguage()];
   function updateCopy(){
     const product=items[index];
+    $('featuredDetail').disabled=!product;
+    if(!product){
+      for(const id of ['featuredBrand','featuredDescription','featuredCategory','featuredPackages'])$(id).textContent='';
+      $('featuredName').textContent=getText('empty');$('featuredCounter').textContent='00 / 00';
+      $('featuredPrev').disabled=$('featuredNext').disabled=true;return;
+    }
     $('featuredBrand').textContent=product.brand;
     $('featuredName').textContent=product.title[getLanguage()];
     $('featuredDescription').textContent=product.description[getLanguage()];
@@ -14,15 +21,16 @@ export function createProductSelector({products,categories,getLanguage,getText,o
     $('featuredDetail').dataset.product=product.id;
     const format=new Intl.NumberFormat(getLanguage()==='uz'?'uz-Latn-UZ':getLanguage(),{maximumFractionDigits:2});
     const packages=product.variants[0]?.packages||product.packages;
-    $('featuredPackages').textContent=packages.length?`${getText('packages')}: ${packages.map(value=>format.format(value)).join(' / ')} ${getLanguage()==='ru'?'кг':'kg'}`:'';
+    $('featuredPackages').textContent=packages.length?`${getText('packages')}: ${packages.map(value=>format.format(value)).join(' / ')} ${packageUnit(product,getLanguage())}`:'';
     [...rail.children].forEach((slide,i)=>{slide.classList.toggle('is-selected',i===index);slide.setAttribute('aria-hidden',String(i!==index));});
     $('featuredPrev').disabled=$('featuredNext').disabled=items.length<2;
   }
   function position(animate=false){
     const slide=rail.children[index];
+    if(!slide)return;
     rail.scrollTo({left:slide.offsetLeft-rail.offsetLeft-(rail.clientWidth-slide.clientWidth)/2,behavior:animate&&!reduced()?'smooth':'instant'});
   }
-  function move(direction){index=(index+direction+items.length)%items.length;updateCopy();position(true);}
+  function move(direction){if(!items.length)return;index=(index+direction+items.length)%items.length;updateCopy();position(true);}
   function render(){
     const focusedType=document.activeElement?.closest('#featuredTypes button')?.dataset.type;
     $('featuredTypes').replaceChildren();
@@ -47,7 +55,7 @@ export function createProductSelector({products,categories,getLanguage,getText,o
   },140);},{passive:true});
   rail.addEventListener('keydown',event=>{if(['ArrowLeft','ArrowRight','Home','End'].includes(event.key)){event.preventDefault();if(event.key==='Home'||event.key==='End'){index=event.key==='Home'?0:items.length-1;updateCopy();position(true);}else move(event.key==='ArrowRight'?1:-1);}});
   $('featuredPrev').addEventListener('click',()=>move(-1));$('featuredNext').addEventListener('click',()=>move(1));
-  $('featuredDetail').addEventListener('click',()=>onOpen(items[index].id,$('featuredDetail')));
+  $('featuredDetail').addEventListener('click',()=>{if(items[index])onOpen(items[index].id,$('featuredDetail'));});
   $('featuredSelector').addEventListener('pointerenter',()=>hovered=true);
   $('featuredSelector').addEventListener('pointerleave',()=>hovered=false);
   const observer=new ResizeObserver(()=>position());observer.observe(rail);

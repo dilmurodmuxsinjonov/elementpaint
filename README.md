@@ -11,13 +11,24 @@ WebGL mavjud bo‘lmasa, statik fon va barcha katalog imkoniyatlari ishlaydi.
 
 `design-refresh-20261005` — sinov saytining manba tarmog‘i;
 `preview-site` — faqat GitHub Pages uchun tayyorlangan runtime.
-`element_paint_web/preview.html` va `catalog-data.js` 45 ta tasdiqlangan karta,
-34 ta rang varianti hamda PDFdan tayyorlangan 72 ta qadoq rasmini ishlatadi.
+`element_paint_web/preview.html` va `catalog-data.js` 73 ta tasdiqlangan karta:
+PDFdagi 72 qadoq/rang yozuvi hamda alohida yuborilgan Berlak Milano.
 Yuqoridagi 20 mahsulot eski asosiy sayt kodiga tegishli.
 
 Sinov katalogini tekshirish: `node tests/verify_preview_data.mjs`.
 Manba bilan solishtirish dalillari: `docs/catalog-2026-audit.md`.
 Asosiy serverga chiqarish bu sinov yangilanishining doirasiga kirmaydi.
+
+## Mahalliy admin paneli
+
+Mahsulotlar, bo‘limlar, brendlar, tarjima, rasm, rang va qadoqlarni boshqarish,
+savat va tiklash uchun haqiqiy Python/SQLite xizmat qo‘shilgan.
+`tools/start_admin.ps1` ni ishga tushiring, http://127.0.0.1:8092/admin/ da
+birinchi admin akkauntini yarating. Ma’lumot `admin-data/` da saqlanadi;
+bu papka Git va ommaviy sayt paketidan chiqarilgan.
+Qo‘llanma va zaxiralash tartibi: [admin/README.md](admin/README.md).
+GitHub Pages admin xizmatini bajarmaydi; kompyuterda saqlash internetdagi
+katalogni avtomatik yangilamaydi.
 
 ## Fayllar
 

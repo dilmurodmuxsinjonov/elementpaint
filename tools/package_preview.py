@@ -10,7 +10,7 @@ WEB = Path(__file__).resolve().parent.parent / 'element_paint_web'
 CORE = ('preview.html', 'preview.css', 'preview-app.js', 'catalog-data.js',
         'legacy-products.js', 'product-selector.js', 'paint-intro.js',
         'supplied-loader.js', 'supplied-loader.html', 'supplied-loader.css',
-        'loading-progress.js',
+        'loading-progress.js', 'catalog-source.js', 'catalog-snapshot.json',
         'studio-preferences.js', 'vendor/MANROPE-OFL.txt')
 
 def main():

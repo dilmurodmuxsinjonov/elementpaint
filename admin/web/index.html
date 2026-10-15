@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="uz">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Element Paint · Katalog boshqaruvi</title><link rel="stylesheet" href="/admin/admin.css"><script type="module" src="/admin/admin.js"></script></head>
+<body>
+<section id="auth" class="auth-shell" hidden>
+  <form id="authForm" class="glass auth-card">
+    <img class="logo" src="/assets/logo_light.png" alt="Element Paint">
+    <p class="eyebrow">KATALOG BOSHQARUVI</p><h1 id="authTitle">Xush kelibsiz</h1><p id="authCopy" class="muted"></p>
+    <label id="nameLabel">Ismingiz<input name="name" autocomplete="name" maxlength="100"></label>
+    <label>Login<input name="username" autocomplete="username" required pattern="[a-zA-Z0-9_.-]{3,50}" minlength="3" maxlength="50" placeholder="Masalan: element_admin"></label>
+    <label>Parol<input name="password" type="password" autocomplete="current-password" required maxlength="256"></label>
+    <p id="authError" class="error" role="alert"></p><button type="submit" class="primary" id="authSubmit">Kirish</button>
+    <p class="small muted">Ma’lumotlar shu kompyuterda saqlanadi.</p>
+  </form>
+</section>
+<div id="app" class="app" hidden>
+  <aside class="sidebar glass">
+    <a class="brand" href="/" target="_blank" rel="noopener"><img class="logo" src="/assets/logo_light.png" alt="Element Paint"></a>
+    <p class="eyebrow">BOSHQARUV PANELI</p>
+    <nav id="nav" aria-label="Admin bo‘limlari">
+      <button data-view="products" class="active">Mahsulotlar <span id="navProducts">0</span></button>
+      <button data-view="trash">Savat <span id="navTrash">0</span></button>
+      <button data-view="categories">Katalog bo‘limlari</button><button data-view="brands">Brendlar</button>
+      <button data-view="media">Rasmlar</button><button data-view="audit">Amallar tarixi</button><button data-view="settings">Sozlamalar va zaxira</button>
+    </nav>
+    <div class="sidebar-bottom"><a href="/?lang=uz#catalog" target="_blank" rel="noopener">Mahalliy saytni ko‘rish ↗</a><p class="small muted">Faqat shu kompyuterda. Asosiy saytga joylanmaydi.</p></div>
+  </aside>
+  <main>
+    <header><div><p class="eyebrow">ELEMENT PAINT / KATALOG</p><h1 id="viewTitle">Mahsulotlar</h1></div><div class="header-actions"><span id="userName" class="muted"></span><button id="refresh">Yangilash</button><button id="logout" class="quiet">Chiqish</button></div></header>
+    <div id="metrics" class="metrics"></div>
+    <section id="productSection">
+      <div class="toolbar glass"><label class="search">Qidirish<input id="search" type="search" placeholder="Mahsulot nomi, brend yoki SKU"></label><label>Bo‘lim<select id="categoryFilter"></select></label><label>Brend<select id="brandFilter"></select></label><label id="statusFilterLabel">Holati<select id="statusFilter"><option value="all">Barcha holatlar</option value="published">Saytda ko‘rinadi</option><option value="draft">Qoralama</option><option value="hidden">Yashirilgan</option></select></label><button id="addProduct" class="primary">+ Mahsulot qo‘shish</button></div>
+      <div id="trashNote" class="notice" hidden></div>
+      <div class="list-heading"><p id="resultCount"></p><div class="row"><span id="selectedCount" class="muted"></span><select id="bulkAction" aria-label="Tanlanganlar bilan amal"></select><button id="applyBulk">Qo‘llash</button></div></div>
+      <div class="table-wrap glass"><table><thead><tr><th><input type="checkbox" id="selectAll" aria-label="Ko‘rinib turgan mahsulotlarni tanlash"></th><th>Mahsulot</th><th>Bo‘lim / brend</th><th id="stateHeading">Holat / qadoq</th><th>Amallar</th></tr></thead><tbody id="productRows"></tbody></table><p id="listEmpty" class="empty" hidden>Hozircha mahsulot yo‘q.</p></div>
+    </section>
+    <section id="dictionarySection" hidden><div class="section-actions"><p class="muted" id="dictionaryCopy"></p><button id="addDictionary" class="primary">+ Qo‘shish</button></div><div id="dictionaryList" class="dictionary-grid"></div></section>
+    <section id="mediaSection" hidden><div class="section-actions"><p class="muted">Asl yozuvlar va yorliqlar o‘zgartirilmaydi. PNG, JPEG yoki WebP · 8 MBgacha.</p><label class="upload-button primary">+ Rasm yuklash<input type="file" id="libraryUpload" accept="image/png,image/jpeg,image/webp" hidden></label></div><div id="mediaGrid" class="media-grid"></div></section>
+    <section id="auditSection" class="glass table-wrap" hidden><table><thead><tr><th>Vaqt</th><th>Kim</th><th>Amal</th><th>Ma’lumot</th></tr></thead><tbody id="auditRows"></tbody></table></section>
+    <section id="settingsSection" hidden class="settings-grid">
+      <form id="retentionForm" class="glass panel"><p class="eyebrow">SAVAT</p><h2>O‘chirilgan mahsulotlar</h2><p class="muted">Belgilangan muddatdan keyin ham o‘z-o‘zidan butunlay o‘chirilmaydi. Tiklash yoki butunlay o‘chirishni o‘zingiz tanlaysiz.</p><label>Saqlash muddati (kun)<input name="trashDays" id="trashDays" type="number" min="1" max="365" required></label><button class="primary">Saqlash</button></form>
+      <div class="glass panel"><p class="eyebrow">ZAXIRA NUSXA</p><h2>Katalogni saqlab qo‘yish</h2><p class="muted">JSON faylda mahsulotlar, bo‘limlar va rasmlarga havolalar saqlanadi. Rasmlarning o‘zi va mahalliy baza admin-data papkasida qoladi; to‘liq zaxira uchun shu papkani ham nusxalang.</p><button id="backup">JSON nusxani yuklab olish ↓</button><label class="upload-button">JSONdan import qilish<input id="importFile" type="file" accept=".json,application/json" hidden></label><p class="small muted">Import mavjud yozuvlarni yangilaydi, yangi mahsulotlarni qoralama qiladi. Savatdagi yozuvlar import orqali o‘zgarmaydi.</p></div>
+      <div class="glass panel"><p class="eyebrow">SINOV SAYTI</p><h2>Nashrga tayyorlash</h2><p class="muted">Mahalliy sayt saqlangan mahsulotlarni darhol o‘qiydi. Bu tugma faqat saytda ko‘rinadigan katalog va rasmlarni sinov sayti fayllariga chiqaradi. Internetdagi havola alohida yangilanadi.</p><button id="exportPreview" class="primary">Sinov sayti fayllarini tayyorlash</button><a href="/?lang=uz#catalog" target="_blank" rel="noopener">Mahalliy katalogni ochish ↗</a></div>
+      <form id="passwordForm" class="glass panel"><p class="eyebrow">AKKAUNT</p><h2>Parolni almashtirish</h2><label>Joriy parol<input type="password" name="current" autocomplete="current-password" required></label><label>Yangi parol<input type="password" name="password" autocomplete="new-password" minlength="12" maxlength="256" required></label><button>Parolni yangilash</button><p class="small muted">Yangilangach, barcha ochiq sessiyalardan chiqiladi.</p></form>
+    </section>
+    <footer>Element Paint · Mahalliy katalog boshqaruvi</footer>
+  </main>
+</div>
+<dialog id="editor" class="editor-dialog"><form id="productForm">
+  <div class="dialog-heading"><div><p class="eyebrow">MAHSULOT MA’LUMOTLARI</p><h2 id="editorTitle">Mahsulot qo‘shish</h2></div><button type="button" data-close="editor" class="icon-button" aria-label="Yopish">×</button></div>
+  <div class="editor-layout"><div>
+    <div class="tabs" id="languageTabs" role="group" aria-label="Tarjima tili"><button type="button" data-lang="uz" class="active">O‘zbekcha</button><button type="button" data-lang="ru">Русский</button><button type="button" data-lang="en">English</button></div>
+    <div id="translationFields"></div>
+    <div class="two-columns"><label>Brend<select name="brandId" required></select></label><label>Katalog bo‘limi<select name="categoryId" required></select></label><label>Mahsulot kodi (SKU)<input name="sku" maxlength="80"></label><label>Ko‘rinish holati<select name="status"><option value="draft">Qoralama</option><option value="published">Saytda ko‘rinadi</option><option value="hidden">Yashirilgan</option></select></label></div>
+    <div class="two-columns"><label>Qadoq hajmlari<input name="packages" placeholder="Masalan: 1; 2.5; 5; 25"><small>Hajmlarni nuqtali vergul bilan ajrating.</small></label><label>O‘lchov birligi<select name="packageUnit"><option value="kg">kg — kilogramm</option><option value="g">g — gramm</option><option value="l">l — litr</option><option value="pcs">dona</option></select></label><label>Rang kodi<input name="color" pattern="#[a-fA-F0-9]{6}" placeholder="#FFFFFF"></label><label>Ro‘yxatdagi tartib<input name="order" type="number" min="-100000" max="100000" value="0" required></label></div>
+  </div><div class="image-editor"><div id="imagePreview" class="image-preview"></div><label>Asosiy rasm<input name="image" readonly placeholder="Rasm tanlanmagan"></label><div class="row"><label class="upload-button">Rasm yuklash<input type="file" id="editorUpload" accept="image/png,image/jpeg,image/webp" hidden></label><button type="button" id="chooseImage">Kutubxonadan</button><button type="button" id="clearImage">Olib tashlash</button></div><p class="small muted">Qoralamani rasmsiz saqlash mumkin. Saytda ko‘rinishi uchun rasm kerak.</p><label>Asl rasm manzili<input name="originalImage" readonly></label><button type="button" id="useAsOriginal" class="quiet">Tanlangan rasmni asl nusxa qilish</button><p id="editorMeta" class="small muted"></p><button type="button" id="showHistory">Oldingi holatlarni ko‘rish</button></div></div>
+  <div class="dialog-footer"><p id="editorError" class="error" role="alert"></p><button type="button" data-close="editor">Bekor qilish</button><button type="submit" class="primary" id="saveProduct">Saqlash</button></div>
+</form></dialog>
+<dialog id="smallDialog"><div class="dialog-heading"><h2 id="smallTitle"></h2><button class="icon-button" data-close="smallDialog" aria-label="Yopish">×</button></div><div id="smallBody"></div></dialog>
+<dialog id="mediaPicker"><div class="dialog-heading"><h2>Mahsulot rasmini tanlang</h2><button class="icon-button" data-close="mediaPicker" aria-label="Yopish">×</button></div><div id="pickerGrid" class="media-grid"></div></dialog>
+<div id="toast" class="toast" role="status" hidden></div>
+</body></html>
