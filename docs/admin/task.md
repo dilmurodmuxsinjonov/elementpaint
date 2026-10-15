@@ -8,4 +8,4 @@
 - [x] Import/eksport, zaxira va nashr snapshoti.
 - [x] Mahalliy saytga ulash.
 - [x] API va UI tekshiruvlari.
-- [ ] Mahalliy panelni ishga tushirish va sinov nashrini chiqarish.
+- [x] Mahalliy panelni ishga tushirish va sinov nashrini chiqarish.

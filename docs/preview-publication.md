@@ -1,5 +1,24 @@
 # Jonli sinov — 7 oktabr 2026
 
+## 15 oktabr 2026: mahalliy admin va ochiq katalog snapshoti
+
+- Manba: `39621fb`, `design-refresh-20261005`. Sinov runtime:
+  `ab0c9b934965fc926d2b09921d520e2a7e562e71`, `preview-site`, `20261015.2`.
+- [Pages run 38716663901](https://github.com/dilmurodmuxsinjonov/elementpaint/actions/runs/38716663901)
+  holati `Success`. Jonli index yangi versiyani qaytardi, snapshotda 73 ta
+  mahsulot, katalog yuklovchi JS baytlari mahalliy manba bilan mos.
+  Snapshot SHA-256: `1a98651b1e9e451fe371fc5f0e781ad7b44aeeb462a3d7abb93c77ab59f97dd0`.
+- Admin xizmati faqat `127.0.0.1:8092/admin/` da. Birinchi haqiqiy akkaunt
+  foydalanuvchi tomonidan yaratiladi. Baza/akkauntlar/savat/admin kodi
+  ochiq Pages runtime paketiga kirmadi. Mahalliy tahrir internetga avtomatik
+  chiqmaydi: avval eksport, so‘ng preview-site nashri kerak.
+- 9 API sinov guruhi, real vaqtinchalik backend bilan admin DOM amallari,
+  snapshot va bo‘sh katalog holati, 73 karta/3 til, 72 asl PNG, oq ramka,
+  Milano yorlig‘i va yuklanishning 288 kadri tekshirildi. To‘liq brauzer
+  vizual sinovi bajarilmadi. [Batafsil dalillar](admin/verification.md).
+- `main` o‘zgarmadi: `14fcd39e1a70198117537ee676a3874067eac6a1`.
+  Asosiy server va DNSga tegilmadi.
+
 ## 15 oktabr 2026: Milano qirqish chegarasi
 
 - Manba: `ecc3ae5` (`design-refresh-20261005`); runtime: `b04a9a5ef2208aa624b8e1c15efd61a999701f32` (`preview-site`), `20261015.1`.
