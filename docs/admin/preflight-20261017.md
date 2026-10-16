@@ -100,3 +100,23 @@ DOM sinovlari uchun Node.js va `tmp/dom-check` ichidagi jsdom kerak.
 Ma’lumotlarni o‘zgartiradigan sinovlar haqiqiy admin bazasida ishlamaydi.
 Tekshiruv yakunida vaqtinchalik 8093 xizmat to‘xtatildi; haqiqiy mahalliy
 admin 127.0.0.1:8092 da mavjud akkaunt bilan qayta ishga tushirildi.
+
+## Sinov nashri tasdig‘i
+
+- Tuzatishlar manbasi: `6c57097`, `design-refresh-20261005`.
+- Sinov runtime: `e7d67d5793758efb0ab9faa1c6fe4f69a2e34122`, `preview-site`;
+  yuklanayotgan app versiyasi `20261017.1`.
+- [GitHub Pages bajarilishi](https://github.com/dilmurodmuxsinjonov/elementpaint/actions/runs/38954328087):
+  completed / success.
+- Runtime aniq tekshirilgan ZIP bilan tenglashtirildi. Paketga kirmaydigan
+  19 eski runtime fayli Git tarixida saqlangan holda preview branch’dan olindi;
+  loyiha manbasi va tasdiqlangan PDF rasmlari o‘chirilmagan.
+- 127 paket faylidan 126 ta ochiq runtime fayli HTTP 200; qolgan `.nojekyll`
+  GitHub sozlama fayli. Barcha 126 javob SHA-256lari yangi commitning Git
+  bloblari bilan aynan teng. Mahsulot rasmlari orasida yo‘qolgan havola yo‘q.
+  `admin/`, API, SQLite, `.env` va `.git/config` ochiq manzillari 404.
+- Jonli brauzerda UZ/RU/EN, 73 karta, Milano qidiruvi, 25 kg va asl rasm
+  havolasi tekshirildi. Konsol xato/ogohlantirishlari qayd etilmadi.
+- ZIP SHA-256: `56f448aa43f103b238642463d510456fc9c248c86a8d4260e71b5b077fd82b5d`.
+- `main` o‘zgarmadi: `14fcd39e1a70198117537ee676a3874067eac6a1`.
+  Billurdagi asosiy saytga nashr qilinmadi.

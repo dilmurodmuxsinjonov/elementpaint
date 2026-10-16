@@ -1,5 +1,19 @@
 # Jonli sinov — 7 oktabr 2026
 
+## 17 oktabr 2026: admin ulanishi va server oldi tekshiruvi
+
+- Manba tuzatishlari `6c57097`; runtime `e7d67d5`, `20261017.1`, faqat
+  `preview-site`. [Pages run 38954328087](https://github.com/dilmurodmuxsinjonov/elementpaint/actions/runs/38954328087)
+  muvaffaqiyatli yakunlandi.
+- Katalog xatosida eski o‘chirilgan mahsulotlar qaytishi, paketga eski/qoralama
+  media tushishi va sessiya tugaganda tahrir oynasi qolishi tuzatildi.
+- 15 API/HTTP sinov guruhi, DOM hamda brauzerdagi tahrir → savat → tiklash
+  zanjiri o‘tdi. Jonli 126 runtime javobi yangi commit bilan SHA-256 orqali mos.
+- 73 mahsulot va asl rasmlar saqlandi. `main`, asosiy server va DNS o‘zgarmadi.
+- Billur sozlamalari faqat ko‘rildi. Internetdagi admin uchun ishlab chiqarishga
+  mos xizmat va hosting imkoniyatlarini tayyorlash hali kerak.
+  [To‘liq tekshiruv xulosasi](admin/preflight-20261017.md).
+
 ## 15 oktabr 2026: mahalliy admin va ochiq katalog snapshoti
 
 - Manba: `39621fb`, `design-refresh-20261005`. Sinov runtime:
