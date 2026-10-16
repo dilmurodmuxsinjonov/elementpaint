@@ -2,9 +2,10 @@ import {createProductSelector} from './product-selector.js?v=20261015.2';
 import { categories, products, strings, findProduct } from './catalog-data.js?v=20261015.2';
 import {readPreferences,savePreferences,defaultPreferences} from './studio-preferences.js?v=20261015.2';
 import {trackReadiness} from './loading-progress.js?v=20261015.2';
-import {loadCatalogue,packageUnit} from './catalog-source.js?v=20261015.2';
+import {loadCatalogue,packageUnit} from './catalog-source.js?v=20261017.1';
 
-await loadCatalogue(products,categories);
+const catalogueLoaded=await loadCatalogue(products,categories);
+const catalogueUnavailable=typeof window.fetch==='function'&&!catalogueLoaded;
 
 const $ = id => document.getElementById(id);
 const validLang = value => ['uz','ru','en'].includes(value) ? value : 'uz';
@@ -49,7 +50,7 @@ function renderCatalog() {
     const copy=node('div','product-copy');copy.append(node('div','product-brand',product.brand),node('h3','',product.title[state.lang]),node('p','',product.variants.length?`${product.variants.length} ${colorWord}`:categories.find(c=>c.id===product.categoryId).name[state.lang]));
     const detail=node('span','detail-link');detail.append(node('span','',t('detail')),node('span','','↗'));copy.append(detail);button.append(media,copy);button.addEventListener('click',()=>showProduct(product.id,button));card.append(button);return card;
   }));
-  $('emptyState').hidden=filtered.length>0;$('emptyState').querySelector('p').textContent=state.query||state.brand!=='all'?t('noMatch'):t('empty');
+  $('emptyState').hidden=filtered.length>0;$('emptyState').querySelector('p').textContent=catalogueUnavailable?{uz:'Katalogni yuklab bo‘lmadi. Sahifani yangilab qayta urinib ko‘ring.',ru:'Не удалось загрузить каталог. Обновите страницу и попробуйте ещё раз.',en:'The catalogue could not be loaded. Refresh the page to try again.'}[state.lang]:state.query||state.brand!=='all'?t('noMatch'):t('empty');
 }
 function renderProduct() {
   const product=findProduct(state.product,state.variant);if(!product)return;
