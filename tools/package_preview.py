@@ -18,11 +18,17 @@ def main():
     parser.add_argument('--output', type=Path, required=True)
     args = parser.parse_args()
     source = '\n'.join((WEB / item).read_text(encoding='utf-8-sig') for item in CORE)
+    snapshot = json.loads((WEB / 'catalog-snapshot.json').read_text(encoding='utf-8-sig'))
+    public_media = {p.get(key) for p in snapshot['products'] for key in ('image', 'originalImage')
+                    if isinstance(p.get(key), str) and p[key].startswith('assets/admin-media/')}
     assets = set(re.findall(r'assets/(?:[A-Za-z0-9_.-]+/)*[A-Za-z0-9_.-]+\.(?:jpg|png|webp|svg|woff2|webm|mp4)', source))
     for directory in set(re.findall(r'(assets/(?:[A-Za-z0-9_.-]+/)+)', source)):
         assets.update(path.relative_to(WEB).as_posix() for path in (WEB / directory).rglob('*')
                       if path.is_file() and path.suffix.lower() in {'.jpg', '.png', '.webp', '.svg', '.woff2'})
     assets = sorted(assets)
+    # Directory discovery also sees stale exports and draft media. Publish only
+    # uploads referenced by the current public snapshot, never the whole folder.
+    assets = [name for name in assets if not name.startswith('assets/admin-media/') or name in public_media]
     args.output.parent.mkdir(parents=True, exist_ok=True)
     manifest = []
     with zipfile.ZipFile(args.output, 'w', zipfile.ZIP_DEFLATED) as archive:

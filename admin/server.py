@@ -28,7 +28,7 @@ class AdminServer(ThreadingHTTPServer):
         self.origin=origin or f'http://127.0.0.1:{address[1]}'
         self.secure=self.origin.startswith('https://')
         super().__init__(address,Handler)
-        if address[1]==0:
+        if address[1]==0 and origin is None:
             self.origin=f'http://127.0.0.1:{self.server_port}'
 
 
@@ -134,10 +134,13 @@ class Handler(BaseHTTPRequestHandler):
             path=unquote(urlsplit(self.path).path)
             if path.startswith('/api/'):
                 self.api(path)
-            elif path=='/catalog-snapshot.json':
-                self.send(200,self.server.catalog.snapshot())
             else:
-                self.static(path)
+                if self.command not in ('GET','HEAD'):
+                    self.send(405,{'error':'Bu manzil faqat o‘qish uchun.'},headers={'Allow':'GET, HEAD'})
+                elif path=='/catalog-snapshot.json':
+                    self.send(200,self.server.catalog.snapshot())
+                else:
+                    self.static(path)
         except Problem as exc:
             self.send(exc.status,{'error':str(exc)})
         except (BrokenPipeError,ConnectionResetError):

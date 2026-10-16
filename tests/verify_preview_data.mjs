@@ -55,7 +55,7 @@ const html=await readFile(new URL('../element_paint_web/preview.html',import.met
 assert.match(html,/noindex,nofollow/);
 assert.match(html,/<strong id="brandCount">9<\/strong>/);
 assert.match(html,/<strong id="assortmentCount">100<span>\+<\/span><\/strong>/);
-assert.match(html,/preview-app\.js\?v=20261015\.2/);
+assert.match(html,/preview-app\.js\?v=20261017\.1/);
 const previewApp=await readFile(new URL('../element_paint_web/preview-app.js',import.meta.url),'utf8');
 assert.doesNotMatch(previewApp,/if\(location\.hash&&location\.hash!=='#home'\)return/,'Direct #catalog visits must still show the loading animation');
 assert.match(previewApp,/elementpaint-customer-preview-20261015\.2/,'New preview build must not inherit a previous session dismissal');

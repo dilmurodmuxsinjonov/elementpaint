@@ -21,7 +21,7 @@ async function session(){
   const data=await api('/api/session');state.csrf=data.csrf;state.user=data.user;state.setup=data.setupRequired;
   $('auth').hidden=!!state.user;$('app').hidden=!state.user;
   if(state.user){$('userName').textContent=state.user.name;await reload();}
-  else{$('nameLabel').hidden=!state.setup;$('authForm').elements.name.required=state.setup;$('authTitle').textContent=state.setup?'Admin akkauntini yarating':'Xush kelibsiz';
+  else{for(const dialog of document.querySelectorAll('dialog[open]'))dialog.close();state.data=null;state.editing=null;state.selected.clear();$('productForm').reset();$('passwordForm').reset();$('nameLabel').hidden=!state.setup;$('authForm').elements.name.required=state.setup;$('authTitle').textContent=state.setup?'Admin akkauntini yarating':'Xush kelibsiz';
     $('authCopy').textContent=state.setup?'Birinchi kirish uchun o‘z login va parolingizni belgilang. Parol kamida 12 ta belgidan iborat bo‘lsin.':'Katalogni boshqarish uchun akkauntingizga kiring.';
     $('authForm').elements.password.minLength=state.setup?12:1;$('authForm').elements.password.autocomplete=state.setup?'new-password':'current-password';$('authSubmit').textContent=state.setup?'Akkaunt yaratish':'Kirish';}
 }

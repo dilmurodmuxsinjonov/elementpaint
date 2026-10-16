@@ -84,6 +84,14 @@ try{
   clickView('audit');await wait(()=>document.querySelectorAll('#auditRows tr').length>0);
   clickView('settings');await wait(()=>$('trashDays').value==='30');
   $('logout').click();await wait(()=>!$('auth').hidden);assert.equal($('app').hidden,true);
+  // A session that expires while editing returns to an unobstructed login form.
+  $('authForm').elements.username.value='domowner';$('authForm').elements.password.value='Disposable-test-password-124';
+  submit($('authForm'));await wait(()=>!$('app').hidden);
+  clickView('products');await wait(()=>document.querySelectorAll('#productRows tr').length===73);
+  document.querySelector('#productRows button').click();assert.equal($('editor').open,true);
+  cookies.delete('ep_admin');submit(form);
+  await wait(()=>!$('auth').hidden&&!$('editor').open);
+  assert.equal($('app').hidden,true);assert.equal(form.elements.sku.value,'');
   console.log('PASS: actual backend + admin DOM: setup/login, 73 seeded items, add/edit translations and litres, safe text, trash/restore, revision restore, confirmed purge, dictionaries/media/audit/settings/logout.');
 }finally{
   await new Promise(r=>setTimeout(r,150));dom?.window.close();service.kill();await once(service,'exit').catch(()=>{});

@@ -59,3 +59,16 @@ node tests/test_catalog_source.mjs
 ```
 API sinovlari vaqtinchalik alohida bazada ishlaydi, haqiqiy admin akkauntini
 yaratmaydi va foydalanuvchi katalogini o‘zgartirmaydi.
+
+Server oldi tekshiruvi: `python -m unittest discover -s tests -p test_preflight.py -v`
+va `node tests/test_catalog_failure.mjs`. Parallel tahrir, zaxiradan haqiqiy
+tiklash, sessiya tugashi, yopiq fayllar va nashrga ortiqcha media chiqmasligi
+tekshiriladi. [2026-10-17 tekshiruv xulosasi](../docs/admin/preflight-20261017.md).
+
+Panelning joriy `http.server` xizmati mahalliy sinov uchun. Uni ochiq portga
+chiqarish serverga tayyorlash hisoblanmaydi. Internetdagi admin uchun hostingda
+doimiy Python xizmati, ishlab chiqarishga mos HTTP xizmat qatlami, HTTPS
+ortidagi Host/Origin va Secure-cookie sozlamalari, cheklangan fayl huquqlari,
+avtomatik zaxira hamda tiklash tartibi alohida tayyorlanishi kerak.
+`admin-data` bazasi akkaunt/parol xeshlari va sessiyalarni ham saqlaydi;
+u ochiq sayt ildiziga yoki GitHubga joylanmasligi kerak.
