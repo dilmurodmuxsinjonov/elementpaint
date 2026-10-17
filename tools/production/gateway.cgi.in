@@ -1,0 +1,15 @@
+#!@@PRIVATE@@/runtime/python/bin/python3.12
+"""The Apache gateway exposes only the production application routes."""
+import os
+import sys
+os.umask(0o077)
+sys.path.insert(0, '@@PRIVATE@@/app')
+try:
+    from admin.wsgi import from_config
+    from wsgiref.handlers import CGIHandler
+    application = from_config('@@PRIVATE@@/config.json')
+except Exception as exc:
+    print('Gateway startup: '+type(exc).__name__, file=sys.stderr)
+    print('Status: 503 Service Unavailable\r\nContent-Type: application/json; charset=utf-8\r\nCache-Control: no-store\r\n\r\n{"error":"Xizmat vaqtincha mavjud emas."}')
+else:
+    CGIHandler().run(application)

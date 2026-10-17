@@ -107,8 +107,9 @@ class ClosingConnection(sqlite3.Connection):
 
 
 class Catalogue:
-    def __init__(self, directory, seed=None):
+    def __init__(self, directory, seed=None, web_directory=None):
         self.directory = Path(directory).resolve()
+        self.web_dir = Path(web_directory).resolve() if web_directory else None
         self.directory.mkdir(parents=True, exist_ok=True)
         self.media_dir = self.directory / 'media'
         self.media_dir.mkdir(exist_ok=True)
@@ -232,7 +233,7 @@ class Catalogue:
     def asset_exists(self, path):
         if path.startswith('assets/admin-media/'):
             return (self.media_dir / Path(path).name).is_file()
-        return (ROOT / 'element_paint_web' / path).is_file()
+        return ((self.web_dir or ROOT / 'element_paint_web') / path).is_file()
 
     def insert(self, db, data, actor, product_id=None, order=None):
         doc = self.validate(db, data)

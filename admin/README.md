@@ -49,7 +49,8 @@ orqaga qaytariladi; importdan oldin baza zaxirasi yaratiladi.
 fayllarini `element_paint_web/catalog-snapshot.json` va `assets/admin-media/`
 ga chiqaradi. Bu tugma internetga joylamaydi. So‘ng mavjud preview paketlash
 jarayoni bilan **preview-site** branch yangilanadi. Admin kodi, akkauntlar,
-savat va baza GitHub Pages paketiga kirmaydi. Asosiy server o‘zgartirilmaydi.
+savat va baza GitHub Pages paketiga kirmaydi. Production katalogi serverda
+Apache gateway orqali darhol yangilanadi; unga statik eksport ishlatilmaydi.
 
 Tekshiruv:
 ```powershell
@@ -65,10 +66,11 @@ va `node tests/test_catalog_failure.mjs`. Parallel tahrir, zaxiradan haqiqiy
 tiklash, sessiya tugashi, yopiq fayllar va nashrga ortiqcha media chiqmasligi
 tekshiriladi. [2026-10-17 tekshiruv xulosasi](../docs/admin/preflight-20261017.md).
 
-Panelning joriy `http.server` xizmati mahalliy sinov uchun. Uni ochiq portga
-chiqarish serverga tayyorlash hisoblanmaydi. Internetdagi admin uchun hostingda
-doimiy Python xizmati, ishlab chiqarishga mos HTTP xizmat qatlami, HTTPS
-ortidagi Host/Origin va Secure-cookie sozlamalari, cheklangan fayl huquqlari,
-avtomatik zaxira hamda tiklash tartibi alohida tayyorlanishi kerak.
+`http.server` ishga tushirgichi mahalliy sinov uchun. Billur hostingidagi
+production admini Apache CGI orqali Python 3.12 WSGI adapterini ishlatadi;
+server porti internetga ochilmaydi. Joylash va rollback tartibi
+[production deployment qaydida](../docs/admin/billur-deployment-20261017.md)
+yozilgan. Plesk’da takroriy zaxira jadvali yoqilmagan; katta katalog
+o‘zgarishidan oldin xususiy `data/` papkasini alohida nusxalang.
 `admin-data` bazasi akkaunt/parol xeshlari va sessiyalarni ham saqlaydi;
 u ochiq sayt ildiziga yoki GitHubga joylanmasligi kerak.

@@ -8,7 +8,7 @@ from .catalog import ROOT, Problem
 
 
 def export_preview(catalog, destination=None):
-    target = Path(destination or ROOT / 'element_paint_web').resolve()
+    target = Path(destination or catalog.web_dir or ROOT / 'element_paint_web').resolve()
     snapshot = catalog.snapshot()
     folder = target / 'assets/admin-media'
     folder.mkdir(parents=True, exist_ok=True)

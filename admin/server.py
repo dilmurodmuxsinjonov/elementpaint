@@ -6,6 +6,7 @@ import json
 import mimetypes
 import os
 import secrets
+import sys
 import threading
 import time
 from http import HTTPStatus
@@ -34,6 +35,14 @@ class AdminServer(ThreadingHTTPServer):
 
 class Handler(BaseHTTPRequestHandler):
     server_version='ElementPaint'
+
+    @property
+    def session_cookie(self):
+        return getattr(self.server,'session_cookie',COOKIE)
+
+    @property
+    def preauth_cookie(self):
+        return getattr(self.server,'preauth_cookie',PREAUTH)
 
     def log_message(self,fmt,*args):
         # Never log request bodies, credentials, cookies or query parameters.
@@ -64,6 +73,9 @@ class Handler(BaseHTTPRequestHandler):
         self.send_header('Referrer-Policy','same-origin')
         self.send_header('Cross-Origin-Resource-Policy','same-origin')
         self.send_header('X-Robots-Tag','noindex, nofollow')
+        self.send_header('Permissions-Policy','camera=(), microphone=(), geolocation=()')
+        if self.server.secure:
+            self.send_header('Strict-Transport-Security','max-age=31536000')
         if urlsplit(self.path).path.startswith('/admin'):
             self.send_header('Content-Security-Policy',"default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'none'; form-action 'self'")
         for key,value in (headers or {}).items():
@@ -90,7 +102,7 @@ class Handler(BaseHTTPRequestHandler):
         return data
 
     def session(self,required=True):
-        token=self.cookie(COOKIE)
+        token=self.cookie(self.session_cookie)
         with self.server.catalog.connect() as db:
             row=db.execute('SELECT s.*,u.username,u.name,u.role FROM sessions s JOIN users u ON u.id=s.user_id WHERE s.token=? AND s.expires>? AND u.active=1',
                            (hashlib.sha256(token.encode()).hexdigest(),time.time())).fetchone() if token else None
@@ -146,7 +158,7 @@ class Handler(BaseHTTPRequestHandler):
         except (BrokenPipeError,ConnectionResetError):
             pass
         except Exception as exc:
-            print(f'Internal error: {type(exc).__name__}',flush=True)
+            print(f'Internal error: {type(exc).__name__}',file=sys.stderr,flush=True)
             self.send(500,{'error':'Serverda xatolik. O‘zgarishlar saqlanmagan bo‘lishi mumkin; ro‘yxatni yangilang.'})
 
     def static(self,path):
@@ -180,10 +192,12 @@ class Handler(BaseHTTPRequestHandler):
                 setup=not db.execute('SELECT 1 FROM users').fetchone()
             csrf=session['csrf'] if session else secrets.token_urlsafe(32)
             user={k:session[k] for k in ('username','name','role')} if session else None
-            self.send(200,{'user':user,'csrf':csrf,'setupRequired':setup},headers={} if session else {'Set-Cookie':self.set_cookie(PREAUTH,csrf)})
+            self.send(200,{'user':user,'csrf':csrf,'setupRequired':setup,'deployment':'production' if getattr(self.server,'production',False) else 'local'},headers={} if session else {'Set-Cookie':self.set_cookie(self.preauth_cookie,csrf)})
             return
         if path in ('/api/login','/api/setup') and method=='POST':
-            csrf=self.cookie(PREAUTH)
+            if path=='/api/setup' and getattr(self.server,'production',False):
+                raise Problem('Ommaviy akkaunt yaratish o‘chirilgan.',403)
+            csrf=self.cookie(self.preauth_cookie)
             if not csrf or not hmac.compare_digest(csrf,self.headers.get('X-CSRF-Token','')):
                 raise Problem('Sahifani yangilab qayta urinib ko‘ring.',403)
             self.login(path,self.body())
@@ -195,7 +209,7 @@ class Handler(BaseHTTPRequestHandler):
         if path=='/api/logout' and method=='POST':
             with catalog.transaction() as db:
                 db.execute('DELETE FROM sessions WHERE token=?',(session['token'],))
-            self.send(200,{'ok':True},headers={'Set-Cookie':self.set_cookie(COOKIE,'',True)})
+            self.send(200,{'ok':True},headers={'Set-Cookie':self.set_cookie(self.session_cookie,'',True)})
         elif path=='/api/admin/catalog' and method=='GET':
             self.send(200,catalog.snapshot(True))
         elif path=='/api/admin/products' and method=='POST':
@@ -299,6 +313,8 @@ class Handler(BaseHTTPRequestHandler):
             self.send(200,{'count':catalog.import_data(data.get('catalog'),actor)})
         elif path=='/api/admin/export-preview' and method=='POST':
             self.owner(session)
+            if getattr(self.server,'production',False):
+                raise Problem('Server katalogi saqlanganda darhol yangilanadi. Statik eksport kerak emas.',409)
             from .publish import export_preview
             export_preview(catalog)
             self.send(200,{'ok':True,'count':len(catalog.snapshot()['products'])})
@@ -311,7 +327,7 @@ class Handler(BaseHTTPRequestHandler):
                 db.execute('UPDATE users SET password=? WHERE id=?',(password_hash(data.get('password')),user['id']))
                 db.execute('DELETE FROM sessions WHERE user_id=?',(user['id'],))
                 catalog.log(db,actor,'password')
-            self.send(200,{'ok':True},headers={'Set-Cookie':self.set_cookie(COOKIE,'',True)})
+            self.send(200,{'ok':True},headers={'Set-Cookie':self.set_cookie(self.session_cookie,'',True)})
         else:
             raise Problem('API manzili topilmadi.',404)
 
@@ -347,9 +363,9 @@ class Handler(BaseHTTPRequestHandler):
             db.execute('DELETE FROM attempts WHERE key=?',(key,))
             token,csrf=secrets.token_urlsafe(40),secrets.token_urlsafe(32)
             db.execute('DELETE FROM sessions WHERE expires<?',(time.time(),))
-            db.execute('INSERT INTO sessions VALUES(?,?,?,?)',(hashlib.sha256(token.encode()).hexdigest(),user['id'],csrf,time.time()+SESSION_SECONDS))
+            db.execute('INSERT INTO sessions VALUES(?,?,?,?)',(hashlib.sha256(token.encode()).hexdigest(),user['id'],csrf,time.time()+getattr(self.server,'session_seconds',SESSION_SECONDS)))
             catalog.log(db,username,'login')
-        self.send(200,{'user':{'username':username,'name':user['name'],'role':user['role']},'csrf':csrf},headers={'Set-Cookie':self.set_cookie(COOKIE,token)})
+        self.send(200,{'user':{'username':username,'name':user['name'],'role':user['role']},'csrf':csrf},headers={'Set-Cookie':self.set_cookie(self.session_cookie,token)})
 
 
 def main():
